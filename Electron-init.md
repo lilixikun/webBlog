@@ -2,12 +2,13 @@
 
 <!-- TOC -->
 
+- [1.down repository](#1down-repository)
 - [2.Electron 热更新](#2electron-%e7%83%ad%e6%9b%b4%e6%96%b0)
 - [3.添加配置](#3%e6%b7%bb%e5%8a%a0%e9%85%8d%e7%bd%ae)
 - [4.插件使用](#4%e6%8f%92%e4%bb%b6%e4%bd%bf%e7%94%a8)
 
 <!-- /TOC -->
-
+# 1.down repository
 To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
