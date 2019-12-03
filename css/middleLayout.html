@@ -15,23 +15,25 @@
         .middle2 {
             /* 必须定宽 */
             width: 200px;
-            background-color: rebeccapurple;
+            background-color: red;
             margin: 0 auto;
         }
 
         .middle3 {
             text-align: center;
+            background-color: red;
         }
 
         .middle3>div {
             display: inline-block;
+            background-color: forestgreen;
         }
 
         .parent {
             width: 100%;
             height: 200px;
             position: relative;
-            background-color: firebrick;
+            background-color: red;
         }
 
         .son {
@@ -48,7 +50,7 @@
             justify-content: center;
             width: 400px;
             height: 100px;
-            background-color: blueviolet;
+            background-color: red;
         }
 
         .middle4>div {
@@ -68,14 +70,14 @@
             width: 500px;
             height: 200px;
             line-height: 200px;
-            background-color: fuchsia;
+            background-color: forestgreen;
         }
 
         .vertical2>div {
             width: 50%;
             height: 50%;
             display: inline-block;
-            background-color: salmon;
+            background-color: black;
             vertical-align: middle;
         }
 
@@ -84,7 +86,7 @@
             height: 200px;
             display: table-cell;
             vertical-align: middle;
-            background-color: fuchsia;
+            background-color: forestgreen;
         }
 
         .vertical3>div {
@@ -97,7 +99,7 @@
             position: relative;
             width: 500px;
             height: 200px;
-            background-color: black;
+            background-color: forestgreen;
         }
 
         .vertical4>div {
@@ -108,7 +110,7 @@
             /* 相当于margin-top: 50px  top:0*/
             transform: translateY(-50%);
             height: 100px;
-            background-color: #fff;
+            background-color: black;
         }
 
         .vertical5 {
@@ -116,13 +118,99 @@
             align-items: center;
             width: 500px;
             height: 200px;
-            background-color: black;
+            background-color: forestgreen;
         }
 
         .vertical5>div {
             width: 50%;
             height: 50%;
-            background-color: #fff;
+            background-color: black;
+        }
+
+        .father0 {
+            width: 500px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            background-color: black;
+        }
+
+        .son0 {
+            width: 100px;
+            height: 50px;
+            display: inline-block;
+            vertical-align: middle;
+            background: forestgreen;
+        }
+
+        .father1 {
+            width: 500px;
+            height: 200px;
+            display: table-cell;
+            vertical-align: middle;
+            background-color: black;
+        }
+
+        .father1 .son1 {
+            width: 100px;
+            height: 50px;
+            background-color: firebrick;
+            margin: 0 auto;
+        }
+
+        .father2 {
+            position: relative;
+            width: 500px;
+            height: 200px;
+            background-color: black;
+        }
+
+        .son2 {
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            top: 50%;
+            left: 50%;
+            margin-top: -25px;
+            margin-left: -50px;
+            background-color: firebrick;
+        }
+
+        .son3 {
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: firebrick;
+        }
+
+        .son4 {
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            background-color: firebrick;
+        }
+
+        .father5 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            height: 200px;
+            background-color: black;
+        }
+
+        .son5 {
+            width: 100px;
+            height: 50px;
+            background-color: firebrick;
         }
     </style>
 </head>
@@ -161,7 +249,7 @@
 
     <h3>通过verticle-align:middle实现CSS垂直居中</h3>
     <div class="vertical2">
-        <div>111</div>
+        <div></div>
     </div>
 
     <h3>使用table-cell实现居中
@@ -178,6 +266,34 @@
     <h3>使用使用flex align-items</h3>
     <div class="vertical5">
         <div></div>
+    </div>
+
+    <h3>水平对齐+行高</h3>
+    <div class="father0">
+        <div class="son0"></div>
+    </div>
+
+    <h3>水平+垂直对齐</h3>
+    <div class="father1">
+        <div class="son1"></div>
+    </div>
+
+    <h3>定位1</h3>
+    <div class="father2">
+        <div class="son2"></div>
+    </div>
+    <h3>定位2</h3>
+    <div class="father2">
+        <div class="son3"></div>
+    </div>
+    <h3>定位3</h3>
+    <div class="father2">
+        <div class="son4"></div>
+    </div>
+
+    <h3>Flex布局</h3>
+    <div class="father5">
+        <div class="son5"></div>
     </div>
 </body>
 
