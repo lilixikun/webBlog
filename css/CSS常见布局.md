@@ -1,6 +1,6 @@
-# 水平居中<!-- TOC -->
+<!-- TOC -->
 
-- [水平居中](#水平居中)
+- [水平居中<!-- TOC -->](#水平居中---toc---)
     - [文本/行内元素/行内块级元素](#文本行内元素行内块级元素)
     - [块状元素的水平居中（定宽）](#块状元素的水平居中定宽)
     - [多个块级元素](#多个块级元素)
@@ -272,3 +272,5 @@ top、right、bottom、left的值是相对于父元素尺寸的，然后margin�
     align-items: center;
 }
 ```
+
+[代码地址](https://github.com/LiLixikun/webBlog/blob/master/css/middleLayout.html)
