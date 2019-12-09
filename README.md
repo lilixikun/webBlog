@@ -8,7 +8,7 @@
 
 
 ### 2019-12-8 JavaScript 数据类型回顾
-
+- [JS数据类型](https://juejin.im/post/5deda003f265da33910a3325)
 
 ### 2019-12-5 总结position 定位 及 BFC
 
