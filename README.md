@@ -6,6 +6,8 @@
 
 
 
+### 2019-12-10 JS回顾变量、作用域、内存问题
+- [变量、作用域、内存问题](https://juejin.im/post/5deef199f265da3398562333)
 
 ### 2019-12-8 JavaScript 数据类型回顾
 - [JS数据类型](https://juejin.im/post/5deda003f265da33910a3325)
