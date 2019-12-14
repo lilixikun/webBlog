@@ -56,6 +56,46 @@
         var colors4 = colors1.slice(-3, -1); //等于 colors1.slice(3, 5);
         console.log(colors4);
 
+        console.log(colors);
+
+        var colors5 = colors.splice(1, 1);
+        console.log(colors5);
+        console.log(colors);
+
+        var colors6 = colors.splice(1, 0, 'a', 'b');
+        console.log(colors6);
+        console.log(colors);
+
+        var colors7 = colors.splice(1, 1, "c", 'd');
+        console.log(colors);
+        console.log(colors7);
+
+
+        var num = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+        console.log(num.indexOf(4)); //3
+        console.log(num.lastIndexOf(4));  //5
+        console.log(num.indexOf(4, 4)); //5
+        console.log(num.lastIndexOf(4, 4)); //3
+        console.log(num.indexOf("4")); //-1
+
+
+        var sum = num.reduce(function (num1, num2, index, arr) {
+            return num1 + num2;
+        })
+
+        console.log(sum);
+
+        var sum1 = num.reduceRight(function (num1, num2, index, arr) {
+            return num1 + num2
+        })
+
+        console.log(sum1);
+
+        var sum2 = num.reduce(function (num1, num2, index, arr) {
+            return num1 + num2
+        }, 10);
+        console.log(sum2);
+
     </script>
 </body>
 
