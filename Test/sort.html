@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var array = [1, 4, -8, -3, 6, 12, 9, 8];
+        // array.sort(function (num1, num2) {
+        //     return num1 - num2
+        // })
+        // console.log(array);
+
+        //冒泡排序
+        function sort(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = 0; j < arr.length - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        s = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = s;
+                    }
+                }
+            }
+            return arr
+        }
+        console.log(sort(array));
+
+        //reverse()函数主要用于倒叙排序
+        console.log(array.reverse());
+
+        // 快速排序
+        // 创建两个数组(left right) 用中间项和其它项比较，比中间项小的放在左边数组 比中间项大的放在右边数组... 
+        // 左边数组和右边数组均按照以上思路 进行排序
+        function quickSort(arr) {
+            if (arr.length <= 1) {
+                return arr
+            }
+            var mind = Math.floor(arr.length / 2)
+            var mid = arr.splice(mind, 1)
+            var left = []
+            var right = []
+            for (var i = 0; i < arr.length; i++) {
+                var cur = arr[i]
+                if (cur < mid) {
+                    left.push(cur)
+                } else {
+                    right.push(cur)
+                }
+            }
+            return quickSort(left).concat(mid, quickSort(right))
+        }
+
+        console.log(quickSort(array));
+
+        //选择排序
+        // 每一次从未排序序列中找到最小（大）元素，存放到排序序列的当前的起始位置。以此类推，直到所有元素均排序完毕。
+        function insert_sort(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                var min = i
+                for (let j = i + 1; j < arr.length; j++) {
+                    if (arr[j] < arr[min]) {
+                        min = j
+                    }
+                }
+
+                if (i !== min) {
+                    var temp = arr[i]
+                    arr[i] = arr[min]
+                    arr[min] = temp
+                }
+            }
+            return arr
+        }
+
+        console.log(insert_sort(array));
+
+    </script>
+</body>
+
+</html>
