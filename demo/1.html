@@ -133,7 +133,46 @@
             return value > 25
         })
         console.log(numbers1);
-        
+
+        var s1 = new String("some test");
+        s1.color = "red"
+        console.log(s1.color);
+
+        //alert(typeof s1)
+
+
+        var num = "25";
+        var num1 = Number(num);
+
+        // alert(typeof num);
+        // alert(typeof num1);
+
+        // var num2 = new Number(num);
+        // alert(typeof num2);
+
+        var falseObject = new Boolean(false);
+        var falseValue = true;
+        // alert(typeof falseObject); //object 
+        // alert(typeof falseValue); //boolean 
+        // alert(falseObject instanceof Boolean); //true 
+        // alert(falseValue instanceof Boolean); //false
+
+        var num = 5.123456;
+        console.log(num.toPrecision());     //'5.123456'
+        console.log(num.toPrecision(1));     //'5'
+        console.log(num.toPrecision(5));     //'5.1235'
+        console.log(0.01.toPrecision(2));     // '0.010'
+
+        var strValue = "hello word";
+        console.log(strValue.length);
+
+        console.log(strValue.charAt());
+        console.log(strValue.charAt(3));
+        console.log(strValue.charAt(10));
+
+        console.log(strValue.charCodeAt()); //104
+        console.log(strValue.charCodeAt(3)); //108
+        console.log(strValue.charCodeAt(10)); //NaN
     </script>
 
 </body>
