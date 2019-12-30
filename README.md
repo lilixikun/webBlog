@@ -1,10 +1,13 @@
 #### 记录前段知识点  [思维导图地址](http://naotu.baidu.com/file/5d5edb37dff1465c195b469eb11b5b6a?token=66fa896e731a700e)
 
+### 2019-12-30 引用类型回顾(二)
+- [引用类型回顾(二)](https://juejin.im/post/5e0994b26fb9a0163c53da3e)
 
-
+### 2019-12-16 引用类型回顾(一)
+- [引用类型回顾(一)](https://juejin.im/post/5df6dd1d6fb9a015fd69bbf8) 
 
 ### 2019-12-13 js浅拷贝和深拷贝 总结
--[js浅拷贝和深拷贝](https://juejin.im/post/5df366e76fb9a0161711b40f)
+- [js浅拷贝和深拷贝](https://juejin.im/post/5df366e76fb9a0161711b40f)
 
 
 ### 2019-12-10 JS回顾变量、作用域、内存问题
