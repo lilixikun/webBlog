@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // a = 1;
+        // console.log(window.a);
+        function test() {
+            var a = b = 2;
+        }
+        // test();
+        // console.log(window.a);
+        // console.log(b);
+
+        // console.log(b);
+        // var b = 2;
+
+        // console.log(a);
+        // var a = 123;
+        // function a() {
+        // }
+        // console.log(a);
+
+
+        function fn(a) {
+            console.log(a);
+            var a = 123;
+            console.log(a);
+            function a() { }
+
+            console.log(a);
+            console.log(b);
+            var b = function () { }
+            console.log(b);
+        }
+        fn(1);
+
+        // console.log(test);
+        // function test(test) {
+        //     console.log(test);
+        //     var test = 234;
+        //     console.log(test);
+        //     function test() {
+
+        //     }
+        // }
+        // test(1);
+        // var test = 123;
+
+        // global = 100;
+        // function fu() {
+        //     console.log(global);
+        //     global = 200;
+        //     console.log(global);
+        //     var global = 300;
+        // }
+
+        // console.log(global);
+
+        // fu();
+        // var global;
+
+        // function test() {
+        //     console.log(b);
+        //     if (a) {
+        //         var b = 100;
+        //     }
+        //     c = 234;
+        //     console.log(b);
+
+        //     console.log(c);
+        // }
+
+        // var a;
+        // test();
+        // a = 10;
+        // console.log(a);
+        // console.log(c);
+
+        // a = 100;
+        // function deme(e) {
+        //     function a() { }
+        //     arguments[0] = 2;
+        //     console.log(e);
+        //     if (a) {
+        //         var b = 123;
+        //         var c = function () { }
+        //     }
+        //     var c;
+        //     a = 10;
+        //     var a;
+        //     console.log(b);
+        //     f = 123;
+        //     console.log(c);
+        //     console.log(a);
+        // }
+
+        // var a;
+        // deme(1);
+        // console.log(a);
+        // console.log(f);
+    </script>
+</body>
+
+</html>
