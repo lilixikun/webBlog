@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        //闭包
+        // 两个函数互相嵌套 当内部函数被保存到外部时,将会生成闭包.闭包会导致作用域链不释放,造成内存泄露
+
+        function a() {
+            function b() {
+                console.log(a);
+            }
+            var a = 123;
+            return b;
+        }
+
+        var glob = 100;
+        var demo = a();
+        demo();
+
+
+        //test 函数执行完还在  等待被下一次执行
+        function test() {
+            var arr = [];
+            for (var i = 0; i < 10; i++) {
+                arr[i] = function () {
+                    document.write(i + " ");
+                }
+
+                //用立即执行函数解决闭包
+
+                // (function (j) {
+                //     arr[i] = function () {
+                //         document.write(j + " ");
+                //     }
+                // }(i))
+            }
+
+            return arr
+        }
+
+        var myArr = test();
+
+        // test 执行完  i 已经变成了10
+
+        for (var j = 0; j < 10; j++) {
+            myArr[j]();
+        }
+
+
+        //解决闭包方法
+        //立即执行函数
+
+
+
+        //立即执行函数  执行完 马上销毁
+        // 起名也找不到
+        (function () {
+            console.log("aaaaaaaa");
+
+        }());
+
+        (function () {
+            console.log("bbbbbbbbbbbbbb");
+        })();
+
+        //只要表达式才能被执行
+        var deme = function () {
+            console.log("bbbbbbbbbbbbbb");
+        }();
+
+
+        //不是表示式  无法执行 报错
+        // function fu(){
+
+        // }();
+
+        //但是加上 + / - /! /!! /()  隐式转换可以执行
+        !! function fu() {
+            console.log("执行");
+
+        }();
+
+        //执行完立马销毁  undefined
+        console.log(deme);
+
+
+        
+
+
+    </script>
+</body>
+
+</html>
