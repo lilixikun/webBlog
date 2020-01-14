@@ -6,9 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .p1 {
+            height: 100px;
+        }
+
+        .p1:nth-of-type(2n) {
+            background-color: firebrick;
+        }
+
+        .p1:nth-of-type(2n+1) {
+            background-color: aqua;
+        }
+    </style>
 </head>
 
 <body>
+    <p class="p1"></p>
+    <p class="p1"></p>
+    <p class="p1"></p>
+    <p class="p1"></p>
     <script>
 
 
@@ -94,10 +111,186 @@
         console.log(deme);
 
 
-        
+        //循环打印
+        // for (var i = 0; i < 3; i++) {
+        //     setTimeout(function () {
+        //         console.log(i);
+        //     }, 1000)
+        // }
+
+        // //立即执行函数 
+        // for (var i = 0; i < 3; i++) {
+        //     (function (num) {
+        //         setTimeout(function () {
+        //             console.log(num);
+        //         }, 1000);
+        //     })(i);
+        // }// 0// 1// 2
 
 
-    </script>
+        // //返回一个匿名函数赋值
+        // var data = [];
+        // for (var i = 0; i < 3; i++) {
+        //     data[i] = (function (num) {
+        //         return function () {
+        //             console.log(num);
+        //         }
+        //     })(i);
+        // }
+
+        // for (let i = 0; i < data.length; i++) {
+        //     data[i]();
+        // }
+
+
+        function foo() {
+            var name = "kebi";
+            return function () {
+                console.log(name);
+            };
+        }
+        var bar = foo();
+        bar();
+
+        //2.真实的获取多个元素并添加点击事件
+        // 找出所有P 打印对应的索引
+        var op = document.querySelectorAll("p");
+        for (var j = 0; j < op.length; j++) {
+            op[j].onclick = function () {
+                console.log(j);
+            };
+        }
+
+        //解决1
+        // for (let i = 0; i < op.length; i++) {
+        //     op[i].onclick = (function (num) {
+        //         return function () {
+        //             console.log(num);
+        //         }
+        //     })(i)
+        // }
+
+        for (let i = 0; i < op.length; i++) {
+            (function (j) {
+                op[j].onclick = function () {
+                    console.log(j);
+                };
+            })(i)
+        }
+
+
+        //没搞定
+        function test1() {
+            var n = 4399;
+            function add() {
+                n++;
+                console.log(n);
+            }
+            return { n: n, add: add }
+        }
+
+        var result = test1();
+        var result1 = test1(1);
+        result.add(); //4400
+        result.add(); //4001
+        console.log(result.n); //4001
+        result1.add()
+
+
+
+        /*非严格模式*/
+        // var name = 'window'
+
+        // function Person(name) {
+        //     this.name = name;
+        //     this.fn1 = function () {
+        //         console.log(this.name);
+        //     };
+        //     this.fn2 = () => console.log(this.name);
+        //     this.fn3 = function () {
+        //         return function () {
+        //             console.log(this.name)
+        //         };
+        //     };
+        //     this.fn4 = function () {
+        //         return () => console.log(this.name);
+        //     };
+        // };
+
+        // var obj1 = new Person('听风是风');
+        // console.dir(obj1);
+        // var obj2 = new Person('行星飞行');
+
+        // obj1.fn1(); //听风是风
+        // obj1.fn1.call(obj2);//行星飞行
+
+        // // obj1.fn2();//听风是风
+        // // obj1.fn2.call(obj2);//undefine
+
+        // obj1.fn3()();//window
+        // obj1.fn3().call(obj2); //fun
+        // obj1.fn3.call(obj2)(); //行星飞行
+
+        // obj1.fn4()();
+        // obj1.fn4().call(obj2);
+        // obj1.fn4.call(obj2)();
+
+        /*非严格模式*/
+
+        var name = 'window'
+
+        var obj1 = {
+            name: '听风是风',
+            fn1: function () {
+                console.log(this.name)
+            },
+            fn2: () => console.log(this.name),
+            fn3: function () {
+                return function () {
+                    console.log(this.name)
+                }
+            },
+            fn4: function () {
+                return () => console.log(this.name)
+            }
+        }
+        var obj2 = {
+            name: '行星飞行'
+        };
+
+        obj1.fn1();//?   //听风是风
+        obj1.fn1.call(obj2);//? 行星飞行
+
+        obj1.fn2();//? window
+        obj1.fn2.call(obj2);//?window
+
+        obj1.fn3()();//? window
+        obj1.fn3().call(obj2);//?行星飞行
+        obj1.fn3.call(obj2)();//?window
+
+        obj1.fn4()();//?听风是风
+        obj1.fn4().call(obj2);//?听风是风
+        obj1.fn4.call(obj2)();//?
+
+
+        let fn = function () {
+            let num = 1; //自由变量
+            return {
+                a: function () {
+                    console.log(num);
+                },
+                b: function () {
+                    num++;
+                }
+            };
+        };
+
+
+        let closure = fn();
+        fn = null;
+        //到这里outer函数已执行完毕，执行上下文被释放
+        closure.a(); // 1
+    //</script>
 </body>
 
 </html>
