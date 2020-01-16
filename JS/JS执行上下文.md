@@ -86,6 +86,27 @@ GO{
 
 ### 执行上下文栈(执行栈)
 当在全局上下文中调用执行一个函数时，程序流就进入该被调用函数内，此时引擎就会为该函数创建一个新的执行上下文，并且将其压入到执行栈顶部（作用域链）。浏览器总是执行位于执行栈顶部的当前执行上下文，一旦执行完毕，该执行上下文就会从执行栈顶部弹出，并且控制权将进入其下的执行上下文。这样，执行栈中的执行上下文就会被依次执行并且弹出（Pop），直到回到全局的执行上下文
+
+
+```js
+
+      function f1() {
+          f2();
+          console.log(1);
+      };
+
+      function f2() {
+          f3();
+          console.log(2);
+      };
+
+      function f3() {
+          console.log(3);
+      };
+
+      f1();//3 2 1
+```
+
 ![](https://upload-images.jianshu.io/upload_images/2919971-4cac1ad1b783d34b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 

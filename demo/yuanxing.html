@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //原型 ：原型是function 对象的一个属性,它定义构造函数制造出来的对象的公共祖先. 通过该构造函数产生的对象,可以继承该原型的属性和方法. 原型也是对象
+
+        // 利用原型特点和概念,可以提取共有属性
+
+        //对象如何查看原型 -> 隐士属性 _proto_
+
+        //对象如何查看对象的构造函数 -> constructor
+
+
+
+        //Person.prototype={}  ->原型
+        //Person.prototype={} //空对象 祖先
+
+        //构造函数 大驼峰命名
+        Person.prototype.name = "xxx";
+        Person.prototype.say = function () {
+            console.log("hehe");
+
+        }
+        function Person(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+
+
+        //可以使用原型方法
+        var peron = new Person();
+        var peron1 = new Person();
+
+        peron.say = function () {
+            console.log("我自己hehe");
+
+        }
+        console.log(peron.name);
+
+
+        //提取公共属性和方法
+        // Car.prototype.carName = "BMW";
+        // Car.prototype.hight = 1400;
+        // Car.prototype.lang = "4900";
+        // Car.prototype.weight = 1000;
+        // Car.prototype.heath = 100;
+
+
+        //字面量方法
+        Car.prototype = {
+            // constructor:Car,
+            carName: "BMW",
+            hight: 1400,
+            lang: 1000,
+            weight: 100
+        }
+
+        function Car(color, ower) {
+            this.color = color;
+            this.ower = ower;
+        }
+
+        var car = new Car();
+        //给自己添加属性
+        car.carName = "xxx"
+        //原型的增删改查
+        Car.prototype.carName = "BMW1.0";
+        console.log(car);
+        delete car.carName
+
+        delete Car.prototype.carName
+
+
+        // new 发生的过程
+        function Amim() {
+            // var this={
+            //     _proto_:Amim.prototype
+            // }
+        }
+
+        Amim.prototype.tag = "Anim";
+        var dog = new Amim();
+        console.log(dog.tag);
+
+        var obj = {
+            tag: "ObjAnim"
+        }
+        //改变 dog 的 _proto_ 指向
+        dog._proto_ = obj;
+        console.log(dog.tag);
+
+        //顺序不同 答案不同
+
+        // Teacher.prototype.name = "ABBB";
+        // function Teacher() {
+
+        // }
+
+        // var tea1 = new Teacher();
+        // Teacher.prototype = {
+        //     name: "CDDDD"
+        // }
+
+        // console.log(tea1.name);
+
+        //new 完后指向最终位置
+
+        Teacher.prototype.name = "ABBB";
+        function Teacher() {
+
+        }
+
+        Teacher.prototype = {
+            name: "CDDDD"
+        }
+
+        var tea1 = new Teacher();
+
+
+        console.log(tea1.name);
+
+
+        //原型链  绝大多数对象 最终都会继承自  Object.prototype 
+
+        //Object.creat(原型)
+
+        // 原型链链接 _proto_
+
+        //Grand._proto_=Object.prototype 
+        Grand.prototype.lastName = "Dggg"
+        function Grand() {
+
+        }
+
+        var grand = new Grand();
+
+        Father.prototype = grand;
+        function Father() {
+            this.name = "Father"
+        }
+
+        var father = new Father();
+
+        Son.prototype = father;
+        function Son() {
+            this.age = 18;
+        }
+
+        var son = new Son()
+
+
+        var obj = { name: "sum" };
+        var obj1 = Object.create(obj);
+        var ong = Object.create(null) //没有原型
+
+        document.write(ong) //报错 会自动调用  toString
+    </script>
+</body>
+
+</html>

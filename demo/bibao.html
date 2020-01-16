@@ -290,6 +290,15 @@
         fn = null;
         //到这里outer函数已执行完毕，执行上下文被释放
         closure.a(); // 1
+
+        var x = 1;
+        if (function f() { }) {
+            x += typeof f;
+        }
+        console.log(x);
+        console.log(typeof x);
+        
+
     //</script>
 </body>
 
