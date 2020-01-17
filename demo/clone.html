@@ -213,31 +213,31 @@
         // console.log(obj2);
 
 
-        // const isComplexDataType = obj => (typeof obj === 'object' || typeof obj === 'function') && (obj !== null)
+        const isComplexDataType = obj => (typeof obj === 'object' || typeof obj === 'function') && (obj !== null)
 
-        // const deepClone = function (obj, hash = new WeakMap()) {
+        const deepClone = function (obj, hash = new WeakMap()) {
 
-        //     let type = [Date, RegExp, Set, Map, WeakMap, WeakSet]
-        //     if (type.includes(obj.constructor)) return new obj.constructor(obj);
+            let type = [Date, RegExp, Set, Map, WeakMap, WeakSet]
+            if (type.includes(obj.constructor)) return new obj.constructor(obj);
 
-        //     //如果成环了,参数obj = obj.loop = 最初的obj 会在WeakMap中找到第一次放入的obj提前返回第一次放入WeakMap的cloneObj
-        //     if (hash.has(obj)) return hash.get(obj)
+            //如果成环了,参数obj = obj.loop = 最初的obj 会在WeakMap中找到第一次放入的obj提前返回第一次放入WeakMap的cloneObj
+            if (hash.has(obj)) return hash.get(obj)
 
-        //     //遍历传入参数所有键的特性
-        //     let allDesc = Object.getOwnPropertyDescriptors(obj);
-        //     //继承原型
-        //     let cloneObj = Object.create(Object.getPrototypeOf(obj), allDesc);
-        //     hash.set(obj, cloneObj)
+            //遍历传入参数所有键的特性
+            let allDesc = Object.getOwnPropertyDescriptors(obj);
+            //继承原型
+            let cloneObj = Object.create(Object.getPrototypeOf(obj), allDesc);
+            hash.set(obj, cloneObj)
 
-        //     //Reflect.ownKeys(obj)可以拷贝不可枚举属性和符号类型
-        //     for (let key of Reflect.ownKeys(obj)) {
-        //         // 如果值是引用类型(非函数)则递归调用deepClone
-        //         cloneObj[key] = (isComplexDataType(obj[key]) && typeof obj[key] !== 'function') ? deepClone(obj[key], hash) : obj[key];
-        //     }
+            //Reflect.ownKeys(obj)可以拷贝不可枚举属性和符号类型
+            for (let key of Reflect.ownKeys(obj)) {
+                // 如果值是引用类型(非函数)则递归调用deepClone
+                cloneObj[key] = (isComplexDataType(obj[key]) && typeof obj[key] !== 'function') ? deepClone(obj[key], hash) : obj[key];
+            }
 
-        //     return cloneObj;
+            return cloneObj;
 
-        // };
+        };
     </script>
 </body>
 
