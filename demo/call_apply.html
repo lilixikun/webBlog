@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //实现一个继承
+
+        var inherit = (function () {
+            var F = function () { };
+            return function (Target, Origin) {
+                F.prototype = Origin.prototype;
+                Target.prototype = new F();
+                Target.prototype.construct = Target;
+                //确定继承那个
+                Target.prototype.uber = Origin.prototype;
+            }
+        }())
+
+        Student.prototype.name = "xxx";
+        function Student() {
+
+        }
+
+        Son.prototype.age = 18;
+        function Son() {
+
+        }
+
+        inherit(Son, Student);
+        var son = new Son();
+
+        //instanceof
+        // 看A 的原型上有没有B的原型
+        [] instanceof Array;
+        [] instanceof Object;
+
+        //Object.prototype.toString.call([])
+
+        Object.prototype.toString = function () {
+            // 首先 识别 this
+            //返回相应结果
+        }
+
+
+        var name = "@22";
+        var a = {
+            name: "bbbb",
+            say: function () {
+                console.log(this.name);
+
+            }
+        }
+
+        var fun = a.say;
+        fun(); //@22
+        a.say(); //bbb
+
+        var b = {
+            name: "3333",
+            say: function (fun) {
+                fun();
+            }
+        }
+
+        b.say(a.say); //333
+        b.say = a.say;
+        b.say();
+
+
+        // var foo = 123;
+        // function print() {
+        //     this.foo = 234;
+        //     console.log(foo);
+        // }
+        // //print();
+        // new print()
+
+        //运行 test new Test 打印什么
+        var a = 5;
+        function test() {
+            a = 0;
+            console.log(a);
+            console.log(this.a);
+            var a;
+            console.log(a);
+        }
+        // test(); // 0 5 0
+        new test(); //5 0 
+
+        var bar = { a: "000" };
+        function print() {
+            bar.a = "a";
+            Object.prototype.b = "b";
+            return function inner() {
+                console.log(bar.a);
+                console.log(bar.b);
+            }
+        }
+        print()();
+
+        //类数组
+        Array.prototype.push = function (target) {
+            obj[obj.length] = target;
+            obj.length++;
+        }
+
+        var obj = {
+            "2": a,
+            "3": b,
+            "length": 2,
+            "push": Array.prototype.push
+        }
+        obj.push("c");
+        obj.push("d")
+
+        //手动实现map
+
+        Array.prototype.myMap = function () {
+
+        }
+
+        //实现一个 sleep 函数
+
+        function sleep(delay) {
+            var start = (new Date()).getTime();
+            while ((new Date()).getTime - start < delay) {
+                continue;
+            }
+        }
+
+        function test() {
+            console.log("开始");
+            sleep(2000);
+            console.log("2S后打印");
+        }
+        test()
+
+        //手动实现 instanceof
+        function myInstanceof(l, r) {
+            var R = r.prototype;
+            while (l._proto_) {
+                if (l._proto_ === R) {
+                    return true
+                }
+            }
+            return false
+        }
+
+        //阻止冒泡
+        // document.getElementById("ff").onclick = function (e) {
+        //     e.stopPropagation();
+        // }
+
+        // //阻止默认行为
+        // document.getElementById("ff").onclick = function (e) {
+        //     e.preventDefault()
+        // }
+
+        //浏览器缓存
+        // cache-control > Expires > Etag > Last-modified
+
+        //手写 bind
+        Function.prototype.mybind = function (thisArg) {
+            if (typeof this !== "function") {
+                throw new TypeError("Bind must be called on a function");
+            }
+            //保存原函数
+            var self = this;
+            // 拿到参数，为了传给调用者
+            const args = Array.prototype.slice.call(arguments, 1),
+
+                //构建一个新函数,保存原函数的原型
+                nop = function () { },
+                bound = function () {
+                    // this instanceof nop, 判断是否使用 new 来调用 bound
+                    // 如果是 new 来调用的话，this的指向就是其实例，
+                    // 如果不是 new 调用的话，就改变 this 指向到指定的对象 o
+                    return self.apply(
+                        this instanceof nop ? this : thisArg,
+                        args.concat(Array.prototype.slice.call(arguments))
+                    );
+                };
+
+            // 箭头函数没有 prototype，箭头函数this永远指向它所在的作用域
+            if (this.prototype) {
+                nop.prototype = this.prototype
+            }
+
+            //修改原型函数的绑定指向
+            bound.prototype = new nop();
+            return bound;
+        }
+
+        // 测试 myBind
+        const bar1 = function () {
+            console.log(this.name, arguments);
+        };
+
+        bar1.prototype.name = 'bar';
+
+        const foo = {
+            name: 'foo'
+        };
+
+        const bound = bar1.mybind(foo, 22, 33, 44);
+        new bound(); // bar, [22, 33, 44]
+        bound(); // foo, [22, 33, 44]
+
+
+        //手动实现call
+        Function.prototype.mycall = function (thisArg) {
+            if (typeof this !== "function") {
+                throw new TypeError("error")
+            }
+            const arg = [...arguments].slice(1);
+            // 声明一个 Symbol 属性，防止 fn 被占用
+            const fn = Symbol("fn");
+            thisArg = thisArg || window;
+            //将调用 fn 添加到 thisArg 对象中
+            thisArg[fn] = this;
+            //执行函数
+            const result = thisArg[fn](...arg)
+            //删除属性
+            delete thisArg[fn];
+            return result;
+        }
+
+        //实现 apply
+        Function.prototype.myapply = function (thisArg) {
+            console.log(arguments);
+
+            if (typeof this !== "function") {
+                throw new TypeError("this no a function")
+            }
+            const arg = [...arguments].slice(1);
+            const fn = Symbol("fn");
+            thisArg[fn] = this;
+            //执行函数
+            const result = thisArg[fn](...arg);
+            delete thisArg[fn]
+            return result;
+        }
+
+
+        const bar2 = function () {
+            console.log(this.name, arguments);
+        };
+
+        bar2.prototype.name = 'bar';
+
+        const foo1 = {
+            name: 'foo'
+        };
+
+        const foo2 = {
+            name: "xxxx"
+        }
+
+        bar2.mycall(foo2, 1, 2, 3); // foo [1, 2, 3]
+        bar2.myapply(foo1, [1, 2, 3]); // foo [1, 2, 3]
+
+        //instanceof 手动实现
+        function instance_of(l, r) {
+            var R = r.prototype;
+            var L = l._proto_;
+            while (true) {
+                if (L === null) {
+                    return false
+                }
+                if (L === R) {
+                    return true
+                }
+                //递归找 _proto_
+                L = L._proto_;
+            }
+        }
+
+        Array.myIsArray = function (o) {
+            return Object.prototype.toString.call(Object(o)) === '[object Array]';
+        };
+    </script>
+</body>
+
+</html>

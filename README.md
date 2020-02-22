@@ -1,5 +1,7 @@
 #### 记录前段知识点  [思维导图地址](http://naotu.baidu.com/file/5d5edb37dff1465c195b469eb11b5b6a?token=66fa896e731a700e)
 
+### 20120-1-9 更新 JS 深浅拷贝
+
 ### 2019-12-30 引用类型回顾(二)
 - [引用类型回顾(二)](https://juejin.im/post/5e0994b26fb9a0163c53da3e)
 

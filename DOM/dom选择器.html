@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root" class="demo"></div>
+    <div><strong></strong></div>
+    <div><span><strong></strong></span></div>
+    <input type="text" name='name'>
+
+    <div>
+        <p><strong class="strong"></strong></p>
+    </div>
+
+    <div class="childNodes">
+        123
+        <!--我是注释-->
+        <strong></strong>
+        <span></span>
+    </div>
+    <script>
+        //id
+        var div = document.getElementById('root')
+        //标签名
+        var divs = document.getElementsByTagName('div')
+        //name 名
+        var inPu = document.getElementsByName('name');
+        //class
+        var Class = document.getElementsByClassName('demo')
+        //querySelector
+        var strong = document.querySelector('div >span strong')
+        //querySelectorAll
+        var strongs = document.querySelectorAll('div')
+
+        // querySelector  querySelectorAll 缺点 不是实时性  选择出来的后面改变的不会影响前面的
+        var demo = document.getElementsByClassName('demo')[0];
+        demo.remove();
+        console.log(divs.length); //2
+        console.log(strongs.length); //3
+
+
+        //遍历节点树
+        // 节点类型
+        // 元素节点 - 1
+        // 属性节点 - 2
+        // 文本节点 - 3
+        // 注释节点 - 8
+        // document - 9
+        // DocumenFragment - 11
+
+        // 节点的四个属性
+        // 1. nodeName 元素的标签名 会以大写形式只读
+        // 2. nodeValue 文本节点或者注释节点才有 可读写
+        // 3. nodeType 该节点类型 可读 document.nodeType
+        // 4. attributes 属性节点 类数组 {0:id,1:class,length:2}
+
+        console.log(div.attributes);
+
+
+        // parentNode -> 父节点(最顶端的父节点为 #document)
+        var strong1 = document.getElementsByClassName('strong')[0];
+        var parentNodeP = strong1.parentNode;
+
+        // childNodes
+        var child1 = document.getElementsByClassName('childNodes')[0].childNodes;
+        console.log(child1.length); //7
+
+        // firstChild
+        var firstChild = child1.firstChild;
+
+        // lastChild
+        var lastChild = child1.lastChild
+
+        // nextSibling
+        var nextSibling = child1.nextSibling
+
+        var bool = div.hasChildNodes();
+
+
+        // 元素操作方法
+        // 遍历元素节点树
+        var element = document.getElementsByClassName('childNodes')[0];
+
+        // parentElement
+        var parentElement = element.parentElement
+
+        //  children
+        var childEle = element.children
+
+        // childElementCount
+        var count = element.childElementCount // ===childEle.length
+
+        // firstElementChild
+        var firstElementChild = element.firstElementChild
+
+        // lastElementChild
+        var lastElementChild = element.lastElementChild;
+
+        // nextElementSibling
+    </script>
+</body>
+
+</html>
