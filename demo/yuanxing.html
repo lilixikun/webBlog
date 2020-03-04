@@ -163,7 +163,37 @@
         var obj1 = Object.create(obj);
         var ong = Object.create(null) //没有原型
 
-        document.write(ong) //报错 会自动调用  toString
+        // document.write(ong) //报错 会自动调用  toString
+
+        // 利用 空对象作中介实现继承
+
+        function extend(Target, Origin) {
+            function Fn() { };
+            Fn.prototype = Origin.prototype;
+            Target.prototype = new Fn();
+            Target.prototype.constructor = Target;
+            Target.uber = Origin.prototype;
+        }
+
+        function Parent() {
+            this.name = "父类";
+            this.say = function () {
+                console.log(this.name);
+            }
+        }
+
+        function Child(name, age, sex) {
+            Child.uber.constructor.call(this)
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        extend(Child, Parent);
+
+        var child = new Child("小王", 18, "男");
+        child.say();
+
+
     </script>
 </body>
 
