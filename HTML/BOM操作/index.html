@@ -1,0 +1,113 @@
+<!-- 没有就算怪异模式,有就是标准模式  -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div::after {
+            width: 100px;
+            content: '';
+            height: 100px;
+            background-color: green;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 100px;height: 100px;background-color: red;position: relative;top:100px;left: 100px"></div>
+    <script>
+        //查看滚动条距离(ie9 以下不兼容)
+        // window.pageXOffset
+        // window.pageYOffset
+
+        //ie9 以下
+        // document.body.scrollLeft ie5 i6
+        // document.body.scrollTop ie8 ie4
+
+        function getScrollOffset() {
+            if (window.pageXOffset) {
+                return {
+                    x: window.pageXOffset,
+                    y: window.pageYOffset
+                }
+            } else {
+                //一个有另一个就为0
+                return {
+                    x: document.body.scrollLeft + document.documentElement.scrollTop,
+                    y: document.body.scrollTo + document.documentElement.scrollTop
+                }
+            }
+        }
+
+
+        //返回浏览器宽高
+        function getViewportOffset() {
+            if (window.innerWidth) {
+                return {
+                    x: window.innerWidth,
+                    y: window.innerHeight
+                }
+            } else {
+                if (document.compatMode === 'BackCompat') {
+                    return {
+                        x: document.body.clientWidth,
+                        y: document.body.clientHeight
+                    }
+                } else {
+                    return {
+                        x: document.documentElement.clientWidth,
+                        y: document.documentElement.clientHeight
+                    }
+                }
+            }
+        }
+
+        // 查看元素尺寸  -->缺点静态 后面改变不会变
+        var div = document.getElementsByTagName('div')[0];
+        div.getBoundingClientRect();
+
+        // 查看元素的宽高
+        // div.offsetWidth
+        // div.offsetHeight
+
+        // 对于无定位的父级,返回相对文档的坐标. 对于有定位父级的 返回相对于最近的有定位的父级的坐标
+        // div.offsetLeft
+        // div.offsetTop
+
+        // 让滚动条滚动
+        // 滚动到对于位置 scrollTo  scroll  一样
+        window.scrollTo()
+        window.scroll();
+
+        //scrollBy 会累加 一直执行
+        window.scrollBy()
+
+
+        // dom.style.props 可读写样式 直接写入到 style 内联样式 
+        div.style.width = "200px"
+        // float 等保留字可以写成 cssFloat
+
+        // 查询计算样式  第二个参数可以传入伪元素 ::after
+        // 只读
+        window.getComputedStyle(div, null)
+
+        //获取dom元素的样式
+        window.getComputedStyle(div, 'after')
+
+        // ie8 以下 
+        // div.currentStyle
+        function setStyle(dom, props) {
+            if (window.getComputedStyle) {
+                window.getComputedStyle(dom, null)[props]
+            } else {
+                dom.currentStyle[props]
+            }
+        }
+    </script>
+</body>
+
+</html>
