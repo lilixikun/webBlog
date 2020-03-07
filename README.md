@@ -1,4 +1,7 @@
-#### 记录前段知识点  [思维导图地址](http://naotu.baidu.com/file/5d5edb37dff1465c195b469eb11b5b6a?token=66fa896e731a700e)
+
+## 从零构建个人博客网站
+- [Koa 自动加载路由](https://www.jianshu.com/p/296ea306cd7a)
+- [Koa 全局异常处理](https://www.jianshu.com/p/b74136e55c56)
 
 ### 20120-1-9 更新 JS 深浅拷贝
 
