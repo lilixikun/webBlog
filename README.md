@@ -1,7 +1,8 @@
 
 ## 从零构建个人博客网站
-- [Koa 自动加载路由](https://www.jianshu.com/p/296ea306cd7a)
-- [Koa 全局异常处理](https://www.jianshu.com/p/b74136e55c56)
+- [Koa 自动加载路由](https://juejin.im/post/5e970c7fe51d457918095eb0)
+- [Koa 全局异常处理](https://juejin.im/post/5e970d0e51882573a343e2ab)
+- [Koa 使用Sequelize操作mysql](https://juejin.im/post/5e970c0b51882573793e832f)
 
 ### 20120-1-9 更新 JS 深浅拷贝
 
