@@ -1,11 +1,24 @@
-# 为什么使用 JWT
+
+<!-- TOC -->
+
+- [为什么使用 JWT<!-- TOC -->](#为什么使用-jwt---toc---)
+- [集成 jwt](#集成-jwt)
+- [生成 token](#生成-token)
+- [编写 Auth 中间件](#编写-auth-中间件)
+- [在接口中进行拦截](#在接口中进行拦截)
+- [使用 koa-jwt](#使用-koa-jwt)
+- [用postmen 进行调试 JWT](#用postmen-进行调试-jwt)
+- [JWT 在线验签](#jwt-在线验签)
+
+<!-- /TOC -->
+
 网上有很多关于 **jwt** 的介绍,这里不做叙述,总结有以下优势:
 - 安全性高,防止token被伪造和篡改
 - 支持跨域访问: Cookie是不允许垮域访问的，这一点对Token机制是不存在的，前提是传输的用户认证信息通过HTTP头传输.
 - 无状态:Token机制在服务端不需要存储session信息，因为Token 自身包含了所有登录用户的信息，只需要在客户端的cookie或本地介质存储状态信息.
 - 去耦: 不需要绑定到一个特定的身份验证方案。Token可以在任何地方生成，只要在你的API被调用的时候，你可以进行Token生成调用即可.
 
-# 集成 jwt
+## 集成 jwt
 
 安装依赖
 
@@ -183,3 +196,12 @@ app.use(jwt({ secret: 'shared-secret' }).unless({ path: [/^\/public/] }));
 unless 可以填入多个路径表示 以该路径开头 不进行 token 校验的。更多功能请查看 [koa-jwt](https://github.com/koajs/jwt)
 
 ## 用postmen 进行调试 JWT
+
+在 Headers 里面配置 **Authorization** Value 填入 **Bearer** + **空格** + token ,记住 Bearer 后面必须要有空格 因为这是 jwt 的约定方式
+
+还有种方法直接点击 **Authorization** 选择 **Bearer Token** 然后直接输入 token 点击发送即可
+
+## JWT 在线验签
+
+我们可以进入 [JWT.IO](https://jwt.io/) 输入 token 和 secret 进行在线验签
+
