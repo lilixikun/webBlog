@@ -529,3 +529,5 @@ try {
 npm install promises-aplus-tests -D
 npx promises-aplus-tests promise.js
 ```
+
+代码地址  [手写Promise](https://github.com/LiLixikun/webBlog/blob/master/%E6%89%8B%E5%86%99/promise.js)
