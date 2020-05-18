@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var twoSum = function (nums, target) {
+            // 复杂度 O(n2)
+            var result = [];
+            var len = nums.length;
+            for (var i = 0; i < len; i++) {
+                // j从 i+1 开始 确保不重复利用同一个元素
+                for (var j = i + 1; j < len; j++) {
+                    if (nums[i] + nums[j] == target) {
+                        result.push(i);
+                        result.push(j);
+                        return result;
+                    }
+                }
+            }
+            // let temp = []
+            // for (let i = 0; i < nums.length; i++) {
+            //     let res = target - nums[i]
+            //     if (temp[res] !== undefined) {
+            //         return [temp[res], i]
+            //     }
+            //     temp[nums[i]] = i
+            // }
+        };
+
+        let nums = [2, 7, 11, 15], target = 9
+        console.log(twoSum(nums, target));
+
+    </script>
+</body>
+
+</html>

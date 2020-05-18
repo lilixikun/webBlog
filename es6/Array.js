@@ -109,4 +109,9 @@ for (const [index, item] of arr.entries()) {
     console.log(index + "==: " + item);
 }
 
+for (const iterator of arr) {
+    console.log(iterator);
+
+}
+
 Array.prototype.includes

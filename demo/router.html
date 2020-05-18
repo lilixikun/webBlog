@@ -127,11 +127,11 @@
                 }, false)
             }
 
-//首页进入页面调用
-load(){
-    let path=location.pathname;
-    this.dealPathHandler(path)
-}
+            //首页进入页面调用
+            load() {
+                let path = location.pathname;
+                this.dealPathHandler(path)
+            }
 
             //用于注册每个视图
             register(path, calllback = function () { }) {
@@ -186,10 +186,10 @@ load(){
         router.register("/page3", () => contain.innerHTML = "我是page3");
         router.register("/page4", () => { throw new Error("抛错@!") });
 
-    
+
         router.registerNoFound(() => contain.innerHTML = "页面未找到!");
         router.load()
-        document.getElementById("btn").onclick=function(){
+        document.getElementById("btn").onclick = function () {
             router.push("/page5")
         }
     </script>
