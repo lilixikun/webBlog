@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实现new,call,bind</title>
+</head>
+
+<body>
+    <script>
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.say = function () {
+                console.log(this.name + ":" + this.age);
+            }
+            return 1
+        }
+
+        const p = new Person('xikun', '36')
+        p.say()
+
+        function _new(fn, ...args) {
+            const obj = Object.create(fn.prototype)
+            // 执行函数
+            const res = fn.apply(obj, args)
+            return res instanceof Object ? res : obj
+        }
+
+        // function _new() {
+        //     const obj = new Object();
+        //     const Fn = Array.prototype.shift.call(arguments)
+        //     obj.__proto__ = Fn.prototype
+        //     let res = Fn.apply(obj, arguments)
+        //     return res instanceof Object ? res : obj
+        // }
+
+        const p1 = _new(Person, 'lili', 25)
+        p1.say()
+
+        let Student = {
+            say: function () {
+                console.log(this.name + ":" + this.age);
+            }
+        }
+
+        let student = {
+            name: 'tom',
+            age: 44
+        }
+        Student.say.call(student)
+
+        Function.prototype.myCall = function (context, ...args) {
+            context = context || window
+            let fn = Symbol('fn')
+            context[fn] = this
+
+            let res = context[fn](...args)
+            delete context[fn]
+            return res
+        }
+
+        Student.say.myCall(student)
+
+        Function.prototype.myApply = function (context, arr = []) {
+            context = context || window
+            let fn = Symbol('fn')
+            context[fn] = this
+            let res = context[fn](...arr)
+            delete context[fn]
+            return res
+        }
+
+        Student.say.myApply(student)
+
+        Function.prototype.myBind = function (context) {
+            if (typeof this != "function") {
+                throw Error("not a function")
+            }
+            // 若没问参数类型则从这开始写
+            let fn = this;
+            let args = [...arguments].slice(1);
+
+            let resFn = function () {
+                return fn.apply(this instanceof resFn ? this : context, args.concat(...arguments))
+            }
+            function tmp() { }
+            tmp.prototype = this.prototype;
+            resFn.prototype = new tmp();
+
+            return resFn;
+        }
+
+
+        function debounce(func, wait) {
+            let timer;
+            return function () {
+                if (timer) clearTimeout(timer)
+                timer = setTimeout(() => {
+                    func.apply(this, arguments)
+                }, wait);
+            }
+        }
+        function throttle(fn, wait) {
+            let prev = new Date();
+            return function () {
+                const args = arguments;
+                const now = new Date();
+                if (now - prev > wait) {
+                    fn.apply(this, args);
+                    prev = new Date();
+                }
+            }
+        }
+
+        function getIndex(nums, target) {
+            let ans = 0
+            let index = 0
+            for (let i = 0; i < nums.length; i++) {
+                if (ans == target - nums[i]) {
+                    return [index, i]
+                } else {
+                    ans = nums[i]
+                    index = i
+                }
+            }
+        }
+
+        let arr = [2, 7, 11, 15];
+        let target = 18
+        console.log(getIndex(arr, target));
+
+
+        Function.prototype.MyInstanceOf = function (lef, right) {
+            let proto = lef.__proto__;
+            let prototype = right.prototype
+            while (true) {
+                if (proto === null) return false
+                if (proto === prototype) return true
+                proto = proto.__proto__;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
