@@ -121,3 +121,70 @@ let myFavoriteNumber: string | number;
 myFavoriteNumber = 'seven';
 myFavoriteNumber = 7;
 ```
+
+
+
+## 数组的表示法
+
+### 「类型 + 方括号」
+
+最简单的方法是使用「类型 + 方括号」来表示数组：
+
+```ts
+let fibonacci: number[] = [1, 1, 2, 3, 5];
+```
+
+> 数组中不允许出现其他的类型
+
+### 数组泛型
+
+也可以使用数组泛型(Array Generic) Array<elemType> 来表示数组：
+
+```ts
+let fibonacci: Array<number> = [1, 1, 2, 3, 5];
+```
+
+
+## 元祖
+数组合并了相同类型的对象，而元组（Tuple）合并了不同类型的对象。
+
+定义一对值分别为 string 和 number 的元组：
+
+```js
+let tom: [string, number] = ['Tom', 25];
+```
+
+
+访问一个已知索引的元素时，会得到正确的类型：
+
+```js
+let tom: [string, number];
+tom[0] = 'Tom';
+tom[1] = 25;
+
+tom[0].slice(1);
+tom[1].toFixed(2);
+```
+
+## 枚举
+
+枚举使用 **enum** 关键字来定义：
+
+```ts
+const enum Directions {
+    Up,
+    Down,
+    Left,
+    Right
+}
+```
+
+手动赋值
+
+```ts
+const enum Type {
+    Pc = 1,
+    Mobile = 2,
+    Web = 3
+}
+```
