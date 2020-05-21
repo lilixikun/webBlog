@@ -16,7 +16,9 @@
 - [JS数据类型](https://juejin.im/post/5deda003f265da33910a3325)
 - [引用类型回顾(一)](https://juejin.im/post/5df6dd1d6fb9a015fd69bbf8)
 - [引用类型回顾(二)](https://juejin.im/post/5e0994b26fb9a0163c53da3e)
+- [JS预编译](https://github.com/LiLixikun/webBlog/blob/master/JS/md/%E9%A2%84%E7%BC%96%E8%AF%91.md)
 - [变量、作用域、内存问题](https://juejin.im/post/5deef199f265da3398562333)
+- [事件循环机制EventLoop总结](https://github.com/LiLixikun/webBlog/blob/master/JS/md/事件循环机制EventLoop.md)
 
 ## TypeScript
 
@@ -33,7 +35,7 @@
 - [js浅拷贝和深拷贝](https://juejin.im/post/5df366e76fb9a0161711b40f)
 - [手写Promise](https://github.com/LiLixikun/webBlog/blob/master/%E6%89%8B%E5%86%99/promise.md)
 - [手写React 路由](https://github.com/LiLixikun/webBlog/tree/master/%E6%89%8B%E5%86%99/react-router-dom)
-- [手写各种常见]
+- [手写各种常见](https://github.com/LiLixikun/webBlog/blob/master/JS/md/new-call-bind.md)
 
 
 ## 算法每日一题
