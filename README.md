@@ -38,17 +38,6 @@
 - [手写各种常见](https://github.com/LiLixikun/webBlog/blob/master/JS/md/new-call-bind.md)
 
 
-## 算法每日一题
-- [两数之和](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/two-sum.md)
-- [整数翻转](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/reverse-integer.md)
-- [最大子序和](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/maximum-subarray.md)
-- [数组中有一个数字出现的次数超过数组长度的一半,请找出这个数字](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/max-arr-times.md)
-- [最长公共前缀](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/longest-common-prefix.md)
-- [请从字符串中找出一个最长的不包含重复的子字符串,计算该长子字符串的长度](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/longest-no-repeat-str.md)
-
-
-
-
 ## 性能优化
 - [页面渲染机制和性能优化总结](https://juejin.im/post/5ddb7f38f265da7de667d2d5#heading-0)
 
@@ -61,3 +50,10 @@
 
 
 
+## 算法每日一题
+- [两数之和](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/two-sum.md)
+- [整数翻转](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/reverse-integer.md)
+- [最大子序和](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/maximum-subarray.md)
+- [数组中有一个数字出现的次数超过数组长度的一半,请找出这个数字](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/max-arr-times.md)
+- [最长公共前缀](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/longest-common-prefix.md)
+- [请从字符串中找出一个最长的不包含重复的子字符串,计算该长子字符串的长度](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/longest-no-repeat-str.md)

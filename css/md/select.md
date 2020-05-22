@@ -254,3 +254,10 @@ H1,H2,P{
 
 4.在CSS3 中规定, 伪类用一个冒号 (:) 表示, 伪元素用两个冒号 (::)来表示
 ```
+
+## 优先级
+- !important 10000
+- ID -- 0100
+- 类选择器,属性选择器或者伪类 如 .class | :hover,:link,:target | [type] 0010
+- 标签 | 伪元素 选择器 如 p | ::after, ::before, ::fist-inline, ::selection 0001
+- 通配符选择器 0000
