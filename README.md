@@ -1,5 +1,5 @@
 
-## 从零构建个人博客网站
+# 从零构建个人博客网站
 - [Koa 自动加载路由](https://juejin.im/post/5e970c7fe51d457918095eb0)
 - [Koa 全局异常处理](https://juejin.im/post/5e970d0e51882573a343e2ab)
 - [Koa 使用Sequelize操作mysql](https://juejin.im/post/5e970c0b51882573793e832f)
@@ -14,33 +14,33 @@
 - [两/三栏布局](https://github.com/LiLixikun/webBlog/blob/master/css/md/two-columns.md)
 - [圣杯、双飞翼布局](https://github.com/LiLixikun/webBlog/blob/master/css/md/grail-layout.md)
 
-## JavaScript
+# JavaScript
+
+## JS 基础
 - [JS数据类型](https://juejin.im/post/5deda003f265da33910a3325)
-- [引用类型回顾(一)](https://juejin.im/post/5df6dd1d6fb9a015fd69bbf8)
-- [引用类型回顾(二)](https://juejin.im/post/5e0994b26fb9a0163c53da3e)
+- [复杂数据类型](https://github.com/LiLixikun/webBlog/blob/master/JS/md/object-type.md)
+
 - [JS预编译](https://github.com/LiLixikun/webBlog/blob/master/JS/md/%E9%A2%84%E7%BC%96%E8%AF%91.md)
-- [变量、作用域、内存问题](https://juejin.im/post/5deef199f265da3398562333)
+- [变量、作用域、内存问题](https://github.com/LiLixikun/webBlog/blob/master/JS/md/%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98.md)
 - [事件循环机制EventLoop总结](https://github.com/LiLixikun/webBlog/blob/master/JS/md/事件循环机制EventLoop.md)
 
-## TypeScript
+# TypeScript
 
-## webpack 相关
+# webpack 相关
 
-
-## JAVA
 
 ## Liunx
 
 
 
-## 手写
-- [js浅拷贝和深拷贝](https://juejin.im/post/5df366e76fb9a0161711b40f)
+# 手写
+- [js浅拷贝和深拷贝](https://github.com/LiLixikun/webBlog/blob/master/JS/md/js%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D.md)
 - [手写Promise](https://github.com/LiLixikun/webBlog/blob/master/%E6%89%8B%E5%86%99/promise.md)
 - [手写React 路由](https://github.com/LiLixikun/webBlog/tree/master/%E6%89%8B%E5%86%99/react-router-dom)
 - [手写各种常见](https://github.com/LiLixikun/webBlog/blob/master/JS/md/new-call-bind.md)
 
 
-## 性能优化
+# 性能优化
 - [页面渲染机制和性能优化总结](https://juejin.im/post/5ddb7f38f265da7de667d2d5#heading-0)
 
 
