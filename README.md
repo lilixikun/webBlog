@@ -52,3 +52,10 @@
 - [数组中有一个数字出现的次数超过数组长度的一半,请找出这个数字](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/max-arr-times.md)
 - [最长公共前缀](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/longest-common-prefix.md)
 - [请从字符串中找出一个最长的不包含重复的子字符串,计算该长子字符串的长度](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/longest-no-repeat-str.md)
+
+## 每日一题
+
+```js
+'tom' == true
+'tom' == false
+```
