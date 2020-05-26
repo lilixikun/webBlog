@@ -32,8 +32,8 @@
 | 数组 | 字符串 | [1,2,3]=>"1,2,3" |
 | 对象 | 字符串 | {}=>"[object Object]" |
 |string | 数字 |'1'=>1,'ss'=>NaN |
-| 数组
-| null | 数字 | 0|\
+| 数组 | 数字 | 空数组为0, 存在一个元素且为数字转数字,其他情况为 NaN |
+| null | 数字 | 0|
 | 除了数组的引用类型 |数字 | NaN|
 |Symbol | 数字 |抛错    |
 
@@ -84,8 +84,10 @@ null > 0? //=>false
 null < 0? //=>false
 null >= 0?  //=>true
 null <= 0?  //=>true
-0 == false //false
-0 == undefined //false
+null == false //false
+null == 0 // false
+undefined == 0  //false
+undefined == false //false
 ```
 
 - 首先null > 0; 和 null < 0; 的结果是将null转换为数字0来进行的比较判断
@@ -95,3 +97,44 @@ null <= 0?  //=>true
 **注意**
 
 **null** 和 **undefined** 在做相等判断时，不进行转型，所以null和0为不同类型数据，结果为false。
+
+练习
+
+```js
+
+// 每个表达式是 true 还是 false 呢？为啥呢？
+
+// 初阶
+!{}
+12 == '12'
+'false' == false
+null == undefined
+
+// 高阶
+[] == []
+[] == false
+[] === false
+[45] == 45
+
+// 终阶
+[45] < [46] ?
+[10] < [9] ?
+{} == !{}
+{} != {}
+-0 === +0
+NaN === NaN
+NaN != NaN
+
+// 转换条件 转换后类型 结果
+[]+[] // String “”
+[1,2]+[3,4] // String “1,23,4”
+[]+{} // String “[object Object]”
+[1,2] + {a:1} // String “1,2[object Object]”
+{}+[] // Number 0
+{}+[1] //Number 1
+{a:1}+[1,2] // Number NaN
+{a:1}+{b:2} // Chrome - String “[object Object][object Object]” (背后实现eval)
+{a:1}+{b:2} // Firefox - Number NaN
+true+true // Number 2
+1+{a:1} // String “1[object Object]”
+```
