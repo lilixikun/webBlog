@@ -18,24 +18,68 @@
 - 转换为布尔值
 - 转换为字符串
 
-转换规则
- 
+**转换为原始类型**
 
-| 原始值 | 转换目标 | 结果 |
-| ------ | ------ | ------ |
-| number | 布尔值 | 除了 +0，-0，NaN 都是 **true** |
-| string | 布尔值 | 除了空字符串都是 **true** |
-| undefined,null | 布尔值 | **false** |
-| 引用类型 | 布尔值 | **true** |
-| number | 字符串 | NaN->'Nan' |
-| Boolean 函数 Symbol | 字符串 | 'string' |
-| 数组 | 字符串 | [1,2,3]=>"1,2,3" |
-| 对象 | 字符串 | {}=>"[object Object]" |
-|string | 数字 |'1'=>1,'ss'=>NaN |
-| 数组 | 数字 | 空数组为0, 存在一个元素且为数字转数字,其他情况为 NaN |
-| null | 数字 | 0|
-| 除了数组的引用类型 |数字 | NaN|
-|Symbol | 数字 |抛错    |
+对象在转换类型的时候，会执行原生方法 **ToPrimitive** 。
+
+- 如果已经是 原始类型，则返回当前值
+- 如果需要转 字符串 则先调用toSting方法，如果此时是 原始类型 则直接返回，否则再调用valueOf方法并返回结果
+- 如果不是 字符串，则先调用valueOf方法，如果此时是 原始类型 则直接返回，否则再调用toString方法并返回结果
+- 如果都没有 原始类型 返回，则抛出 TypeError 类型错误。
+
+我们可以通过重写 **Symbol.toPrimitive** 来制定转换规则，此方法在转原始类型时调用优先级最高。
+
+
+```js
+const data = {
+  valueOf() {
+    return 1;
+  },
+  toString() {
+    return "1";
+  },
+  [Symbol.toPrimitive]() {
+    return 2;
+  }
+};
+data + 1; // 3
+
+```
+
+## 转换为布尔值
+
+|参数类型 | 结果 |
+|---- | --- |
+| Undefined | false |
+|Null | false |
+|Boolean | 返回当前 |
+|Number|参数为+0、-0或NaN，则返回 false；其他情况则返回 true|
+|String | 字符串为空返回 false, 否则返回 true
+|Symbol|true|
+|Object|true|
+
+## 转换为数字
+|参数类型 | 结果 |
+|---- | --- |
+| Undefined | NaN |
+|Null | 0|
+|Boolean | 参数为 true，则返回 1；false则返回 +0。|
+|Number | 返回当前参数。|
+|String | 先调用 ToPrimitive ，再调用 ToNumber ，然后返回结果|
+|Symbol | 抛出 TypeError错误。|
+|Object | 先调用 ToPrimitive ，再调用 ToNumber ，然后返回结果|
+
+
+## 转换为字符串
+|参数类型 | 结果 |
+|---- | --- |
+| Undefined | 'undefined' |
+| Null | 'null' |
+|Boolean | 参数为 true ,则返回 "true"；否则返回 "false"|
+| Number | 调用 NumberToString ，然后返回结果。|
+| String | 返回 当前参数。|
+| Symbol | 抛出 TypeError错误。|\
+| Object | 先调用 ToPrimitive ，再调用 ToString ，然后返回结果。 |
 
 ## == 和 === 区别
 

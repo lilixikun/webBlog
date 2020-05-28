@@ -257,3 +257,20 @@ console.log(9)
 
 1,4,6,7,9,2,8,3,5
 
+# 疑惑
+
+我们知道 Promise 本身是一个异步方法,必须得在 执行栈执行完了再去 取 它的值 .因此,所有的返回值都得包一层异步 setTimeout。那么问题来了, 为什么 Promise 的 resolve 被 setTimeout 包裹后 就成了微任务, 要知道 setTimeout 可是宏 任务 啊。
+
+
+**解析**
+
+在现代浏览器里面，产生微任务有两种方式。
+
+- 第一种方式是使用 MutationObserver 监控某个 DOM 节点，然后再通过 JavaScript 来修改这个节点，或者为这个节点添加、删除部分子节点，当 DOM 节点发生变化时，就会产生 DOM 变化记录的微任务。
+- 第二种方式是使用 Promise，当调用 Promise.resolve() 或者 Promise.reject() 的时候，也会产生微任务。
+
+ECMAScript 规范明确指出 Promise 必须以 Promise Job 形式加入 job queues（也就是 microtask）。Job Queue 是 ES6 中新提出的概念，建立在事件循环队列之上。
+
+因此我个人理解如下:
+
+Promise 执行了 then 后 会被置入到一个 **微任务** 队列, 和里面是不是 setTimeout 包裹没有关系. 然后等待 主线程 任务运行结束, 再去执行 队列任务
