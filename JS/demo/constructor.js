@@ -1,15 +1,32 @@
-var A = function () {
-    this.name = 'xx'
-    this.age = 12
+
+
+Animal.prototype.eat = function () {
+    console.log(this.name + " is eating something.")
 }
 
-A.prototype.n = 1
+function Animal(name) {
+    this.name = name;
+}
 
-var b = new A()
+var tiger = new Animal('ea')
+tiger.eat()
 
-A.prototype.m = 2
-console.log(b.n);
-console.log(b.m);
+var tiger2 = {};
+tiger2.name = 'xxx'
+tiger2.__proto__ = Animal.prototype
+// Animal.call(tiger2)
+tiger2.eat()
 
-console.log(A.prototype.construcuor);
 
+function A() {
+
+}
+var a = new A()
+
+Function.prototype === Function.__proto__
+
+Function.prototype.__proto__ === Object.prototype
+
+Object.prototype.__proto__ === null
+
+Function.prototype === Object.__proto__
