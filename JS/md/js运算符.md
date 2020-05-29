@@ -26,6 +26,8 @@ new Foo().getName();
 new new Foo().getName();
 ```
 
+**解析** https://www.cnblogs.com/yeujuan/p/10001468.html
+
 题目二:
 
 ```js

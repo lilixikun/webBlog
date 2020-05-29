@@ -32,15 +32,40 @@ function _new() {
 ## call 实现
 
 ```js
-Function.prototype.myCall = function (context, ...args) {
+Function.prototype.mycall = function (thisArg) {
+    if (typeof this !== "function") {
+        throw new TypeError("error")
+    }
+    const arg = [...arguments].slice(1);
+    // 声明一个 Symbol 属性，防止 fn 被占用
+    const fn = Symbol("fn");
+    thisArg = thisArg || window;
+    //将调用 fn 添加到 thisArg 对象中
+    thisArg[fn] = this;
+    //执行函数
+    const result = thisArg[fn](...arg)
+    //删除属性
+    delete thisArg[fn];
+    return result;
+}
+```
 
-    context = context || window
-    let fn = Symbol()
-    context[fn] = this
+## apply 实现
 
-    let res = context[fn](...args)
-    delete context[fn]
-    return res
+```js
+Function.prototype.myapply = function (thisArg) {
+    console.log(arguments);
+
+    if (typeof this !== "function") {
+        throw new TypeError("this no a function")
+    }
+    const arg = [...arguments].slice(1);
+    const fn = Symbol("fn");
+    thisArg[fn] = this;
+    //执行函数
+    const result = thisArg[fn](...arg);
+    delete thisArg[fn]
+    return result;
 }
 ```
 
@@ -49,24 +74,36 @@ Function.prototype.myCall = function (context, ...args) {
 因为bind转换后的函数可以作为构造函数使用，此时this应该指向构造出的实例，而bind函数绑定的第一个参数。
 
 ```js
-Function.prototype.myBind = function (context) {
-    if (typeof this != "function") {
-        throw Error("not a function")
+Function.prototype.mybind = function (thisArg) {
+    if (typeof this !== "function") {
+        throw new TypeError("Bind must be called on a function");
     }
-    // 若没问参数类型则从这开始写
-    let fn = this;
-    let args = [...arguments].slice(1);
+    //保存原函数
+    var self = this;
+    // 拿到参数，为了传给调用者
+    const args = Array.prototype.slice.call(arguments, 1),
 
-    let resFn = function () {
-        return fn.apply(this instanceof resFn ? this : context, args.concat(...arguments))
+        //构建一个新函数,保存原函数的原型
+        nop = function () { },
+        bound = function () {
+            // this instanceof nop, 判断是否使用 new 来调用 bound
+            // 如果是 new 来调用的话，this的指向就是其实例，
+            // 如果不是 new 调用的话，就改变 this 指向到指定的对象 o
+            return self.apply(
+                this instanceof nop ? this : thisArg,
+                args.concat(Array.prototype.slice.call(arguments))
+            );
+        };
+
+    // 箭头函数没有 prototype，箭头函数this永远指向它所在的作用域
+    if (this.prototype) {
+        nop.prototype = this.prototype
     }
-    function tmp() { }
-    tmp.prototype = this.prototype;
-    resFn.prototype = new tmp();
 
-    return resFn;
+    //修改原型函数的绑定指向
+    bound.prototype = new nop();
+    return bound;
 }
-
 ```
 
 ## 函数防抖

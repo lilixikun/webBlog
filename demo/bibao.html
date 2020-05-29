@@ -199,41 +199,41 @@
 
 
         /*非严格模式*/
-        // var name = 'window'
+        var name = 'window'
 
-        // function Person(name) {
-        //     this.name = name;
-        //     this.fn1 = function () {
-        //         console.log(this.name);
-        //     };
-        //     this.fn2 = () => console.log(this.name);
-        //     this.fn3 = function () {
-        //         return function () {
-        //             console.log(this.name)
-        //         };
-        //     };
-        //     this.fn4 = function () {
-        //         return () => console.log(this.name);
-        //     };
-        // };
+        function Person(name) {
+            this.name = name;
+            this.fn1 = function () {
+                console.log(this.name);
+            };
+            this.fn2 = () => console.log(this.name);
+            this.fn3 = function () {
+                return function () {
+                    console.log(this.name)
+                };
+            };
+            this.fn4 = function () {
+                return () => console.log(this.name);
+            };
+        };
 
-        // var obj1 = new Person('听风是风');
-        // console.dir(obj1);
-        // var obj2 = new Person('行星飞行');
+        var obj1 = new Person('听风是风');
+        console.dir(obj1);
+        var obj2 = new Person('行星飞行');
 
-        // obj1.fn1(); //听风是风
-        // obj1.fn1.call(obj2);//行星飞行
+        obj1.fn1();
+        obj1.fn1.call(obj2);
 
-        // // obj1.fn2();//听风是风
-        // // obj1.fn2.call(obj2);//undefine
+        obj1.fn2();
+        obj1.fn2.call(obj2);
 
-        // obj1.fn3()();//window
-        // obj1.fn3().call(obj2); //fun
-        // obj1.fn3.call(obj2)(); //行星飞行
+        obj1.fn3()();//window
+        obj1.fn3().call(obj2);
+        obj1.fn3.call(obj2)();
 
-        // obj1.fn4()();
-        // obj1.fn4().call(obj2);
-        // obj1.fn4.call(obj2)();
+        obj1.fn4()();
+        obj1.fn4().call(obj2);
+        obj1.fn4.call(obj2)();
 
         /*非严格模式*/
 
@@ -258,19 +258,19 @@
             name: '行星飞行'
         };
 
-        obj1.fn1();//?   //听风是风
-        obj1.fn1.call(obj2);//? 行星飞行
+        obj1.fn1();
+        obj1.fn1.call(obj2);
 
-        obj1.fn2();//? window
-        obj1.fn2.call(obj2);//?window
+        obj1.fn2();
+        obj1.fn2.call(obj2);
 
-        obj1.fn3()();//? window
-        obj1.fn3().call(obj2);//?行星飞行
-        obj1.fn3.call(obj2)();//?window
+        obj1.fn3()();
+        obj1.fn3().call(obj2);
+        obj1.fn3.call(obj2)();
 
-        obj1.fn4()();//?听风是风
-        obj1.fn4().call(obj2);//?听风是风
-        obj1.fn4.call(obj2)();//?
+        obj1.fn4()();
+        obj1.fn4().call(obj2);
+        obj1.fn4.call(obj2)();
 
 
         let fn = function () {
@@ -297,7 +297,7 @@
         }
         console.log(x);
         console.log(typeof x);
-        
+
 
     //</script>
 </body>
