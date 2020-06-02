@@ -19,6 +19,7 @@ export function infoReducer(state = initInfo, action) {
     switch (action.type) {
         case 'SET_NAME':
             return {
+                ...state,
                 name: 'hello tom'
             }
         default:

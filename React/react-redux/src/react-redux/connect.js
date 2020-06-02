@@ -29,7 +29,6 @@ export default function connect(mapStateTpProps = defaultMapStateToProps, mapDis
                             }
                         }
                     </Consumer>
-
                 )
             }
         }

@@ -19,7 +19,7 @@
 ## JS 基础
 - [JS数据类型](https://github.com/LiLixikun/webBlog/blob/master/JS/md/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
 - [复杂数据类型](https://github.com/LiLixikun/webBlog/blob/master/JS/md/object-type.md)
-- [JS运算符]()
+- [JS运算符](https://github.com/LiLixikun/webBlog/blob/master/JS/md/js%E8%BF%90%E7%AE%97%E7%AC%A6.md)
 - [数据类型检测](https://github.com/LiLixikun/webBlog/blob/master/JS/md/type-check.md)
 - [数据类型转换](https://github.com/LiLixikun/webBlog/blob/master/JS/md/data-type-transform.md)
 - [JS预编译](https://github.com/LiLixikun/webBlog/blob/master/JS/md/%E9%A2%84%E7%BC%96%E8%AF%91.md)
@@ -27,15 +27,20 @@
 - [JS执行上下文](https://github.com/LiLixikun/webBlog/blob/master/JS/md/JS%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87.md)
 - [箭头函数](https://github.com/LiLixikun/webBlog/blob/master/JS/md/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0.md)
 - [变量、作用域、内存问题](https://github.com/LiLixikun/webBlog/blob/master/JS/md/%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98.md)
-- [事件循环机制EventLoop总结](https://github.com/LiLixikun/webBlog/blob/master/JS/md/事件循环机制EventLoop.md)
 
+
+## 高阶
+- [迭代器和生成器](https://github.com/LiLixikun/webBlog/blob/master/JS/md/迭代器.md)
+- [事件循环机制EventLoop总结](https://github.com/LiLixikun/webBlog/blob/master/JS/md/事件循环机制EventLoop.md)
+- 
 # TypeScript
 
 # webpack 相关
 
 # React
-- [手写React 路由](https://github.com/LiLixikun/webBlog/tree/master/%E6%89%8B%E5%86%99/react-router-dom)
-
+- [手写React 路由](https://github.com/LiLixikun/webBlog/tree/master/React/react-router-dom)
+- [手写Redux](https://github.com/LiLixikun/webBlog/tree/master/React/redux)
+- [手写React-Redux](https://github.com/LiLixikun/webBlog/tree/master/React/react-redux)
 
 # Liunx
 
@@ -59,10 +64,3 @@
 - [数组中有一个数字出现的次数超过数组长度的一半,请找出这个数字](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/max-arr-times.md)
 - [最长公共前缀](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/longest-common-prefix.md)
 - [请从字符串中找出一个最长的不包含重复的子字符串,计算该长子字符串的长度](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/longest-no-repeat-str.md)
-
-## 每日一题
-
-```js
-'tom' == true
-'tom' == false
-```

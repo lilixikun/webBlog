@@ -5,9 +5,11 @@ export default function applyMiddleware(...middlewares) {
         return (reducer, initState) => {
             // 1 生成 store
             const store = oldCreateStore(reducer, initState)
-            /*给每个 middleware 传下store，相当于 const logger = loggerMiddleware(store);*/
+
             // 不要给那么大权限 只给数据
             const simpleStore = { getState: store.getState };
+
+            /*给每个 middleware 传下store，相当于 const logger = loggerMiddleware(store);*/
             const chain = middlewares.map(middleware => middleware(simpleStore))
 
             let dispatch = store.dispatch

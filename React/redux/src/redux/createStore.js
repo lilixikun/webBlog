@@ -42,9 +42,17 @@ export default function createStore(reducer, initState, rewriteCreateStoreFunc) 
     /* 注意！！！只修改了这里，用一个不匹配任何计划的 type，来获取初始值 */
     dispatch({ type: Symbol() })
 
+    /**重置reducer */
+    function replaceReducer(nextReducer) {
+        reducer = nextReducer
+        /*刷新一遍 state 的值，新来的 reducer 把自己的默认状态放到 state 树上去*/
+        dispatch({ type: Symbol() })
+    }
+
     return {
         getState,
         dispatch,
-        subscribe
+        subscribe,
+        replaceReducer
     }
 }
