@@ -48,8 +48,10 @@
 
 # 手写
 - [js浅拷贝和深拷贝](https://github.com/LiLixikun/webBlog/blob/master/JS/md/js%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D.md)
+- [手写call、apply、bind](https://github.com/LiLixikun/webBlog/blob/master/JS/md/new-call-bind.md)
+- [手写防抖节流]()
+- [手写new/instanceof]()
 - [手写Promise](https://github.com/LiLixikun/webBlog/blob/master/%E6%89%8B%E5%86%99/promise.md)
-- [手写各种常见](https://github.com/LiLixikun/webBlog/blob/master/JS/md/new-call-bind.md)
 
 
 # 性能优化
@@ -58,9 +60,16 @@
 
 
 # 算法
+
 ## 数组
+- [数组](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/md/Array.md)
 ## 栈
+- [实现一个栈](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/md/%E6%A0%88.md)
+
 ## 队列和双端队列
+- [实现队列和双端队列](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/md/%E9%98%9F%E5%88%97.md)
+
+## 链表
 
 ## 算法每日一题
 - [两数之和](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/two-sum.md)

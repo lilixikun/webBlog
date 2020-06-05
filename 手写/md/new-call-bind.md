@@ -63,7 +63,7 @@ Function.prototype.myapply = function (thisArg) {
     const fn = Symbol("fn");
     thisArg[fn] = this;
     //执行函数
-    const result = thisArg[fn](...arg);
+    const result = thisArg[fn](arg);
     delete thisArg[fn]
     return result;
 }
@@ -103,37 +103,6 @@ Function.prototype.mybind = function (thisArg) {
     //修改原型函数的绑定指向
     bound.prototype = new nop();
     return bound;
-}
-```
-
-## 函数防抖
-
-```js
-
-function debounce(func, wait) {
-    let timer;
-    return function () {
-        if (timer) clearTimeout(timer)
-        timer = setTimeout(() => {
-            func.apply(this, arguments)
-        }, wait);
-    }
-}
-```
-
-## 函数节流
-
-```js
-function throttle(fn, wait) {
-    let prev = new Date();
-    return function () {
-        const args = arguments;
-        const now = new Date();
-        if (now - prev > wait) {
-            fn.apply(this, args);
-            prev = new Date();
-        }
-    }
 }
 ```
 
