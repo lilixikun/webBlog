@@ -48,10 +48,10 @@
 
 # 手写
 - [js浅拷贝和深拷贝](https://github.com/LiLixikun/webBlog/blob/master/JS/md/js%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D.md)
-- [手写call、apply、bind](https://github.com/LiLixikun/webBlog/blob/master/JS/md/new-call-bind.md)
-- [手写防抖节流]()
-- [手写new/instanceof]()
-- [手写Promise](https://github.com/LiLixikun/webBlog/blob/master/%E6%89%8B%E5%86%99/promise.md)
+- [手写call、apply、bind](https://github.com/LiLixikun/webBlog/blob/master/%E6%89%8B%E5%86%99/md/new-call-bind.md)
+- [手写防抖节流](https://github.com/LiLixikun/webBlog/blob/master/%E6%89%8B%E5%86%99/md/%E9%98%B2%E6%8A%96-%E8%8A%82%E6%B5%81.md)
+- [手写new/instanceof](https://github.com/LiLixikun/webBlog/blob/master/%E6%89%8B%E5%86%99/JS/new-instanceof.js)
+- [手写Promise](https://github.com/LiLixikun/webBlog/blob/master/%E6%89%8B%E5%86%99/md/promise.md)
 
 
 # 性能优化
