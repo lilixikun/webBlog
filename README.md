@@ -71,6 +71,20 @@
 
 ## 链表
 
+## 集合
+
+## 数
+
+## 字典和散列表
+
+# 练习
+
+## 动态规划
+
+## 贪心算法
+
+
+
 ## 算法每日一题
 - [两数之和](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/two-sum.md)
 - [整数翻转](https://github.com/LiLixikun/webBlog/blob/master/%E7%AE%97%E6%B3%95/reverse-integer.md)
