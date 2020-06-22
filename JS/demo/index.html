@@ -14,7 +14,32 @@
 </head>
 
 <body>
+    <script>
 
+        var a = "Hello World";
+        if (a.indexOf("lo") >= 0) { // true
+            // 找到匹配！
+        }
+        if (a.indexOf("lo") != -1) { // true
+            // 找到匹配！
+        }
+        if (a.indexOf("ol") < 0) { // true
+            // 没有找到匹配！
+        }
+        if (a.indexOf("ol") == -1) { // true
+            // 没有找到匹配！
+        }
+
+        Math.floor(-49.6)
+        ~~49.6
+
+        var i = 2
+        Number.prototype.valueOf = function () {
+            return i++
+        }
+        var a = new Number(42)
+        a == 2 && a == 3
+    </script>
 </body>
 
 </html>

@@ -6,7 +6,6 @@
 
 //yield表达式如果用在另一个表达式之中，必须放在圆括号里面。
 function* deme() {
-    console.log('hello' +yield);
     console.log('hello' +yield 2);
 
     console.log('hello' + (yield 123));
@@ -36,12 +35,12 @@ function* foo(x) {
     return (x + y + z)
 }
 
-var a=foo(5);
+var a = foo(5);
 a.next();//6
 a.next()//undefined
 a.next() //undefined
 
-var f=foo(5);
+var f = foo(5);
 f.next();//6
 f.next(12); //8
 f.next(13); //42
@@ -49,12 +48,12 @@ f.next(13); //42
 //Generator.prototype.return()
 //Generator 函数返回的遍历器对象，还有一个return方法，可以返回给定的值，并且终结遍历 Generator 函数。
 
-function* gen(){
+function* gen() {
     yield 1;
     yield 2;
     yield 3;
 }
-var g=gen();
+var g = gen();
 g.next(); //{value:1,done:false}
 g.return('foo'); //{value:'foo',done:true}
 //如果不提供参数 则是undefined

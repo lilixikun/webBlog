@@ -9,19 +9,78 @@
 
 <body>
     <script>
-        function fun(n, o) {
-            console.log(o);
-            return {
-                fun: function (m) {
-                    return fun(m, n)
-                }
+        // function fun(n, o) {
+        //     console.log(o);
+        //     return {
+        //         fun: function (m) {
+        //             return fun(m, n)
+        //         }
+        //     }
+        // }
+        // var a = fun(0)
+        // a.fun(1); a.fun(2);
+        // var b = fun(0).fun(1).fun(2).fun(3);
+        // var c = fun(0).fun(1);
+        // c.fun(2); c.fun(3)
+
+        // function foo() {
+        //     var a = 2;
+        //     function bar() {
+        //         console.log(a);
+        //     }
+        //     bar()
+        // }
+        // foo()
+
+        const partial = (f, ...args) => (...moreArgs) => f(...args, ...moreArgs)
+        const add3 = (a, b, c) => a + b + c
+
+        const fivePlus = partial(add3, 2, 3)
+        fivePlus(4)
+
+        function add(x, y) {
+            return x + y
+        }
+        // 柯里化之后
+        function addx(y) {
+            return function (x) {
+                return x + y
             }
         }
-        var a = fun(0)
-        a.fun(1); a.fun(2);
-        var b = fun(0).fun(1).fun(2).fun(3);
-        var c = fun(0).fun(1);
-        c.fun(2); c.fun(3)
+        addx(2)(1)
+
+        const curry = (fn, arr = []) => (...args) =>
+            (arg => (args.length === fn.length ? fn(...arg) :
+                curry(fn, arg)))([
+                    ...arr,
+                    ...args
+                ]);
+
+        let curryTest = curry((a, b, c, d) => a + b + c + d);
+        curryTest(1, 2, 3)(4)  //10
+        curryTest(1, 2)(4, 3)  // 10 
+        curryTest(1)(2)(3)(4)
+
+
+        var arr = [1, 2, 3, 4, 5];
+        let len = ~~(arr.length / 2)
+        for (let i = 0; i < len; i++) {
+            [arr[i], arr[arr.length - 1 - i]] = [arr[arr.length - 1 - i], arr[i]]
+        }
+
+        var Container = function (x) {
+            this._value = x
+        }
+
+        Container.of = x => new Container(x)
+
+        Container.prototype.map = function (f) {
+            return Container.of(f(this._value))
+        }
+
+        console.log(Container.of(3).map(x => x + 1).map(x => "Result is" + x));
+
+        
     </script>
 </body>
 

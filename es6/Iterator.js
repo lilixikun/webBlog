@@ -12,8 +12,8 @@ function idMark() {
 }
 
 var it = idMark();
-it.next().value; //2
-it.next().value; //2
+it.next().value; //0
+it.next().value; //1
 
 //如果使用 TypeScript 的写法，遍历器接口（Iterable）、指针对象（Iterator）和next方法返回值的规格可以描述如下。
 
@@ -29,6 +29,24 @@ const obj = {
         }
     }
 }
+
+
+
+//实现一个迭代器
+function creatIterator(items) {
+    var i = 0;
+    return {
+        next: () => {
+            var done = (i >= items.length);
+            var value = !done ? items[i++] : undefined;
+            return {
+                done: done,
+                value: value
+            }
+        }
+    }
+}
+
 
 //元素具有 inerator 接口的数据结构如下
 

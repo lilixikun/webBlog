@@ -36,7 +36,7 @@ Object.keys(Point.prototype);//[]
 //es5 写法可以枚举
 var Point = function (x, y) { }
 Point.prototype.toString = function () { }
-Object.keys(Point.prototype);['toString']
+Object.keys(Point.prototype);  //['toString']
 
 
 //constructor方法是类的默认方法，通过new命令生成对象实例时，自动调用该方法。

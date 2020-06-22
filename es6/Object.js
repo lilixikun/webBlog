@@ -60,8 +60,8 @@ console.log(desc);
 
 // for in
 // Object.keys()
-//Object.getOwnPropertyNames  //返回一个数组，包含对象自身的所有属性（不含 Symbol 属性，但是包括不可枚举属性）的键名。
-//Object.getOwnPropertySymbols  返回一个数组，包含对象自身的所有 Symbol 属性的键名。
+// Object.getOwnPropertyNames  //返回一个数组，包含对象自身的所有属性（不含 Symbol 属性，但是包括不可枚举属性）的键名。
+// Object.getOwnPropertySymbols  返回一个数组，包含对象自身的所有 Symbol 属性的键名。
 
 //返回一个数组，包含对象自身的所有键名，不管键名是 Symbol 或字符串，也不管是否可枚举
 //Reflect.ownKeys  

@@ -191,49 +191,15 @@
 
         var result = test1();
         var result1 = test1(1);
-        result.add(); //4400
-        result.add(); //4001
-        console.log(result.n); //4001
+        result.add();
+        result.add();
+        console.log(result.n);
         result1.add()
 
 
 
         /*非严格模式*/
-        var name = 'window'
 
-        function Person(name) {
-            this.name = name;
-            this.fn1 = function () {
-                console.log(this.name);
-            };
-            this.fn2 = () => console.log(this.name);
-            this.fn3 = function () {
-                return function () {
-                    console.log(this.name)
-                };
-            };
-            this.fn4 = function () {
-                return () => console.log(this.name);
-            };
-        };
-
-        var obj1 = new Person('听风是风');
-        console.dir(obj1);
-        var obj2 = new Person('行星飞行');
-
-        obj1.fn1();
-        obj1.fn1.call(obj2);
-
-        obj1.fn2();
-        obj1.fn2.call(obj2);
-
-        obj1.fn3()();//window
-        obj1.fn3().call(obj2);
-        obj1.fn3.call(obj2)();
-
-        obj1.fn4()();
-        obj1.fn4().call(obj2);
-        obj1.fn4.call(obj2)();
 
         /*非严格模式*/
 

@@ -105,18 +105,76 @@ toPrimitive 方法对不同类型返回的结果如下。
 |--- | ---|
 |对象 | 如果对象的 valueOf 方法的结果是原始值，返回原始值;如果对象的 toString 方法返回 原始值，就返回这个值;其他情况都返回一个错误|
 
+
+# 特殊的 ~ 运算符
+
+~ 运算符（即字位操作“非”）相关的强制类型转换
+
+
+**~x** 大致等同于 -(x+1)。
+
+```js
+~42;  //-(42+1)  -43
+```
+
+JavaScript 中字符串的 indexOf(..) 方法也遵循这一惯例，该方法在字符串中搜索指定的子字符串，如果找到就返回子字符串所在的位置（从 0 开始），否则返回 **-1**。
+
+```js
+
+var a = "Hello World";
+if (a.indexOf("lo") >= 0) { // true
+    // 找到匹配！
+}
+if (a.indexOf("lo") != -1) { // true
+    // 找到匹配！
+}
+if (a.indexOf("ol") < 0) { // true
+    // 没有找到匹配！
+}
+if (a.indexOf("ol") == -1) { // true
+    // 没有找到匹配！
+}
+```
+
+>= 0 和 == -1 这样的写法不是很好，称为“抽象渗漏”，意思是在代码中暴露了底层的实现细节，这里是指用 -1 作为失败时的返回值，这些细节应该被屏蔽掉。
+
+
+~ 的用处就来了   ~ 和 indexOf() 一起可以将结果强制类型转换
+
+**如果 indexOf(..) 返回 -1，~ 将其转换为假值 0，其他情况一律转换为真值。**
+
+if (~a.indexOf(..)) 仍然是对 indexOf(..) 的返回结果进行隐式强制类型转换，0 转换为 false，
+
+```js
+if (~a.indexOf( "lo" )) { // true
+ // 找到匹配！
+}
+```
+
+## 字位截除
+
+**~~** 来截除数字值的小数部分，以为这和 **Math.floor(..)** 的效果一样，
+
+~~ 中的第一个 ~ 执行 ToInt32 并反转字位，然后第二个 ~ 再进行一次字位反转，即将所有字位反转回原值，最后得到的仍然是 ToInt32 的结果。
+
+```js
+Math.floor(-49.6)
+~~49.6
+```
+
+
 来看一道题
 
 ```js
 'tom'==true
 ```
 
-- 首先，布尔值会被 toNumber 方法转成数，因此得到 packt == 1
+- 首先，布尔值会被 toNumber 方法转成数，因此得到 tom == 1
 - 其次，用 toNumber 转换字符串值。因为字符串包含字母，所以会被转成 NaN，表达式
 就变成了 NaN == 1，结果就是 false。
 
 ```js
-'tom'==false
+'tom'== false
 ```
 
 同上也是false
@@ -124,12 +182,13 @@ toPrimitive 方法对不同类型返回的结果如下。
 
 再来几个比较特殊的
 ```js
+null == 0 // false
 null > 0? //=>false
 null < 0? //=>false
 null >= 0?  //=>true
 null <= 0?  //=>true
 null == false //false
-null == 0 // false
+
 undefined == 0  //false
 undefined == false //false
 ```
@@ -141,6 +200,32 @@ undefined == false //false
 **注意**
 
 **null** 和 **undefined** 在做相等判断时，不进行转型，所以null和0为不同类型数据，结果为false。
+
+
+# 宽松相等和严格相等
+
+宽松相等（loose equals）== 和严格相等（strict equals）=== 都用来判断两个值是否"相等"",但是它们之间有一个很重要的区别，特别是在判断条件上。
+
+
+常见的误区是 "== 检查值是否相等，=== 检查值和类型是否相等"。听起来蛮有道理，然而还不够准确。
+
+**正确的解释是：“== 允许在相等比较中进行强制类型转换，而 === 不允许。**
+
+
+# 实现  a==2 && a==3
+
+让 a.valueOf() 每次调用都产生副作用，比如第一次返回 2，第二次返回 3，
+
+
+```js
+
+var i = 2
+Number.prototype.valueOf = function () {
+    return i++
+}
+var a = new Number(42)
+a == 2 && a == 3
+```
 
 练习
 
@@ -161,24 +246,31 @@ null == undefined
 [45] == 45
 
 // 终阶
-[45] < [46] ?
-[10] < [9] ?
+[45] < [46] 
+[10] < [9] 
 {} == !{}
 {} != {}
 -0 === +0
-NaN === NaN
+NaN == NaN
 NaN != NaN
 
 // 转换条件 转换后类型 结果
-[]+[] // String “”
+
 [1,2]+[3,4] // String “1,23,4”
-[]+{} // String “[object Object]”
-[1,2] + {a:1} // String “1,2[object Object]”
-{}+[] // Number 0
-{}+[1] //Number 1
+
+[1,2] + {a:1} // String   "1,2[object Object]"
+
 {a:1}+[1,2] // Number NaN
-{a:1}+{b:2} // Chrome - String “[object Object][object Object]” (背后实现eval)
-{a:1}+{b:2} // Firefox - Number NaN
+
 true+true // Number 2
-1+{a:1} // String “1[object Object]”
+1+{a:1} // String "1[object Object]"
+
+// 超神
+[]+{} // String "[object Object]"
+{} + [] // 0
+[] + [] // ""
+{} + {} // "[object Object][object Object]"
+
+!+[]+[]
 ```
+

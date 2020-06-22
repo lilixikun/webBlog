@@ -1,5 +1,5 @@
 //扩展运算符
-console.log(...[1, 2, 3]); //123
+console.log(...[1, 2, 3]); //1 2 3
 //用于函数调用
 function push(arr, ...items) {
     arr.push(...items);
@@ -111,7 +111,7 @@ for (const [index, item] of arr.entries()) {
 
 for (const iterator of arr) {
     console.log(iterator);
-
 }
 
+// 是否包含某个元素 返回true
 Array.prototype.includes
