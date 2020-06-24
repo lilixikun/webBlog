@@ -4,84 +4,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>作用域,原型,闭包</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .p1 {
+            height: 100px;
+        }
+
+        .p1:nth-of-type(2n) {
+            background-color: firebrick;
+        }
+
+        .p1:nth-of-type(2n+1) {
+            background-color: aqua;
+        }
+    </style>
 </head>
 
 <body>
+    <p class="p1"></p>
+    <p class="p1"></p>
+    <p class="p1"></p>
+    <p class="p1"></p>
     <script>
-        // function fun(n, o) {
-        //     console.log(o);
-        //     return {
-        //         fun: function (m) {
-        //             return fun(m, n)
-        //         }
-        //     }
-        // }
-        // var a = fun(0)
-        // a.fun(1); a.fun(2);
-        // var b = fun(0).fun(1).fun(2).fun(3);
-        // var c = fun(0).fun(1);
-        // c.fun(2); c.fun(3)
 
-        // function foo() {
-        //     var a = 2;
-        //     function bar() {
-        //         console.log(a);
-        //     }
-        //     bar()
-        // }
-        // foo()
 
-        const partial = (f, ...args) => (...moreArgs) => f(...args, ...moreArgs)
-        const add3 = (a, b, c) => a + b + c
+        //闭包
+        // 两个函数互相嵌套 当内部函数被保存到外部时,将会生成闭包.闭包会导致作用域链不释放,造成内存泄露
 
-        const fivePlus = partial(add3, 2, 3)
-        fivePlus(4)
-
-        function add(x, y) {
-            return x + y
+        function a() {
+            function b() {
+                console.log(a);
+            }
+            var a = 123;
+            return b;
         }
-        // 柯里化之后
-        function addx(y) {
-            return function (x) {
-                return x + y
+
+        var glob = 100;
+        var demo = a();
+        demo();
+
+
+        //test 函数执行完还在  等待被下一次执行
+        function test() {
+            var arr = [];
+            for (var i = 0; i < 10; i++) {
+                arr[i] = function () {
+                    document.write(i + " ");
+                }
+
+                //用立即执行函数解决闭包
+
+                // (function (j) {
+                //     arr[i] = function () {
+                //         document.write(j + " ");
+                //     }
+                // }(i))
+            }
+
+            return arr
+        }
+
+        var myArr = test();
+
+        // test 执行完  i 已经变成了10
+
+        for (var j = 0; j < 10; j++) {
+            myArr[j]();
+        }
+
+
+        //解决闭包方法
+        //立即执行函数
+
+
+
+        //立即执行函数  执行完 马上销毁
+        // 起名也找不到
+        (function () {
+            console.log("aaaaaaaa");
+
+        }());
+
+        (function () {
+            console.log("bbbbbbbbbbbbbb");
+        })();
+
+        //只要表达式才能被执行
+        var deme = function () {
+            console.log("bbbbbbbbbbbbbb");
+        }();
+
+
+        //不是表示式  无法执行 报错
+        // function fu(){
+
+        // }();
+
+        //但是加上 + / - /! /!! /()  隐式转换可以执行
+        !! function fu() {
+            console.log("执行");
+
+        }();
+
+        //执行完立马销毁  undefined
+        console.log(deme);
+
+
+
+        function foo() {
+            var name = "kebi";
+            return function () {
+                console.log(name);
+            };
+        }
+        var bar = foo();
+        bar();
+
+        //2.真实的获取多个元素并添加点击事件
+        // 找出所有P 打印对应的索引
+        var op = document.querySelectorAll("p");
+        for (var j = 0; j < op.length; j++) {
+            op[j].onclick = function () {
+                console.log(j);
+            };
+        }
+
+        //解决1
+        // for (let i = 0; i < op.length; i++) {
+        //     op[i].onclick = (function (num) {
+        //         return function () {
+        //             console.log(num);
+        //         }
+        //     })(i)
+        // }
+
+        for (let i = 0; i < op.length; i++) {
+            (function (j) {
+                op[j].onclick = function () {
+                    console.log(j);
+                };
+            })(i)
+        }
+
+
+        //没搞定
+        function test1() {
+            var n = 4399;
+            function add() {
+                n++;
+                console.log(n);
+            }
+            return { n: n, add: add }
+        }
+
+        var result = test1();
+        var result1 = test1(1);
+        result.add();
+        result.add();
+        console.log(result.n);
+        result1.add()
+
+
+
+        /*非严格模式*/
+
+
+        /*非严格模式*/
+
+        var name = 'window'
+
+        var obj1 = {
+            name: '听风是风',
+            fn1: function () {
+                console.log(this.name)
+            },
+            fn2: () => console.log(this.name),
+            fn3: function () {
+                return function () {
+                    console.log(this.name)
+                }
+            },
+            fn4: function () {
+                return () => console.log(this.name)
             }
         }
-        addx(2)(1)
+        var obj2 = {
+            name: '行星飞行'
+        };
 
-        const curry = (fn, arr = []) => (...args) =>
-            (arg => (args.length === fn.length ? fn(...arg) :
-                curry(fn, arg)))([
-                    ...arr,
-                    ...args
-                ]);
+        obj1.fn1();
+        obj1.fn1.call(obj2);
 
-        let curryTest = curry((a, b, c, d) => a + b + c + d);
-        curryTest(1, 2, 3)(4)  //10
-        curryTest(1, 2)(4, 3)  // 10 
-        curryTest(1)(2)(3)(4)
+        obj1.fn2();
+        obj1.fn2.call(obj2);
+
+        obj1.fn3()();
+        obj1.fn3().call(obj2);
+        obj1.fn3.call(obj2)();
+
+        obj1.fn4()();
+        obj1.fn4().call(obj2);
+        obj1.fn4.call(obj2)();
 
 
-        var arr = [1, 2, 3, 4, 5];
-        let len = ~~(arr.length / 2)
-        for (let i = 0; i < len; i++) {
-            [arr[i], arr[arr.length - 1 - i]] = [arr[arr.length - 1 - i], arr[i]]
-        }
+        let fn = function () {
+            let num = 1; //自由变量
+            return {
+                a: function () {
+                    console.log(num);
+                },
+                b: function () {
+                    num++;
+                }
+            };
+        };
 
-        var Container = function (x) {
-            this._value = x
-        }
 
-        Container.of = x => new Container(x)
-
-        Container.prototype.map = function (f) {
-            return Container.of(f(this._value))
-        }
-
-        console.log(Container.of(3).map(x => x + 1).map(x => "Result is" + x));
-
-        
-    </script>
+        let closure = fn();
+        fn = null;
+        closure.a(); // 1
+    //</script>
 </body>
 
 </html>

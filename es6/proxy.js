@@ -27,11 +27,10 @@ var handler = {
     },
 
     apply: function (target, thisBinding, args) {
+        console.log(target, args);
         return args[0];
     },
     construct: function (target, args) {
-        console.log(target, args);
-
         return { value: args[1] }
     }
 }

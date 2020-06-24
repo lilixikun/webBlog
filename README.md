@@ -25,14 +25,16 @@
 - [JS预编译](https://github.com/LiLixikun/webBlog/blob/master/JS/md/%E9%A2%84%E7%BC%96%E8%AF%91.md)
 - [JS原型-原型链](https://github.com/LiLixikun/webBlog/blob/master/JS/md/%E5%8E%9F%E5%9E%8B-%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
 - [JS执行上下文](https://github.com/LiLixikun/webBlog/blob/master/JS/md/JS%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87.md)
+- [this](https://github.com/LiLixikun/webBlog/blob/master/JS/md/this.md)
+- [JS闭包](https://github.com/LiLixikun/webBlog/blob/master/JS/md/JS%E9%97%AD%E5%8C%85.md)  
 - [箭头函数](https://github.com/LiLixikun/webBlog/blob/master/JS/md/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0.md)
 - [变量、作用域、内存问题](https://github.com/LiLixikun/webBlog/blob/master/JS/md/%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98.md)
-
 
 ## 高阶
 - [迭代器和生成器](https://github.com/LiLixikun/webBlog/blob/master/JS/md/迭代器.md)
 - [事件循环机制EventLoop总结](https://github.com/LiLixikun/webBlog/blob/master/JS/md/事件循环机制EventLoop.md)
-- 
+- [JS元编程](https://github.com/LiLixikun/webBlog/blob/master/JS/md/元编程)
+
 # TypeScript
 
 # webpack 相关

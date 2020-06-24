@@ -115,24 +115,6 @@
             }
         }
 
-        function getIndex(nums, target) {
-            let ans = 0
-            let index = 0
-            for (let i = 0; i < nums.length; i++) {
-                if (ans == target - nums[i]) {
-                    return [index, i]
-                } else {
-                    ans = nums[i]
-                    index = i
-                }
-            }
-        }
-
-        let arr = [2, 7, 11, 15];
-        let target = 18
-        console.log(getIndex(arr, target));
-
-
         Function.prototype.MyInstanceOf = function (lef, right) {
             let proto = lef.__proto__;
             let prototype = right.prototype

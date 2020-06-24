@@ -115,13 +115,13 @@ console.log(bar.a)
 
 现在我们可以根据优先级来判断函数在某个调用位置应用的是哪条规则
 
-- 函数是否在 new 中调用（new 绑定）？如果是的话 this 绑定的是新创建的对象
+- 函数是否在 new 中调用（new 绑定）? 如果是的话 this 绑定的是新创建的对象
   var bar = new foo()
 - 函数是否通过 call、apply（显式绑定）或者硬绑定调用？如果是的话，this 绑定的是 指定的对象。
   var bar = foo.call(obj2)
-- 函数是否在某个上下文对象中调用（隐式绑定）？如果是的话，this 绑定的是那个上 下文对象。
+- 函数是否在某个上下文对象中调用（隐式绑定）? 如果是的话，this 绑定的是那个上 下文对象。
   var bar = obj1.foo()
-- 如果都不是的话，使用默认绑定。如果在严格模式下，就绑定到 undefined，否则绑定到 全局对象。  
+- 如果都不是的话，使用默认绑定。如果在严格模式下，就绑定到 undefined,否则绑定到 全局对象。  
   var bar = foo()
 
 # 练习
@@ -193,4 +193,18 @@ console.log((new go()).a);
 test.init(go);
 var p = test.init(go);
 p();
+```
+
+```js
+//运行 test new Test 打印什么
+var a = 5;
+function test() {
+    a = 0;
+    console.log(a);
+    console.log(this.a);
+    var a;
+    console.log(a);
+}
+// test(); 
+new test();
 ```

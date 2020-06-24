@@ -1,13 +1,12 @@
 
-# 1.down repository<!-- TOC -->
+<!-- TOC -->
 
-- [1.down repository](#1down-repository)
-- [2.Electron 热更新](#2electron-%e7%83%ad%e6%9b%b4%e6%96%b0)
-- [3.添加配置](#3%e6%b7%bb%e5%8a%a0%e9%85%8d%e7%bd%ae)
-- [4.插件使用](#4%e6%8f%92%e4%bb%b6%e4%bd%bf%e7%94%a8)
-  - [4.1 electron **调试工具**](#41-electron-%e8%b0%83%e8%af%95%e5%b7%a5%e5%85%b7)
-  - [4.2本地缓存 **electron-store**](#42%e6%9c%ac%e5%9c%b0%e7%bc%93%e5%ad%98-electron-store)
-  - [4.3 打包工具 **electron-builder**](#43-%e6%89%93%e5%8c%85%e5%b7%a5%e5%85%b7-electron-builder)
+- [2.Electron 热更新](#2electron-热更新)
+- [3.添加配置](#3添加配置)
+- [4.插件使用](#4插件使用)
+  - [4.1 electron  **调试工具**](#41-electron-调试工具)
+  - [4.2本地缓存 **electron-store**](#42本地缓存-electron-store)
+  - [4.3 打包工具 **electron-builder**](#43-打包工具-electron-builder)
 
 <!-- /TOC -->
 To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
@@ -68,7 +67,7 @@ gulp.task('watch:electron', function () {
 
 
 - 修改主进程文件
-```node
+```js
 
 const { app, Menu ,BrowserWindow} = require('electron');
 const client = require('electron-connect').client;
