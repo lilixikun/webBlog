@@ -58,3 +58,5 @@ TCP 位于传输层,提供可靠的字节流服务
 
 
 ## 四次挥手
+
+![url.png](../../.vuepress/public/http/URL.png)

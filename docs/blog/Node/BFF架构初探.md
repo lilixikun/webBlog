@@ -1,10 +1,12 @@
-# 什么是BFF 以及 node.js 在BFF 层能做的事情
+# BFF 架构初探
+
+## 什么是BFF 以及 node.js 在BFF 层能做的事情
 
 网上对BFF 有很多的长篇大伦,对我(搬砖党)来说 **BFF-服务与前的后端**。 比如,现在有一个后端接口,他不满足我前段要求的数据格式,或者很多无用的数据格式,那我们就可以在**BFF**层把数据格式化。
 
 因为前段需要什么数据自己是最清楚,那么理所应当 就该自己丰衣足食,毫无疑问用 Node 去做中间数据处理是最好不过的,因为都是JS 啊 😊
 
-# 在Node的模版渲染
+## 在Node的模版渲染
 
 在没有Node中间层之前前段项目部署 都是 打包完生成 dist 目录丢给后端或者运维部署到 **nginx** 等上. 现在有了 Node 中间层后,我们可以通过 Node API接口吐出模版页面来。这里我们选择 **koa-swig** 模版引擎
 
@@ -59,7 +61,7 @@ router.get('/', async (ctx) => {
 如果启动页面发现只有一个 **{}**,则记住需要在 render前加上 **await**
 
 
-# Node  真假路由混用
+## Node  真假路由混用
 
 如上我们编写了后端路由,通常在我们前段 SPA 页面也有前段的路由. 以 **vue-cli** 打包后的为例。
 
@@ -82,12 +84,12 @@ app.use(historyApiFallback({ whiteList: ['/api'] }));
 
 再次刷新 SPA 页面 发现问题解决了
 
-# Node 错误处理 
+## Node 错误处理 
 之前的文章已经详细的介绍 Node 如何处理全局异常 
 
 [全局异常处理](https://juejin.im/post/5e970d0e51882573a343e2ab)
 
-# JS type module 和 systemjs
+## JS type module 和 systemjs
 
 使用JavaScript 模块依赖于**import**和 **export**,最新的浏览器开始原生支持模块功能了,浏览器能够最优化加载模块，使它比使用库更有效率：使用库通常需要做额外的客户端处理。
 
@@ -188,7 +190,7 @@ npm install @babel/cli @babel/core @babel/plugin-transform-modules-systemjs @bab
 - 不支持module 不支持nomodule 
 
 
-# 拦截后端接口并进行格式化
+## 拦截后端接口并进行格式化
 
 新建 controllers 目录 新建 Book.js
 
@@ -230,7 +232,7 @@ router.get('/book/list', async (ctx) => {
 
 因为到时候我们Node 会和 JAVA 服务部署到一台服务器,从本地读取数据速度会非常之快,因此不必担心影响请求相应速度.
 
-# 小插件
+## 小插件
 
 你是否在目录过多时,导致引用一个文件而导致引用过多的 **"../"**,如下:
 

@@ -1,4 +1,4 @@
-# 下载安装 Jenkins 
+# Jenkins安装
 
 ```
 wget https://pkg.jenkins.io/redhat-stable/jenkins-2.235.1-1.1.noarch.rpm
@@ -18,7 +18,7 @@ JENKINS_PORT = "8082"
 
 启动报错
 
-![1594567255208.jepg](https://cdn.nlark.com/yuque/0/2020/jpeg/1656137/1594567255208-a45c334c-fa91-4a72-b78a-2274ffa0b1f7.jpeg)
+![jdk-err.jepg](../../.vuepress/public/engineering/jdk-err.jpeg)
 
 发现版本过高,卸载原来的jdk,重新安装 jdk
 
@@ -46,7 +46,7 @@ service jenkins restart
 
 发现报错 
 
-![1594567277659.png](https://cdn.nlark.com/yuque/0/2020/png/1656137/1594567277659-3b280b92-6936-40df-82fd-fbe5c81e6469.png)
+![jenkins_err.png](../../.vuepress/public/engineering/jenkins_err.png)
 
 不要慌  解决方案如下
 
@@ -59,14 +59,13 @@ yum install dejavu-sans-fonts
 
 再次重启
 
-![1594567467681.png](https://cdn.nlark.com/yuque/0/2020/png/1656137/1594567467681-450ec728-1b73-4a80-85b6-40cd30d533b6.png)
+![jenkins_pwd.png](../../.vuepress/public/engineering/jenkins_pwd.png)
 
 
 **查看密码**
 
 ```
 cat /var/lib/jenkins/secrets/initialAdminPassword
-0fcfd4cd723748098f61f87ecd233d95 
 ```
 
 ## 修改下载源地址
@@ -90,7 +89,7 @@ sed -i 's/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsing
 填入密码后选择安装推荐的插件
 
 
-![1594567701443.png](https://cdn.nlark.com/yuque/0/2020/png/1656137/1594567701443-1b934ca7-d72e-41e2-a1e8-ec4becb73106.png)
+![jenkins_down.png](../../.vuepress/public/engineering/jenkins_down.png)
 
 
 ## 汉化并添加用户
@@ -100,7 +99,8 @@ sed -i 's/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsing
 输入 **Chinese**  安装完成后  刷新页面 提示添加用户, 这里输入  root  root   点击登录 
 
 
-![1594570174817.png](https://cdn.nlark.com/yuque/0/2020/png/1656137/1594570174817-5fc59076-f300-4f1d-b536-baf14a19767d.png)
+![jenkins_start.png](../../.vuepress/public/engineering/jenkins_start.png)
+
 
 ## 自定义 jenkins 配置
 

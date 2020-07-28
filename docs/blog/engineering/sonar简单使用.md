@@ -1,54 +1,7 @@
+# Sonar简单使用
 
 ## Linux安装jdk
-### 去官网下载
 
-去[官网](https://www.oracle.com/cn/java/technologies/javase/javase-jdk8-downloads.html) 下载 Linux 版本的JDK
-
-上传 jdk-8u144-linux-x64.tar.gz 压缩包到目录下执行解压命名
-
-```
-tar -zxvf jdk-8u144-linux-x64.tar.gz
-```
-修改包名
-
-```
-mv jdk-8u144-linux-x64 jdk1.8
-```
-
-查看安装目录 
-
-```
-pwd
-/usr/local/src/jdk
-```
-
-添加环境变量
-
-
-```
-vi /etc/profile
-```
-
-设置环境变量
-
-```
-export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
-export JAVA_HOME=/usr/local/src/jdk
-export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$CLASSPATH
-export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
-```
-
-输入命令使profile的配置生效
-
-```
-source /etc/profile
-```
-
-查看是否安装成功
-
-```
-java -version
-```
 
 ## Linux 安装 sonarqube
 去[官网](https://www.sonarqube.org/downloads/) 下载安装包
@@ -112,7 +65,7 @@ su xikun
 ss -ntpl | grep 9000
 ```
 
-![1656137.jepe](https://cdn.nlark.com/yuque/0/2020/jpeg/1656137/1594390033988-7b372592-6711-4fe9-97bc-f157332677c8.jpeg?x-oss-process=image%2Fresize%2Cw_1492)
+![sonar_start.jepe](../../.vuepress/public/engineering/sonar_start.jpeg)
 
 ## 访问服务器:9000
 
@@ -122,7 +75,7 @@ ss -ntpl | grep 9000
 
 安装中文插件 **chinese**
 
-![chinese..jepe](https://cdn.nlark.com/yuque/0/2020/png/1656137/1594390564810-857b96ba-8341-4737-b1ff-c00dc3682d73.png?x-oss-process=image%2Fresize%2Cw_1492)
+![sonar_chinese.jepe](../../../docs/.vuepress/public/engineering/sonar_chinese.png)
 
 
 ## sonarqube 账号 token 的生成
@@ -130,7 +83,7 @@ ss -ntpl | grep 9000
 onarqube支持生成用户token，以便在命令行或者脚本中使用token代表账号操作sonarbue，避免造成账号密码的泄露。
 点击sonarqube首页右上角头像，进入我的账号
 
-![token.png](https://cdn.nlark.com/yuque/0/2020/png/1656137/1594391191624-74296f41-86c9-4589-a100-c854cba3d092.png?x-oss-process=image%2Fresize%2Cw_1492)
+![token.png](../../../docs/.vuepress/public/engineering/sonar_token.png)
 
 **token**
 201e7b90ae737e356d65b6edd205ee31758d77ff
@@ -182,15 +135,15 @@ sonar.host.url=
 sonar-scanner
 ```
 
-![1594399876156.png](https://cdn.nlark.com/yuque/0/2020/png/1656137/1594399876156-ad899945-5081-493a-ac15-46c8cae417e8.png)
+![sonar-scanner.png](../../.vuepress/public/engineering/sonar-scanner.png)
 
 然后就是漫长的等待
 
-![1594399888490.png](https://cdn.nlark.com/yuque/0/2020/png/1656137/1594399888490-956a70d5-a874-41ae-88c7-5c4ae054c971.png)
+![sonar_wait.png](../../.vuepress/public/engineering/sonar_wait.png)
 
 最后我们查看网站的代码检查报表
 
-![baodao.png](https://cdn.nlark.com/yuque/0/2020/png/1656137/1594399901497-2bf89a4b-24a1-44ad-b1da-09ef5f3c1e7e.png?x-oss-process=image%2Fresize%2Cw_1492)
+![sonar_repo.png](../../.vuepress/public/engineering/sonar_repo.png)
 
 
 项目令牌
