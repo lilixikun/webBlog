@@ -29,6 +29,13 @@ const blog = [
             'engineering/Jenkins安装',
             'engineering/sonar简单使用'
         ]
+    },
+    {
+        title: '性能优化',
+        collapsable: true,
+        children: [
+            'optimization/性能优化启示录'
+        ]
     }
 ]
 
