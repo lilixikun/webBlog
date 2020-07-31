@@ -17,7 +17,8 @@ const blog = [
             'node/从零搭建个人博客网站3-使用 Sequelize操作mySql',
             'node/从零搭建个人博客4-集成jwt',
             'node/SSR',
-            'node/BFF架构初探'
+            'node/BFF架构初探',
+            'node/MPA架构初探'
         ]
     },
     {
