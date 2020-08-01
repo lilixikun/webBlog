@@ -35,7 +35,9 @@ const blog = [
         title: '性能优化',
         collapsable: true,
         children: [
-            'optimization/性能优化启示录'
+            'optimization/性能优化启示录',
+            'optimization/指标',
+            'optimization/Node性能调优'
         ]
     }
 ]
