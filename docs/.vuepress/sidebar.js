@@ -37,7 +37,8 @@ const blog = [
         children: [
             'optimization/性能优化启示录',
             'optimization/指标',
-            'optimization/Node性能调优'
+            'optimization/Node性能调优',
+            'optimization/MPA性能优化小试'
         ]
     }
 ]
