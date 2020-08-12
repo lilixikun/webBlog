@@ -1,29 +1,6 @@
-<!-- TOC -->
 
-- [什么是 webpack](#什么是-webpack)
-  - [webpack-cli 的作用](#webpack-cli-的作用)
-  - [基本使用](#基本使用)
-    - [安装webpack](#安装webpack)
-    - [创建buildle 文件](#创建buildle-文件)
-  - [执行打包](#执行打包)
-    - [使用一个配置文件](#使用一个配置文件)
-    - [NPM 脚本](#npm-脚本)
-- [Loader 是什么](#loader-是什么)
-  - [管理资源](#管理资源)
-    - [打包 CSS 样式](#打包-css-样式)
-    - [使用 Sass](#使用-sass)
-    - [使用 postcss-loader 做浏览区厂商兼容](#使用-postcss-loader-做浏览区厂商兼容)
-    - [file-loader](#file-loader)
-    - [加载字体](#加载字体)
-- [plugin](#plugin)
-  - [管理输出](#管理输出)
-  - [HtmlWebpackPlugin](#htmlwebpackplugin)
-  - [clean-webpack-plugin](#clean-webpack-plugin)
 
-<!-- /TOC -->
-
-# 什么是 webpack 
-
+# webpack 基本使用
 
 一句话总结: **webpack** 模块打包工具
 
@@ -80,7 +57,7 @@ component()
 ## 执行打包
 
 ```
-npm webpack
+npx webpack
 ```
 执行 **npx webpack**，会将我们的脚本作为入口起点，然后 输出 为 main.js。Node 8.2+ 版本提供的 npx 命令，可以运行在初始安装的 webpack 包(package)的 webpack 二进制文件（./node_modules/.bin/webpack）
 
@@ -91,7 +68,7 @@ npm webpack
 
 在根目录新建 **webpack.config.js** 目录
 
-```
+```js
 const path = require('path');
 
 module.exports = {
@@ -115,13 +92,13 @@ npx webpack --config webpack.config.js
 
 package.json
 
-```
+```json
 ...
 "scripts": {
 "test": "echo \"Error: no test specified\" && exit 1",
 "build": "webpack"
 },
-  ...
+...
 ```
 
 可以使用 **npm run build** 命令，来替代我们之前使用的 npx 命令
@@ -133,7 +110,7 @@ npm run build
 发现打包一切正常
 
 
-# Loader 是什么
+## Loader 是什么
 
 webpack 默认只能打包 JS 文件,打包别的文件需要借助 loader,只需要在 webpack.config.js 的 module 的 rules 加入相关的 loader
 
@@ -153,7 +130,7 @@ npm install --save-dev style-loader css-loader
 
 webpack.config.js
 
-```
+```js
 module.exports = {
     ...
     module: {
@@ -178,7 +155,7 @@ module.exports = {
 
 在 src 下新建 **style.css** 文件
 
-```
+```css
 body {
     color: red;
 }
@@ -229,7 +206,7 @@ npm install sass-loader node-sass webpack --save-dev
 
 webpack.config.js
 
-```
+```js
 {
     test: /\.scss$/,
     use: ['style-loader', 'css-loader', 'sass-loader']
@@ -256,18 +233,16 @@ npm install autoprefixer -D
 配置 webpack.config.js
 
 
-```
+```js
 {
     test: /\.scss$/,
     use: ['style-loader', 'css-loader', 'sass-loader']
 }
 ```
 
-
-
 再根目录下新建 **postcss.config.js**
 
-```
+```js
 module.exports = {
     plugins: [
         require('autoprefixer')
@@ -277,7 +252,7 @@ module.exports = {
 
 在 **package.json** 里面加入
 
-```
+```json
  "browserslist": [
     "defaults",
     "not ie <= 8",
@@ -333,7 +308,7 @@ npm install --save-dev file-loader
 
 webpack.config.js
 
-```
+```js
 module.exports = {
     
     module: {
@@ -350,11 +325,11 @@ module.exports = {
 };
 ```
 
-当你 import MyImage from './my-image.png'，该图像将被处理并添加到 output 目录, loader 会识别这是一个本地文件，并将 './my-image.png' 路径，替换为输出目录中图像的最终路径
+当你 import MyImage from './my-image.png'，该图像将被处理并添加到 output 目录, loader 会识别这是一个本地文件，并将 './my-image.png' 路径,替换为输出目录中图像的最终路径
 
 在目录下 放一张图片 icon.jpg ,修改css
 
-```
+```css
 body {
     color: red;
     background: url('../icon.jpg');
@@ -367,7 +342,7 @@ body {
 我们也可以使用 import Icon from '../icon.jpg' 来引入
 
 index.js
-```
+```js
 // 将图像添加到我们现有的 div。
 var myIcon = new Image();
 myIcon.src = Icon;
@@ -384,11 +359,11 @@ element.appendChild(myIcon);
 
 如将打包之后的图片存放到images文件夹下, 并且命名为图片的原始名称:
 
+```js
 module.exports = {
     
     module: {
         rules: [
-        
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
@@ -404,13 +379,13 @@ module.exports = {
         ],
     }
 };
+```
 
 再次执行打包完  发现  **dist** 多了一个 images 目录,并且命名为图片的原始名称
 
 ### 加载字体
 
 加载 **字体** 和加载图片一样 都是使用 **file-loader**,不过我们需要配置一下
-
 
 ```
 ...
@@ -429,12 +404,37 @@ module.exports = {
 重新编译后 发现 我们自己的字体生效了
 
 
-# plugin
-在webpack运行的生命周期中会广播出许多事件,plugin可以监听这些事件，在合适的时机通过 webpack 提供的 API 改变输出结果。它并不直接操作文件,而是基于事件机制工作,会监听 webpack 打包过程中的某些节点,执行广泛的任务
-
 ## 管理输出
 
 webpack 的 **entry** 和 **output** 是允许你有多个输入 多个输出的 
+
+### entry
+默认入口 main.js
+
+也可以是一个对象 引入多个文件,如下:
+
+```js
+entry: {
+    app: './src/index.js',
+    sub: './src/sub.js'
+}
+```
+### output
+
+**filename** 打包完的js 名称,默认打包名称 main.js
+
+可以设置 '[name].js' 对应入口的 js 名称
+
+如果我们想在静态资源CDN 服务器上访问我们的文件,可以设置 **publicPath**, 如:
+
+```js
+output: {
+    //在服务器脚本用到，以确保文件资源能够在 http://xx:cnd 下正确访问
+    //publicPath: 'http://xx:cnd/',
+},
+```
+
+### 基本配置
 
 在 src 下新建 **print.js** 写些内容 并在 index.js 引入
 
@@ -454,14 +454,22 @@ module.exports = {
 }    
 ```
 
-> webpack 提供一个非常有用的配置，该配置能帮助你为项目中的所有资源指定一个基础路径。它被称为公共路径.你想把这些静态文件统一使用CDN加载 只需要设置 publicPath:http:cdn.com.cn
+## SourceMap
 
-执行打包 发现 **dist** 目录下生成了 **app.bundle.js** 和 **print.bundle.js** 更新 dist/index.html 文件分别引入这2个文件 
+- **source-map** 本质上一种映射关系 会生成一个 map 的文件
+- **inline** 会打包在一个 js 文件
+- **cheap** 打包在一个文件,只提示多少行,不管多少列,直管业务代码 不管依赖的 module
+- **evel** 打包是最快的一种打包方式
 
-打开 index.js 发现里面的 js  都生效了
+本地可以配置 **cheap-module-source-map**
+
+生产推荐使用 **cheap-module-eval-source-map**
 
 
-## HtmlWebpackPlugin
+## plugin
+在webpack运行的生命周期中会广播出许多事件,plugin可以监听这些事件，在合适的时机通过 webpack 提供的 API 改变输出结果。它并不直接操作文件,而是基于事件机制工作,会监听 webpack 打包过程中的某些节点,执行广泛的任务
+
+### HtmlWebpackPlugin
 
 **HtmlWebpackPlugin** 会在打包结束之后,会自动生成一个 **html** 文件,并把打包完的文件自动引入
 
@@ -471,7 +479,7 @@ npm install --save-dev html-webpack-plugin
 
 webpack.config.js
 
-```
+```js
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     ...
@@ -484,7 +492,7 @@ module.exports = {
 我们删除 dist 下的文件 重新执行 打包,发现自动给我们生成了 index.html 并帮我们把 js 都引入进去了
 
 
-## clean-webpack-plugin
+### clean-webpack-plugin
 
 在每次构建前应该清理 /dist 文件夹,**clean-webpack-plugin** 是一个比较普及的管理插件，让我们安装和配置下。
 
@@ -494,7 +502,7 @@ npm install clean-webpack-plugin --save-dev
 
 webpack.config.js
 
-```
+```js
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 plugins:[
@@ -508,7 +516,7 @@ plugins:[
 原因:如果你安装的 **clean-webpack-plugin** 是3.0 以上的话,必选要如下配置:
 
 
-```
+```js
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 plugins: [
@@ -519,3 +527,211 @@ plugins: [
 ```
 
 再次执行打包 发现OK 了
+
+## webpack-dev-server
+
+安装 webpack-dev-server
+
+```
+yarn add webpack-dev-server -D
+```
+
+配置 webpack.config.js
+
+```js
+...
+devServer: {
+    contentBase: './dist',
+    open: true,
+    prot: 8080,
+    proxy: {
+        "/api": "http://localhost:3000"
+    },
+},
+...
+```
+
+启动 webpack 可以自动打开浏览器,并把端口设置为 8080,proxy 允许我们跨域访问
+
+启动**热更新**,它允许在运行时替换，添加，删除各种模块，而无需进行完全刷新重新加载整个页面，其思路主要有以下几个方面
+
+- 保留在完全重新加载页面时丢失的应用程序的状态
+- 只更新改变的内容，以节省开发时间
+- 调整样式更加快速，几乎等同于就在浏览器调试器中更改样式
+
+```js
+devServer:{
+    hot:true,
+    hotOnly:true
+}
+```
+
+并添加插件
+
+```js
+plugins:[
+    ...
+    new webpack.HotModuleReplacementPlugin()
+]
+```
+
+在JS使用热更新
+```js
+if (module.hot) {
+    module.hot.accept('./sub', (sub) => {
+        sub()
+    })
+}
+```
+
+## 使用 Babel
+
+安装相关插件
+```
+npm install --save-dev babel-loader @babel/core @babel/preset-env
+```
+
+使用 @babel/polyfill 补充低版本浏览器缺失的语法
+
+```
+npm install --save @babel/polyfill
+```
+在项目入口引入
+
+```js
+import "@babel/polyfill"
+```
+
+执行打包会发现打包体积巨大,那么我们如何做到只根据自己的业务代码去加载对应的 **polyfill** 呢
+
+```js
+{
+    test: /\.js$/,
+    exclude: /node_modules/,
+    loader: "babel-loader",
+    options: {
+        "presets": [['@babel/preset-env', {
+            useBuiltIns: 'usage'
+        }]]
+    }
+}
+```
+
+再次打包发现体积小了很多,只会去加载使用到的 polyfill
+
+设置浏览器兼容版本
+
+```js
+{
+    ...
+    loader: "babel-loader",
+    options: {
+        "presets": [['@babel/preset-env', {
+            "targets": {
+              "edge": "17",
+              "firefox": "60",
+              "chrome": "67",
+              "safari": "11.1",
+            }
+        ]]
+    }
+},
+```
+
+**@babel/polyfill** 那样引入会对我们的全局环境污染,对我们开发组件库或者库有影响,因此我们把上面的注释掉,换一种方式实现
+```js
+//import "@babel/polyfill"
+```
+
+### babel polyfill 有三种
+
+**babel-runtime**
+
+将es6编译成es5去运行，前端可以使用es6的语法来写，最终浏览器上运行的是es5, 不会污染全局对象和内置的对象原型。比如当前运行环境不支持promise，可以通过引入babel-runtime/core-js/promise来获取promise，或者通过babel-plugin-transform-runtime自动重写你的promise
+
+**babel-plugin-transform-runtime**
+
+自动添加babel-runtime/core-js并且映射ES6静态方法和内置方法,不会污染全局，对于库来说很实用。 一定要把babel-runtime作为依赖引入!
+
+**babel-polyfill**
+
+通过向全局对象和内置对象的prototype上添加方法来实现,他的原理是当运行环境中并没有实现的一些方法，babel-polyfill中会给做兼容
+
+```
+npm install --save-dev @babel/plugin-transform-runtime
+npm install --save @babel/runtime
+```
+
+修改webpack 配置
+
+```js
+{
+    test: /\.js$/,
+    exclude: /node_modules/,
+    loader: "babel-loader",
+    options: {
+        "plugins": [
+            [
+                "@babel/plugin-transform-runtime",
+                {
+                    "absoluteRuntime": false,
+                    "corejs": false,
+                    "helpers": true,
+                    "regenerator": true,
+                    "useESModules": false,
+                    "version": "7.0.0-beta.0"
+                }
+            ]
+        ]
+    }
+```
+
+把 corejs 的 false 设置为 2 并安装
+
+```
+npm install --save @babel/runtime-corejs2
+```
+
+### 总结
+
+- 项目业务代码直接 使用 @babel/preset-env 和 useBuiltIns
+- 写组件库或者第三方组件 polyfill 会影响全局,因此使用@babel/plugin-transform-runtime
+- 配置中 corejs 设置为 2 使用最新API
+
+## Tree Shaking 
+
+如果我们引入一个 JS 文件,但是只用了里面某些方法,但是打包依旧会把整个文件打包,因此 webpack 引入了 Tree Shaking,只会打包我们使用到的 文件
+
+Tree Shaking 只支持 ES Module,也就是 important静态引入方式,不支持 CommonJS 动态引入方式
+
+**development** 配置
+
+```JS
+optimization:{
+    usedExports:true
+}
+```
+
+### side-effect-free
+
+通过 设置 pack.json 的 sideEffects 可以告诉 webpack 那些需要 进行 tree-shaking
+
+```json
+sideEffects:true
+```
+
+- true 所有文件都有副作用,全部不可 tree-shaking
+- false 文件没有副作用,全都可以 tree-shaking
+
+也可以设置那些文件需要 如下:
+
+```json
+sideEffects:[
+    "../src/index.js",
+    "*.css"
+ ]
+```
+
+意思就是我们 src.index.js 和所有 important 引入的 CSS 都不用 tree-shaking
+
+在 **production ** 中 webpack 自动进行 Tree-Shaking

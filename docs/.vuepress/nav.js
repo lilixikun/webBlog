@@ -3,13 +3,13 @@ const blog = {
     link: '/blog/'
 }
 
-const algorithm = {
+const arithmetic = {
     text: '算法',
-    link: '/algorithm/'
+    link: '/arithmetic/'
 }
 
 module.exports = [
     blog,
-    algorithm
+    arithmetic
 ]
 

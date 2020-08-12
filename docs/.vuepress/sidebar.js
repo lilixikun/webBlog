@@ -40,11 +40,18 @@ const blog = [
             'optimization/Node性能调优',
             'optimization/MPA性能优化小试'
         ]
+    },
+    {
+        title: 'webpack',
+        collapsable: true,
+        children: [
+            'webpack/webpack基础',
+        ]
     }
 ]
 
 // 算法
-const algorithm = [
+const arithmetic = [
     {
         title: '数组',
         collapsable: false,
@@ -115,6 +122,6 @@ const open_source = [
 
 module.exports = {
     '/blog/': blog,
-    '/algorithm/': algorithm,
+    '/arithmetic/': arithmetic,
     '/open_source/': open_source
 }
