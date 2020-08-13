@@ -18,7 +18,7 @@ webpack-cli 作用就是可以让我们执行 webpack 命令
 npm install webpack webpack-cli -D
 ```
 
-### 创建buildle 文件
+### 创建bundle 文件
 
 - 在目录下新建一个 src 文件夹,新建 index.js 文件
 - 在根目录下创建一个dist文件夹, 并在其中创建一个index.html文件
@@ -734,4 +734,4 @@ sideEffects:[
 
 意思就是我们 src.index.js 和所有 important 引入的 CSS 都不用 tree-shaking
 
-在 **production ** 中 webpack 自动进行 Tree-Shaking
+在 **production** 中 webpack 自动进行 Tree-Shaking

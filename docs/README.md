@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /vue-logo.png
+heroImage: /logo.png
 heroText: Aotu
 tagline: 成功的道路一点也不拥挤
 actionText: 快速上手 →

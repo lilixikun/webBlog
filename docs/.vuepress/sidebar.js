@@ -46,6 +46,7 @@ const blog = [
         collapsable: true,
         children: [
             'webpack/webpack基础',
+            'webpack/代码分割',
         ]
     }
 ]
