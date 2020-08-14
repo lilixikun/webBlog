@@ -29,5 +29,9 @@ module.exports = {
         sidebarDepth: 3,
         editLinkText: '在 Github 上编辑此页',
         lastUpdated: '更新时间',
-    }
+    },
+    plugins: [
+        ["@vuepress/medium-zoom", true],
+        ["@vuepress/back-to-top", true],
+    ],
 };

@@ -69,3 +69,15 @@ Cache-Control 可以由多个字段组合而成，主要有以下几个取值：
 与Last-Modified/If-Modify-Since不同的是，Etag/If-None-Match返回的是一个校验码（ETag: entity tag）。ETag可以保证每一个资源是唯一的，资源变化都会导致ETag变化*。ETag值的变更则说明资源状态已经被修改。服务器根据浏览器上发送的If-None-Match值来判断是否命中缓存。
 
 ![eTag.png](https://cdn.nlark.com/yuque/0/2020/png/1656137/1593337878486-d5f5f7ad-fb22-4b00-82aa-f1e4cee904ba.png)
+
+## 总结
+
+
+![cache.png](/optimization/cache.png)
+
+![cache-level.png](/optimization/cache-level.png)
+
+- cache-control
+- expries
+- etag
+- last-modified

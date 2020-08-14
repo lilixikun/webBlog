@@ -83,7 +83,7 @@ yarn server:start
 ```
 启动发现终端有异常,如下:
 
-![decorators.png](../../.vuepress/public/optimization/decorators.png)
+![decorators.png](/optimization/decorators.png)
 
 缺少 **@babel/plugin-proposal-decorators**
 ```
@@ -105,7 +105,7 @@ babel({
 
 现在我们修改下layout.html 在里面加入 **jquery.min.js**,我们启动服务访问下我们的路由,如下:
 
-![more.png](../../.vuepress/public/optimization/more.png)
+![more.png](/optimization/more.png)
 
 - 点开 Preserve log 保留请求日志，跳转页面的时候勾选上,可以看到跳转前的请求
 
@@ -134,7 +134,7 @@ pjax 的工作原理是通过 ajax 从服务器端获取 HTML,在页面中用获
 ```
 我们现在再点击切换页面可以看到下面 在请求头新增了 **X-PJAX** 字段
 
-![pajx.jpg](../../.vuepress/public/optimization/pajx.jpg)
+![pajx.jpg](/optimization/pajx.jpg)
 
 
 ## 服务端处理
@@ -187,7 +187,7 @@ await createSSRStream()
 ```
 
 ok,再次启动查看
-![chunked.jpg](../../.vuepress/public/optimization/chunked.jpg)
+![chunked.jpg](/optimization/chunked.jpg)
 
 发现请求头里面添加了 **Transfer-Encoding:chunked** 表示现在以及是以流的形式在进行传输
 
@@ -229,7 +229,7 @@ if (ctx.request.header['x-pjax']) {
 } 
  ```
  ok,我们再去浏览看看
-![cheerio.png](../../.vuepress/public/optimization/cheerio.png)
+![cheerio.png](/optimization/cheerio.png)
 
 这个时候发现,服务器只返回了部分需要更换的 HTML
 

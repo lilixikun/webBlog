@@ -52,7 +52,7 @@ TCP 位于传输层,提供可靠的字节流服务
 
 握手使用了 **TCP** 的标志  **SYN** 和 **ACK**
 
-![san.png](../../.vuepress/public/http/san.png)
+![san.png](/http/san.png)
 
 - 发送端首先发送一个带 **SYN**标志的数据包给对方.
 - 接收端收到后,回传一个带有 **SYN/ACK** 标志的数据包以表示传达确认信息。 
@@ -67,7 +67,7 @@ TCP 位于传输层,提供可靠的字节流服务
 
 ## 四次挥手
 
-![si.png](../../.vuepress/public/http/si.png)
+![si.png](/http/si.png)
 
 - 客户端发送 **Fin+Ack** 报文,表示关闭数据传输,发送端进入 **FIN_WAIT** 状态,表示没有数据要传输了
 - 服务端收到 FIN 报文后进入 **CLOSE_WAIT** 状态(被动关闭),然后发送 **ACK**确定,表示同意关闭请求,客户端进入到 **FIN_WAIT_2**

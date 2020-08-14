@@ -181,18 +181,18 @@ var jwt = require('koa-jwt');
 
 var app = new Koa();
 
-app.use(jwt({ secret: 'shared-secret' }).unless({ path: [/^\/public/] }));
+app.use(jwt({ secret: 'shared-secret' }).unless({ path: [/^\/] }));
 
 ```
 unless 可以填入多个路径表示 以该路径开头 不进行 token 校验的。更多功能请查看 [koa-jwt](https://github.com/koajs/jwt)
 
 ## 用postmen 进行调试 JWT
 
-![jenkins_down.png](../../.vuepress/public/node/jwt_token.png)
+![jenkins_down.png](/node/jwt_token.png)
 
 
 在 Headers 里面配置 **Authorization** Value 填入 **Bearer** + **空格** + token ,记住 Bearer 后面必须要有空格 因为这是 jwt 的约定方式
-![jenkins_down.png](../../.vuepress/public/node/jwt_Bearer.png)
+![jenkins_down.png](/node/jwt_Bearer.png)
 
 还有种方法直接点击 **Authorization** 选择 **Bearer Token** 然后直接输入 token 点击发送即可
 
@@ -203,6 +203,6 @@ unless 可以填入多个路径表示 以该路径开头 不进行 token 校验�
 我们可以进入 [JWT.IO](https://jwt.io/) 输入 token 和 secret 进行在线验签
 
 
-![jenkins_down.png](../../.vuepress/public/node/jwt_io.png)
+![jenkins_down.png](/node/jwt_io.png)
 
 

@@ -6,7 +6,7 @@
 
 **具体表现**
 
-![neicun.png](../../.vuepress/public/node/neicun.png)
+![neicun.png](/node/neicun.png)
 
 - 随着内存泄漏的增长, **V8** 对垃圾收集器越来越具有攻击性,这会使你的应用运行速度变慢
 - 内存泄漏可能触发其他类型的失败. 内存泄漏的代码可能会持续引用有限的资源,可能会耗尽文件描述符;还可能突然不能建立连接新的数据库连接
@@ -67,7 +67,7 @@ node index.js
 node run test
 ```
 压测结果如下:
-![work.png](../../.vuepress/public/node/work.png)
+![work.png](/node/work.png)
 
 
 | 属性        | 名称           | 含义  |
@@ -108,7 +108,7 @@ server.listen(3000);
 
 再次启动 Node 服务,会给我们在本地在起另一个服务 http://localhost:23333,如下
 
-![memeye.png](../../.vuepress/public/node/memeye.png)
+![memeye.png](/node/memeye.png)
 
 
 ### process.memoryUsage
@@ -267,9 +267,9 @@ node --trace-gc demo4.js
 
 ## 调试工具 clinicjs
 
-https://clinicjs.org/
+[clinicjs](https://clinicjs.org/)
 
-中文文档 https://youjingyu.github.io/clinic-doc-zh/
+[中文文档](https://youjingyu.github.io/clinic-doc-zh/)
 
 ## 总结
 

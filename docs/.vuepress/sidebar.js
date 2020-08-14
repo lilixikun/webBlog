@@ -1,5 +1,12 @@
 const blog = [
     {
+        title: 'JS',
+        collapsable: true,
+        children: [
+            'js/手写系列'
+        ]
+    },
+    {
         title: 'HTTP',
         collapsable: true,
         children: [
@@ -12,10 +19,10 @@ const blog = [
         title: 'Node',
         collapsable: true,
         children: [
-            'node/从零搭建个人博客网站1-自动加载全局路由',
-            'node/从零搭建个人博客网站2-全局异常处理',
-            'node/从零搭建个人博客网站3-使用 Sequelize操作mySql',
-            'node/从零搭建个人博客4-集成jwt',
+            'node/自动加载全局路由',
+            'node/全局异常处理',
+            'node/使用Sequelize操作mySql',
+            'node/集成jwt',
             'node/SSR',
             'node/BFF架构初探',
             'node/MPA架构初探'
@@ -36,6 +43,7 @@ const blog = [
         collapsable: true,
         children: [
             'optimization/性能优化启示录',
+            'optimization/网速检测',
             'optimization/指标',
             'optimization/Node性能调优',
             'optimization/MPA性能优化小试'
@@ -54,75 +62,24 @@ const blog = [
 // 算法
 const arithmetic = [
     {
-        title: '数组',
-        collapsable: false,
+        title: '递归',
+        collapsable: true,
         children: [
-            'array/count',
-            'array/bisection_method',
-            'array/find_min_number'
+            'recursion/递归'
         ]
     },
     {
-        title: '字符串',
-        collapsable: false,
+        title: '栈',
+        collapsable: true,
         children: [
-            'string/slide_window'
-        ]
-    },
-    {
-        title: '栈、队列、链表',
-        collapsable: false,
-        children: [
-            'sort/queue',
-            'sort/linked_list',
-            'linked_list/find_key'
-        ]
-    },
-    {
-        title: '趣味算法',
-        collapsable: false,
-        children: [
-            'other/cards',
-            'other/range_of_motion'
+            'stack/栈',
+            'stack/有效的括号'
         ]
     },
 ]
 
-// 开源相关
-const open_source = [
-    {
-        title: '开源贡献',
-        collapsable: false,
-        children: [
-            '',
-        ]
-    },
-    {
-        title: 'TinyDB',
-        collapsable: false,
-        children: [
-            'github/indexeddb',
-            'github/tinydb_docapi'
-        ]
-    },
-    {
-        title: 'Simple-dark',
-        collapsable: false,
-        children: [
-            'vscode/Simple-dark'
-        ]
-    },
-    {
-        title: 'tscli',
-        collapsable: false,
-        children: [
-            'cli/tscli'
-        ]
-    }
-]
 
 module.exports = {
     '/blog/': blog,
-    '/arithmetic/': arithmetic,
-    '/open_source/': open_source
+    '/arithmetic/': arithmetic
 }

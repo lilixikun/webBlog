@@ -18,7 +18,7 @@ JENKINS_PORT = "8082"
 
 启动报错
 
-![jdk-err.jepg](../../.vuepress/public/engineering/jdk-err.jpeg)
+![jdk-err.jepg](/engineering/jdk-err.jpeg)
 
 发现版本过高,卸载原来的jdk,重新安装 jdk
 
@@ -46,7 +46,7 @@ service jenkins restart
 
 发现报错 
 
-![jenkins_err.png](../../.vuepress/public/engineering/jenkins_err.png)
+![jenkins_err.png](/engineering/jenkins_err.png)
 
 不要慌  解决方案如下
 
@@ -59,7 +59,7 @@ yum install dejavu-sans-fonts
 
 再次重启
 
-![jenkins_pwd.png](../../.vuepress/public/engineering/jenkins_pwd.png)
+![jenkins_pwd.png](/engineering/jenkins_pwd.png)
 
 
 **查看密码**
@@ -89,7 +89,7 @@ sed -i 's/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsing
 填入密码后选择安装推荐的插件
 
 
-![jenkins_down.png](../../.vuepress/public/engineering/jenkins_down.png)
+![jenkins_down.png](/engineering/jenkins_down.png)
 
 
 ## 汉化并添加用户
@@ -99,7 +99,7 @@ sed -i 's/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsing
 输入 **Chinese**  安装完成后  刷新页面 提示添加用户, 这里输入  root  root   点击登录 
 
 
-![jenkins_start.png](../../.vuepress/public/engineering/jenkins_start.png)
+![jenkins_start.png](/engineering/jenkins_start.png)
 
 
 ## 自定义 jenkins 配置

@@ -430,7 +430,7 @@ entry: {
 ```js
 output: {
     //在服务器脚本用到，以确保文件资源能够在 http://xx:cnd 下正确访问
-    //publicPath: 'http://xx:cnd/',
+    /Path: 'http://xx:cnd/',
 },
 ```
 

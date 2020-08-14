@@ -65,7 +65,7 @@ su xikun
 ss -ntpl | grep 9000
 ```
 
-![sonar_start.jepe](../../.vuepress/public/engineering/sonar_start.jpeg)
+![sonar_start.jepe](/engineering/sonar_start.jpeg)
 
 ## 访问服务器:9000
 
@@ -75,7 +75,7 @@ ss -ntpl | grep 9000
 
 安装中文插件 **chinese**
 
-![sonar_chinese.jepe](../../../docs/.vuepress/public/engineering/sonar_chinese.png)
+![sonar_chinese.jepe](/engineering/sonar_chinese.png)
 
 
 ## sonarqube 账号 token 的生成
@@ -83,7 +83,7 @@ ss -ntpl | grep 9000
 onarqube支持生成用户token，以便在命令行或者脚本中使用token代表账号操作sonarbue，避免造成账号密码的泄露。
 点击sonarqube首页右上角头像，进入我的账号
 
-![token.png](../../../docs/.vuepress/public/engineering/sonar_token.png)
+![token.png](/engineering/sonar_token.png)
 
 **token**
 201e7b90ae737e356d65b6edd205ee31758d77ff
@@ -135,15 +135,15 @@ sonar.host.url=
 sonar-scanner
 ```
 
-![sonar-scanner.png](../../.vuepress/public/engineering/sonar-scanner.png)
+![sonar-scanner.png](/engineering/sonar-scanner.png)
 
 然后就是漫长的等待
 
-![sonar_wait.png](../../.vuepress/public/engineering/sonar_wait.png)
+![sonar_wait.png](/engineering/sonar_wait.png)
 
 最后我们查看网站的代码检查报表
 
-![sonar_repo.png](../../.vuepress/public/engineering/sonar_repo.png)
+![sonar_repo.png](/engineering/sonar_repo.png)
 
 
 项目令牌
