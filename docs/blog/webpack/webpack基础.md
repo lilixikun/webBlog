@@ -584,6 +584,22 @@ if (module.hot) {
 }
 ```
 
+解决单页面路由问题
+
+**historyApiFallback: true**
+
+通过传入一个对象，比如使用 rewrites 这个选项，此行为可进一步地控制：
+
+```js
+historyApiFallback: {
+  rewrites: [
+    { from: /^\/$/, to: '/views/landing.html' },
+    { from: /^\/subpage/, to: '/views/subpage.html' },
+    { from: /./, to: '/views/404.html' }
+  ]
+}
+```
+
 ## 使用 Babel
 
 安装相关插件

@@ -55,6 +55,9 @@ const blog = [
         children: [
             'webpack/webpack基础',
             'webpack/代码分割',
+            'webpack/webpack打包',
+            'webpack/bundler'
+
         ]
     }
 ]
