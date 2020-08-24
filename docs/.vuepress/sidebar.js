@@ -29,7 +29,7 @@ const blog = [
         ]
     },
     {
-        title: '前段工程化',
+        title: '前端工程化',
         collapsable: true,
         children: [
             'engineering/打造属于自己的脚手架',
@@ -56,8 +56,8 @@ const blog = [
             'webpack/webpack基础',
             'webpack/代码分割',
             'webpack/webpack打包',
-            'webpack/bundler'
-
+            'webpack/bundler',
+            'webpack/webpack优化'
         ]
     }
 ]
@@ -82,7 +82,21 @@ const arithmetic = [
 ]
 
 
+const react = [
+    {
+        title: '基础',
+        collapsable: true,
+        children: [
+            'API',
+            'ReactElement',
+            'ReactChildren'
+        ]
+    }
+]
+
+
 module.exports = {
     '/blog/': blog,
-    '/arithmetic/': arithmetic
+    '/arithmetic/': arithmetic,
+    '/react/': react
 }

@@ -8,8 +8,14 @@ const arithmetic = {
     link: '/arithmetic/'
 }
 
+const react = {
+    text: 'React源码解析',
+    link: '/react/'
+}
+
 module.exports = [
     blog,
-    arithmetic
+    arithmetic,
+    react
 ]
 
