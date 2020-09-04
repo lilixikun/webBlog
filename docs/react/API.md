@@ -1,5 +1,9 @@
 # React 常用API
 
+**React** 包括两部分,一 是 **React**, 二是 **ReactDOM**
+
+**React** 部分只是提供了我们使用的 **API**. 真正的核心是 **ReactDOM**,更新,任务调度,事件等核心都在 **ReactDOM** 中
+
 基于 React 16.13 暴露出来的 API 如下
 
 ```jsx
@@ -69,7 +73,21 @@ const Children = {
 
 除了 Hooks 的 API 外 大部分都是很熟悉的,值得稍微提一下的就是 **forwardRef** 
 
-forwardRef 解决了 HOC 组件传递 **ref** 的问题, forwardRef的使用方法如下
+**forwardRef** 解决了 HOC 组件传递 **ref** 的问题
+
+```js
+export default function forwardRef<Props, ElementType: React$ElementType>(
+  render: (props: Props, ref: React$Ref<ElementType>) => React$Node,
+) {
+
+  return {
+    $$typeof: REACT_FORWARD_REF_TYPE,
+    render,
+  };
+}
+```
+
+**forwardRef** 的使用方法如下
 
 ```js
 const TargetComponent = React.forwardRef((props, ref) => (

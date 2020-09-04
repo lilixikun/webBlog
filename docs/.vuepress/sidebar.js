@@ -3,8 +3,13 @@ const blog = [
         title: 'JS',
         collapsable: true,
         children: [
-            'js/手写系列'
-        ]
+            'js/手写系列',
+            "js/元编程",
+            "js/原型",
+            "js/迭代器",
+            "js/EventLoop"
+        ],
+
     },
     {
         title: 'HTTP',
@@ -59,6 +64,10 @@ const blog = [
             'webpack/bundler',
             'webpack/webpack优化'
         ]
+    },
+    {
+        title: 'Nginx',
+        collapsable: true
     }
 ]
 
@@ -79,6 +88,42 @@ const arithmetic = [
             'stack/有效的括号'
         ]
     },
+    {
+        title: '字典和散列表',
+        collapsable: true,
+        children: [
+            'dictionary/字典和散列表'
+        ]
+    },
+    {
+        title: '队列',
+        collapsable: true,
+        children: [
+            "queue/队列"
+        ]
+    },
+    {
+        title: '链表',
+        collapsable: true,
+        children: [
+            'linkedList/链表'
+        ]
+    },
+    {
+        title: '集合',
+        collapsable: true,
+        children: [
+            'set/集合'
+        ]
+    },
+    {
+        title: '排序',
+        collapsable: true,
+        children: [
+            "sort/排序和搜索"
+        ]
+    },
+
 ]
 
 
@@ -90,6 +135,16 @@ const react = [
             'API',
             'ReactElement',
             'ReactChildren'
+        ]
+    },
+    {
+        title: '创建更新',
+        collapsable: true,
+        children: [
+            "Render",
+            "update",
+            "Fiber",
+            "expirationTime"
         ]
     }
 ]
