@@ -1,4 +1,4 @@
-# Reaact 路由之 HashRoute 实现
+# react-router-dom 实现
 
 ## HashRouter
 
@@ -225,24 +225,6 @@ export default function (props) {
 ## withRouter
 withRouter是一个高阶组件，它的作用是将一个自定义组件包裹进Route里面, 然后react-router的三个对象history, location, match就会被放进这个组件的props属性中。从而实现自定义组件的路由跳转
 
-查看 Navheader 组件, 用 withRouter 包裹后 可以自定义路由跳转
-
-```js
-import React from 'react'
-import { withRouter } from './react-router-dom'
-
-function Navheader(props) {
-    return (
-        <div className="navbar-heading">
-            <div
-                onClick={() => props.history.push('/user')} //点击的时候跳转到首页
-                className="navbar-brand">{props.title}</div>
-        </div>
-    )
-}
-export default withRouter(Navheader)
-```
-
 withRouter 的实现:
 
 ```js
@@ -261,4 +243,24 @@ export default function (OldComponent) {
 }
 ```
 
-代码地址 [React路由实现](https://github.com/LiLixikun/webBlog/tree/master/%E6%89%8B%E5%86%99/react-router-dom)
+用 withRouter 包裹后 可以自定义路由跳转
+
+```js
+import React from 'react'
+import { withRouter } from './react-router-dom'
+
+function Navheader(props) {
+    return (
+        <div className="navbar-heading">
+            <div
+                onClick={() => props.history.push('/user')} //点击的时候跳转到首页
+                className="navbar-brand">{props.title}</div>
+        </div>
+    )
+}
+export default withRouter(Navheader)
+```
+
+## 源码地址
+
+源码地址请移步 [手写react-router-dom](https://github.com/LiLixikun/Blog-example/tree/master/packages/react-router-dom)
