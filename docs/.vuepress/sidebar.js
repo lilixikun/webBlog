@@ -47,11 +47,15 @@ const blog = [
         title: '性能优化',
         collapsable: true,
         children: [
-            'optimization/性能优化启示录',
             'optimization/网速检测',
+            'optimization/资源阻塞',
+            'optimization/渲染流程',
             'optimization/指标',
+            'optimization/Chrome性能分析',
+            'optimization/性能优化启示录',
+
             'optimization/Node性能调优',
-            'optimization/MPA性能优化小试'
+            'optimization/MPA性能优化小试',
         ]
     },
     {
@@ -72,13 +76,23 @@ const blog = [
         children: [
             "framework/redux",
             "framework/react-redux",
-            "framework/react-router"
+            "framework/react-router",
+            "framework/hooks-redux",
+
         ]
     },
     {
         title: 'Nginx',
         collapsable: true
-    }
+    },
+    {
+        title: '微前段',
+        collapsable: true
+    },
+    {
+        title: '小程序原理',
+        collapsable: true
+    },
 ]
 
 // 算法
