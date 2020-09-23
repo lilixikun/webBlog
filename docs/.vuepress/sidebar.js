@@ -65,9 +65,15 @@ const blog = [
             'webpack/webpack基础',
             'webpack/代码分割',
             'webpack/webpack打包',
-            'webpack/bundler',
+            'webpack/源码解析一',
+            'webpack/源码解析二',
+            'webpack/源码解析三',
+            'webpack/源码解析四',
+            'webpack/源码解析五',
+            'webpack/源码解析六',
+            'webpack/源码分析总结',
+            'webpack/手写Webpack',
             'webpack/webpack优化',
-            'webpack/源码解析一'
         ]
     },
     {
