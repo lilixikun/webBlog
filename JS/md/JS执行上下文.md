@@ -354,7 +354,7 @@ AO = {
 8. 在代码执行阶段，会再次修改变量对象的属性值
 
 # 参考
-[理解 Javascript 执行上下文和执行栈]("https://juejin.im/post/5bdfd3e151882516c6432c32)
+[理解 Javascript 执行上下文和执行栈](https://juejin.im/post/5bdfd3e151882516c6432c32)
 
 
-[一篇文章看懂JS执行上下文]("https://www.cnblogs.com/echolun/p/11438363.html")
+[一篇文章看懂JS执行上下文](https://www.cnblogs.com/echolun/p/11438363.html)

@@ -76,12 +76,11 @@ class B extends A {
     constructor() {
         //super()在这里相当于A.prototype.constructor.call(this)。
         super();
-
         //作为函数时，super()只能用在子类的构造函数之中，用在其他地方就会报错
-        m() {
-           // super(); // 报错
-        }
     }
+    m() {
+        // super(); // 报错
+     }
 }
 B.hello();
 new A(); //A

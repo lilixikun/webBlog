@@ -4,6 +4,9 @@ const blog = [
         collapsable: true,
         children: [
             'js/手写系列',
+            'js/运算符',
+            'js/预编译',
+            'js/箭头函数',
             "js/元编程",
             "js/原型",
             "js/迭代器",
