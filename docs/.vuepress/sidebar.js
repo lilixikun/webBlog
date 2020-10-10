@@ -6,6 +6,7 @@ const blog = [
             'js/手写系列',
             'js/运算符',
             'js/预编译',
+            'js/执行过程',
             'js/箭头函数',
             "js/元编程",
             "js/原型",
@@ -87,7 +88,12 @@ const blog = [
             "framework/react-redux",
             "framework/react-router",
             "framework/hooks-redux",
-
+            "framework/react-fiber",
+            "framework/requestAnimationFrame",
+            "framework/requestIdleCallback",
+            "framework/SchedulerHostConfig.default",
+            "framework/updateQueue",
+            "framework/fiber"
         ]
     },
     {
@@ -106,6 +112,13 @@ const blog = [
 
 // 算法
 const arithmetic = [
+    {
+        titie: '原理',
+        collapsable: true,
+        children: [
+            'principle/skill'
+        ]
+    },
     {
         title: '递归',
         collapsable: true,

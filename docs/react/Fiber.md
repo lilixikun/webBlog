@@ -2,7 +2,7 @@
 
 ## FiberRoot
 
-上篇我们讲 Render 的创建 **ReactRoot**的时候会调用 **createContainer** 创建了 **FiberRoot**
+上篇我们讲 render 的时候会创建 **ReactRoot**的时候会调用 **createContainer** 创建了 **FiberRoot**
 
 在 **react-reconciler/src/ReactFiberRoot.js** 文件找到了 创建FiberRoot的方法
 
@@ -51,7 +51,7 @@ function FiberRootNode(containerInfo, tag, hydrate) {
   this.pingCache = null;
   // 完成的过期时间
   this.finishedExpirationTime = NoWork;
-  // 已经完成的人物的 FiberRoot对象,如果只有一个Root,拿它永远只可能是这个Root对应的Fiber，或者是null
+  // 已经完成的任务的 FiberRoot对象,如果只有一个Root,拿它永远只可能是这个Root对应的Fiber，或者是null
   // 在commit 阶段只会处理这个值对应的人物
   this.finishedWork = null;
   // 在任务被挂起的时候通过setTimeout设置的返回内容，用来下一次如果有新的任务挂起时清理还没触发的timeout

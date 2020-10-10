@@ -1,6 +1,6 @@
 # updateQueue
 
-上一章节我们讲到,初始化执行 unbatchedUpdates 并执行 updateContainer 在里面会 调用 **createUpdate** 新建一个 uodate.我们来看看
+上一章节我们讲到,初始化执行 unbatchedUpdates 并执行 updateContainer 在里面会 调用 **createUpdate** 生成一个 update.我们来看看
 
 方法定义在文件 **react-reconcile/src/ReactUpdateQueue.js** 中。
 
@@ -70,7 +70,8 @@ export function enqueueUpdate<State>(fiber: Fiber, update: Update<State>) {
 }
 ```
 
-前面在 创建 **FiberRoot** 的时候会 执行 **initializeUpdateQueue** 初始化 updateQueue,我们来 看看 **updateQueue** 有那些东西
+前面在 创建 **FiberRoot** 的时候会 执行 **initializeUpdateQueue** 初始化 **updateQueue**,我们来 看看 **updateQueue** 有那些东西
+
 ```js
 export function initializeUpdateQueue<State>(fiber: Fiber): void {
   const queue: UpdateQueue<State> = {
