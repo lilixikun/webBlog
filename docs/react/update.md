@@ -86,8 +86,4 @@ export function initializeUpdateQueue<State>(fiber: Fiber): void {
 }
 ```
 
-看到这个 **UpdateQueue** 的结构我们差不多就懂了
-
-方法功能把当前update挂载到当前fiber的updateQueue中。
-
-update的next属性有可能会指向自身,这就是一个单向循环链表
+在初始化的时候会创建 **UpdateQueue** 挂载在对应的 **fiber** 结构上, **UpdateQueue** 是一个单向链表, 在执行 <font color='red'>render</font>  和 <font color='red'>setState</font> 创建一个的 **update** 挂载到 UpdateQueue 的shared 中

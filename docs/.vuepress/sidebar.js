@@ -180,6 +180,7 @@ const react = [
         children: [
             'API',
             'ReactElement',
+            'JSX',
             'ReactChildren'
         ]
     },
@@ -191,6 +192,20 @@ const react = [
             "update",
             "Fiber",
             "expirationTime"
+        ]
+    },
+    {
+        title: '任务调度',
+        collapsable: true,
+        children: [
+            'scheduleWork',
+            '双缓存fiber树',
+            'workLoopSync',
+            'beginWork',
+            'HostComponent',
+            'ClassComponent',
+            'completeUnitOfWork',
+            'DOM创建'
         ]
     }
 ]
