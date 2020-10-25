@@ -3,4 +3,4 @@
 2. 对自己也是一个挑战,能够去深入理解 React 运行原理
 
 # 鸣谢
-感觉 **Jocky** 老师的热情开源 [React源码解析](https://react.jokcy.me/),让我们能够站在巨人的肩膀上去揭开 React 的面纱
+感谢 **Jocky** 老师的热情开源 [React源码解析](https://react.jokcy.me/),让我们能够站在巨人的肩膀上去揭开 React 的面纱

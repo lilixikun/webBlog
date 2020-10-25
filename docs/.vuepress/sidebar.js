@@ -81,6 +81,13 @@ const blog = [
         ]
     },
     {
+        title: 'TS',
+        collapsable: true,
+        children: [
+            "ts/基础"
+        ]
+    },
+    {
         title: 'Framework',
         collapsable: true,
         children: [
@@ -101,13 +108,20 @@ const blog = [
         collapsable: true
     },
     {
-        title: '微前段',
+        title: '微前端',
         collapsable: true
     },
     {
         title: '小程序原理',
         collapsable: true
     },
+    {
+        title: '杂谈',
+        collapsable: true,
+        children: [
+            'book/book'
+        ]
+    }
 ]
 
 // 算法
@@ -205,8 +219,28 @@ const react = [
             'HostComponent',
             'ClassComponent',
             'completeUnitOfWork',
-            'DOM创建'
+            'DOM创建',
+            'finishSyncRender'
         ]
+    },
+    {
+        title: '功能',
+        collapsable: true,
+        children: [
+            "单节点Diff",
+            "多节点Diff",
+            "Context",
+            "Ref"
+            // 'ref',
+            // '事件初始化',
+            // '事件绑定',
+            // 'lazy组件'
+        ]
+    },
+    {
+        title: 'Hooks',
+        collapsable: true,
+        children: []
     }
 ]
 

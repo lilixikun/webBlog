@@ -184,7 +184,7 @@ export function finalizeInitialChildren(
 }
 ```
 
-[setInitialProperties](https://github.com/facebook/react/blob/v16.13.0/packages/react-dom/src/client/ReactDOMComponent.js#L503) 代码非常多,下面贴出部门
+[setInitialProperties](https://github.com/facebook/react/blob/v16.13.0/packages/react-dom/src/client/ReactDOMComponent.js#L503) 代码非常多,下面贴出部分代码
 
 ```js
 export function setInitialProperties(
