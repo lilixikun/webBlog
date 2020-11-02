@@ -53,6 +53,7 @@ const blog = [
         children: [
             'optimization/网速检测',
             'optimization/资源阻塞',
+            'optimization/渲染过程',
             'optimization/渲染流程',
             'optimization/指标',
             'optimization/Chrome性能分析',
@@ -119,7 +120,7 @@ const blog = [
         title: '杂谈',
         collapsable: true,
         children: [
-            'book/book'
+            'talk/book'
         ]
     }
 ]
@@ -230,17 +231,22 @@ const react = [
             "单节点Diff",
             "多节点Diff",
             "Context",
-            "Ref"
-            // 'ref',
-            // '事件初始化',
-            // '事件绑定',
+            "Ref",
+            "memo",
+            "setState",
+            "合成事件"
             // 'lazy组件'
         ]
     },
     {
         title: 'Hooks',
         collapsable: true,
-        children: []
+        children: [
+            "useMemo",
+            "useCallback",
+            "useEffect",
+            "useState"
+        ]
     }
 ]
 

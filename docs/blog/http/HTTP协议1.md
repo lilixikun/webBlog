@@ -10,16 +10,6 @@ HTTP协议是由从客户机到服务器的请求(Request)和从服务器到客�
 
 ![http-response.jpg](https://upload-images.jianshu.io/upload_images/2964446-5a35e17f298a48e1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2)
 
-## 当我们输入网址后发生了什么
-
-- 输入网址并回车
-- 解析域名
-- 浏览器发送HTTP请求
-- 服务器处理请求
-- 服务器返回HTML响应
-- 浏览器处理HTML页面
-- 继续请求其他资源
-
 
 ## 了解 TCP/IP 协议栈
 
