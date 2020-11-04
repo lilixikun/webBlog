@@ -53,12 +53,12 @@ const blog = [
         children: [
             'optimization/网速检测',
             'optimization/资源阻塞',
-            'optimization/渲染过程',
             'optimization/渲染流程',
             'optimization/指标',
             'optimization/Chrome性能分析',
+            'optimization/资源优化',
+            'optimization/传输加载优化',
             'optimization/性能优化启示录',
-
             'optimization/Node性能调优',
             'optimization/MPA性能优化小试',
         ]

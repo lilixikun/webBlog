@@ -129,3 +129,8 @@ Last-Modified:Thu,31 Dec 2037 23:59:59 GMT。
 ![cache.png](/optimization/cache.png)
 
 ![cache-level.png](/optimization/cache-level.png)
+
+- cache-control
+- expries
+- etag
+- last-modified

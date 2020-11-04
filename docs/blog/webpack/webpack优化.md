@@ -198,6 +198,13 @@ import "@babel/polyfill"
 
 ## 配置优化
 
+### noParse
+这是module中的一个属性，作用:不去解析属性值代表的库的依赖,配置也很简单
+
+```js
+noParse:/jquery/  ,//不去解析jquery中的依赖库
+```
+
 ### resolveLoader
 如果我们编写了自定义的 Loarder,我们 需要引用 **path.resolve(__dirname, './loaders/replaceLoader.js')** 很不雅观,我们可以通过设置 resolveLoader 来达到和正常的 loader 引入一样
 
