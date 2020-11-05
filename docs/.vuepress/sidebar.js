@@ -85,7 +85,9 @@ const blog = [
         title: 'TS',
         collapsable: true,
         children: [
-            "ts/基础"
+            "ts/基础",
+            "ts/进阶",
+            "ts/类与接口"
         ]
     },
     {
