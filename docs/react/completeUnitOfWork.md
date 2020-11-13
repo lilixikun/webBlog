@@ -24,7 +24,7 @@ function performUnitOfWork(workInProgress) {
 
 4. 设置DOM 对象的属性 绑定事件
 
-5. 把字节点的 sideEffect 添加到父节点上
+5. 把子节点的 sideEffect 添加到父节点上
 
 基于上面我把代码简化了下 大体思路如下,可以自行查看源码 [completeUnitOfWork](https://github.com/facebook/react/blob/v16.13.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L1503)
 
@@ -69,7 +69,7 @@ function completeUnitOfWork(workInProgress) {
 
 ![Filber](/react/Filber.png)
 
-因此 React 会首先进行 **从上到下** 创建 fiber 节点,然后再从下到上生成 DOM节点,我们再上面逻辑可以看到,首先调用 **completeWork** 传入 **workInProgress** 创建 DOM 节点,然后会判断有没有兄弟节点,然后返回兄弟节点,那么又会回到 **beginWork** 创建 Fiber 节点,然后本节点创建完了 就会去判断有没有父节点 然后再去生成 DOM, 如同我们前面的 [例子](/react/workLoopSync.html#例子)
+因此 React 会首先进行 **从上到下** 创建 fiber 节点,然后再从下到上生成 DOM节点,我们在上面逻辑可以看到,首先调用 **completeWork** 传入 **workInProgress** 创建 DOM 节点,然后会判断有没有兄弟节点,然后返回兄弟节点,那么又会回到 **beginWork** 创建 Fiber 节点,然后本节点创建完了 就会去判断有没有父节点 然后再去生成 DOM, 如同我们前面的 [例子](/react/workLoopSync.html#例子)
 
 ::: warning 👺
 这里不得不感慨,React 这设计真的巧妙啊!!!

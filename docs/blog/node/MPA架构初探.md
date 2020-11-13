@@ -6,12 +6,12 @@
   
 > 第一次进入页面会请求一个 html 文件,切花url,此时路径也相应变化,但是没有新的 html 文件请求,页面只在片段间切换 . 最显著特征 根节点只有一个 root 节点,空架子
 
-原理: 使用浏览器 **pushState**  等 API 讲下一个页面的内容挂在到当前页面,路由由前段自己控制
+原理: 使用浏览器 **pushState** API，将下一个页面的内容挂在到当前页面,路由由前段自己控制
 
 总结:
 - 页面跳转:JS 渲染
 - 优点: 页面切换快
-- 首屏时间慢,SEO 差
+- 首屏时间慢、SEO 差
 
 多适用于后台管理系统
 
@@ -21,7 +21,7 @@
 
 总结:
 - 页面跳转:返回完整的 HTML
-- 首屏时间快,SEO 好
+- 首屏时间快、SEO 好
 - 可见可操作
 
 
@@ -55,7 +55,7 @@
 </html>
 ```
 
-不了解 **koa-swig** 模板语法的可以去看下如何使用 **https://www.npmjs.com/package/koa-swig**
+不了解 **koa-swig** 模板语法的可以去看下如何使用 [koa-swig](https://www.npmjs.com/package/koa-swig)
 
 在 components 目录下新建 banner 组件 
 **banner.html**
@@ -83,7 +83,7 @@ ok,现在在 views 下需要写一点我们自己的业务页面代码了,来个
 
 新建 views/books/pages
 
-**create.ihtml**, **list.html**
+**create.html**, **list.html**
 ```html
 {% extends '@layouts/layout.html' %}
 
@@ -142,7 +142,7 @@ webpack --mode production
 
 根目录下新建 config/webpack.development.js  config/webpack.production.js
 
-**/webpack.development.js**
+**webpack.development.js**
 ```js
 const { join } = require('path')
 
@@ -307,12 +307,9 @@ module.exports = HtmlAfterPlugin
 上面我们就编写了一个自己的 webpack 插件
 - 利用 HtmlWebpackPlugin 的 Hooks 去获取资源
 - 根据自己的需求进行替换 html 字符
+- 实现了路径的简写  /@components/g, '../../../components'
 
-::: tip
-/@components/g, '../../../components'
-:::
-
-Ok,把我们的 插件用到 配置中
+Ok、把我们的插件用到配置中
 
 ```js
 const HtmlAfterPlugin = require('./config/htmlAfterplugin')
@@ -447,7 +444,7 @@ yarn server:start
 
 ## 对 Node 文件进行清洗
 
-如我们的的 src/server/confin.js 
+如我们的的 src/server/config.js 
 
 ```js
 import { extend } from 'lodash'

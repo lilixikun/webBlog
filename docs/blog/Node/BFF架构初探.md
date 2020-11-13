@@ -2,7 +2,7 @@
 
 ## 什么是BFF 以及 node.js 在BFF 层能做的事情
 
-网上对BFF 有很多的长篇大伦,对我(搬砖党)来说 **BFF-服务与前的后端**。 比如,现在有一个后端接口,他不满足我前段要求的数据格式,或者很多无用的数据格式,那我们就可以在**BFF**层把数据格式化。
+网上对BFF 有很多的长篇大伦,对我(搬砖党)来说 **BFF-服务于前端的后端**。 比如,现在有一个后端接口,他不满足我前段要求的数据格式,或者很多无用的数据格式,那我们就可以在**BFF**层把数据格式化。
 
 因为前段需要什么数据自己是最清楚,那么理所应当 就该自己丰衣足食,毫无疑问用 Node 去做中间数据处理是最好不过的,因为都是JS 啊 😊
 
@@ -228,7 +228,7 @@ router.get('/book/list', async (ctx) => {
 - 前段发送请求到 Node BFF 层
 - Node 再次发送请求到 JAVA获取到数据 并对数据进行处理进行返回
 
-![图片.png](https://upload-images.jianshu.io/upload_images/1493056-9ec6f9c89791c6f6.png?imageMogr2/auto-orient/strip|imageView2/2/w/639/format/webp)
+![图片.png](/node/node-bff.png)
 
 因为到时候我们Node 会和 JAVA 服务部署到一台服务器,从本地读取数据速度会非常之快,因此不必担心影响请求相应速度.
 

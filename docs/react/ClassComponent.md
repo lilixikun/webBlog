@@ -199,7 +199,7 @@ function mountClassInstance(
 初次渲染看完了 现在来看看 [updateClassInstance](https://github.com/facebook/react/blob/v16.13.0/packages/react-reconciler/src/ReactFiberClassComponent.js#L999)
 
 
-在这里面会进行新老 props 的对比判断,然后会触发 **callComponentWillReceiveProps** 和 **applyDerivedStateFromProps** 等生命周期,关键嗲吗:
+在这里面会进行新老 props 的对比判断,然后会触发 **callComponentWillReceiveProps** 和 **applyDerivedStateFromProps** 等生命周期,关键代码:
 
 ```js
   const shouldUpdate =
