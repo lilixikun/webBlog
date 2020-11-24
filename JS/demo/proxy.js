@@ -42,7 +42,7 @@ const negativeArray = (els) =>
                 receiver
             ),
     });
-const unicorn = negativeArray(['京', '程', '一', '灯']);
+const unicorn = negativeArray(['奥', '🐰', '前', '行']);
 console.log(unicorn[-1]);
 
 

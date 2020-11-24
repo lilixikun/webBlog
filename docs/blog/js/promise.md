@@ -1,6 +1,6 @@
-## Promise 申明
+# Promise
 
-promise 肯定是一个类,我们用 class 申明
+promise 肯定是一个类
 
 - 由于 **new Promise((resolve, reject)=>{})** 所以传入一个参数（函数）**executor**
 - executor里面有两个参数，一个叫resolve（成功），一个叫reject（失败）。
@@ -96,7 +96,7 @@ then(onFulfilled, onRejected) {
 }
 ```
 
-OK 至此,一个基础班的 Promise 就算是完成了, 我们来进行简单的测试一下
+OK 至此,一个基础版的 Promise 就算是完成了, 我们来进行简单的测试一下
 
 ```js
 // 正常执行 
@@ -191,10 +191,11 @@ class MyPromise{
     }
   }
 }
-
 ```
 
-## 解决链式回调
+至此，一个简单基础版的 promise 算是完成了
+
+## 解决链式调用
 
 常常用到 **new Promise().then().then()**,这就是链式调用，用来解决回调地狱
 
@@ -502,7 +503,7 @@ MyPromise.all = function (promises) {
 }
 ```
 
-## 进行 promises-aplus-tests 测试
+## 使用 promises-aplus-tests 测试
 
 通过 promises-aplus-tests 可以测试我们实现的 Promise 类是否满足 Promise/A+ 规范。
 进行测试之前，需要为 promises-aplus-tests 提供一个 deferred 的钩子：
@@ -530,4 +531,4 @@ npm install promises-aplus-tests -D
 npx promises-aplus-tests promise.js
 ```
 
-代码地址  [手写Promise](https://github.com/LiLixikun/webBlog/blob/master/%E6%89%8B%E5%86%99/promise.js)
+代码地址  [手写Promise](https://github.com/LiLixikun/Blog-example/blob/master/packages/js/promise.js)

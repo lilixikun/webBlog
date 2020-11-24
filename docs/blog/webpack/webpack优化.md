@@ -243,9 +243,7 @@ plugins: [
 
 ### progress-bar-webpack-plugin
 
-[progress-bar-webpack-plugin](https://www.npmjs.com/package/progress-bar-webpack-plugin) 打包进度展示
-
-![progress-bar-webpack-plugin](http://i.imgur.com/OIP1gnj.gif)
+打包进度展示，[progress-bar-webpack-plugin](https://www.npmjs.com/package/progress-bar-webpack-plugin) 
 
 ### friendly-errors-webpack-plugin
 
@@ -270,9 +268,13 @@ new FriendlyErrorsWebpackPlugin({
 }),
 ```
 
-![FriendlyErrorsWebpackPlugin](/webpack/FriendlyErrorsWebpackPlugin.png)
 
 ![filed](http://i.imgur.com/W59z8WF.gif)
+
+### SpeedMeasurePlugin
+![SpeedMeasurePlugin](/webpack/FriendlyErrorsWebpackPlugin.png)
+
+loader 插件运行时间分析，插件速度分析
 
 ### webpack-build-notifier
 [webpack-build-notifier](https://www.npmjs.com/package/webpack-build-notifier) 可以更好的提示你运行状态

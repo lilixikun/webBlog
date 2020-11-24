@@ -4,10 +4,13 @@ const blog = [
         collapsable: true,
         children: [
             'js/手写系列',
+            "js/promise",
             'js/运算符',
             'js/预编译',
+            'js/clone',
             'js/执行过程',
             'js/箭头函数',
+            'js/闭包',
             "js/元编程",
             "js/原型",
             "js/迭代器",
@@ -79,6 +82,7 @@ const blog = [
             'webpack/源码分析总结',
             'webpack/手写Webpack',
             'webpack/webpack优化',
+            'webpack/webpack5'
         ]
     },
     {
@@ -99,13 +103,7 @@ const blog = [
             "framework/redux",
             "framework/react-redux",
             "framework/react-router",
-            "framework/hooks-redux",
-            "framework/react-fiber",
-            "framework/requestAnimationFrame",
-            "framework/requestIdleCallback",
-            "framework/SchedulerHostConfig.default",
-            "framework/updateQueue",
-            "framework/fiber"
+            "framework/hooks-redux"
         ]
     },
     {
@@ -150,7 +148,16 @@ const arithmetic = [
         collapsable: true,
         children: [
             'stack/栈',
+            'stack/进制转换',
             'stack/有效的括号'
+        ]
+    },
+    {
+        title: '队列',
+        collapsable: true,
+        children: [
+            "queue/队列",
+            "queue/练习"
         ]
     },
     {
@@ -158,13 +165,6 @@ const arithmetic = [
         collapsable: true,
         children: [
             'dictionary/字典和散列表'
-        ]
-    },
-    {
-        title: '队列',
-        collapsable: true,
-        children: [
-            "queue/队列"
         ]
     },
     {
@@ -200,7 +200,10 @@ const react = [
             'API',
             'ReactElement',
             'JSX',
-            'ReactChildren'
+            'ReactChildren',
+            "react-fiber",
+            "requestAnimationFrame",
+            "requestIdleCallback",
         ]
     },
     {
@@ -210,7 +213,8 @@ const react = [
             "Render",
             "update",
             "Fiber",
-            "expirationTime"
+            "expirationTime",
+            "updateQueue"
         ]
     },
     {
@@ -238,8 +242,8 @@ const react = [
             "Ref",
             "memo",
             "setState",
-            "合成事件"
-            // 'lazy组件'
+            "合成事件",
+            "SchedulerHostConfig.default",
         ]
     },
     {

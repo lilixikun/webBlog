@@ -234,9 +234,9 @@ router.get('/book/list', async (ctx) => {
 
 ## 小插件
 
-你是否在目录过多时,导致引用一个文件而导致引用过多的 **"../"**,如下:
+你是否在目录过多时，导致引用一个文件而导致引用过多的 **"../"**,如下:
 
-**require('../../../../some/very/deep/module')**
+>require('../../../../some/very/deep/module')
 
 安装 **module-alias** 解决上面的问题,用法如下: 
 

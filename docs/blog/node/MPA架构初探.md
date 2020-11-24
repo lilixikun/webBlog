@@ -4,7 +4,7 @@
 
 - SPA 单页面应用
   
-> 第一次进入页面会请求一个 html 文件,切花url,此时路径也相应变化,但是没有新的 html 文件请求,页面只在片段间切换 . 最显著特征 根节点只有一个 root 节点,空架子
+> 第一次进入页面会请求一个 html 文件，切换 url，此时路径也相应变化，但是没有新的 html 文件请求，页面只在片段间切换。 最显著特征 根节点只有一个 root 节点,空架子
 
 原理: 使用浏览器 **pushState** API，将下一个页面的内容挂在到当前页面,路由由前段自己控制
 
@@ -17,7 +17,7 @@
 
 - MAP 多页面应用
   
-> 每一次页面请求,都会返回一个新的 html 文档, 内容都是全部填充好的
+每一次页面请求，都会返回一个新的 html 文档，内容都是全部填充好的，可见可操作，SEO好
 
 总结:
 - 页面跳转:返回完整的 HTML
@@ -27,7 +27,7 @@
 
 ## 前段模板渲染
 
-在上一章节,我们使用 **koa-swig** 来作为前段模板渲染,现在我们来完善一下
+在上一章节，我们使用 **koa-swig** 来作为前段模板渲染，现在我们来完善一下
 
 在 src/web 下 新建 **components** 和 **views** 文件夹
 > components 存放我们的组件
@@ -182,13 +182,13 @@ const webpackConfig = {
 module.exports = merge(webpackConfig, _mergeConfig)
 ```
 
-现在我们来获取 webpackConfig 的  entry 入口文件
+现在我们来获取 webpackConfig 的 **entry** 入口文件
 
 按照我们的项目目录结构 我们要把  **src/web/views/books/pages/*.html** 进行输出
 
 现在 html 文件有了,但是现在有个问题,我们光有 **HTML**,不能没有 **JS** 文件啊
 
-OK, 我们在每个模块下 新建 ***.entery.js** 如 **src/web/views/books/book-list.enter.js**,加载我们需要的js
+OK, 我们在每个模块下 新建 ***.entery.js** 如 **src/web/views/books/book-list.enter.js** 加载我们需要的js
 
 ```js
 import banner from '@/components/banner/banner.js'
@@ -389,10 +389,10 @@ module.exports = {
 
 ## 使用 Gulp 对 Node 进行编译
 
-原来我们 Node 里面都是使用 **CommonJS** 现在全部改成 **ES6**写法,不用说,肯定需要编译
+原来我们 Node 里面都是使用 **CommonJS** 现在全部改成 **ES6**写法，不用说,肯定需要编译
 
 ```
-npm install --save-dev gulp gulp-babel "@babel/cli @babel/core @babel/preset-env @babel/plugin-transform-modules-systemjs gulp-watch
+npm install --save-dev gulp gulp-babel @babel/cli @babel/core @babel/preset-env @babel/plugin-transform-modules-systemjs gulp-watch
 ```
 
 新建一个 gulpfile.js 编写
