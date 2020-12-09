@@ -70,7 +70,7 @@ JS调用栈采用的是后进先出的规则，当函数执行的时候，会被
 - **script全部代码**
 - **setTimeout**, 
 - **setInterval**,
-- **setImmediate**, 
+- **setImmediate**（Node环境）, 
 - **requestAnimationFrame**,
 - **I/O**, 
 - **UI rendering**
@@ -78,7 +78,7 @@ JS调用栈采用的是后进先出的规则，当函数执行的时候，会被
 
 微任务
 
-- **process.nextTick**, 
+- **process.nextTick**（Node环境）, 
 - **Promise**, 
 - **MutationObserver**
 
