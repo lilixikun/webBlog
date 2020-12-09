@@ -82,3 +82,19 @@ function updateRef<T>(initialValue: T): {|current: T|} {
 ```
 
 源码非常简单 就是把 ref 挂载到 **memoizedState** 然后使用时再去 **memoizedState** 取值
+
+## createRef 和 useRef 区别
+
+useRef 仅能用在 FunctionComponent，createRef 仅能用在 ClassComponent。createRef 并没有 Hooks 的效果，其值会随着 FunctionComponent 重复执行而不断被初始化：
+
+```js
+function App() {
+  // 错误用法，永远也拿不到 ref
+  const valueRef = React.createRef();
+  return <div ref={valueRef} />;
+}
+```
+上述 valueRef 会随着 App 函数的 Render 而重复初始化，这也是 Hooks 的独特之处，虽然用在普通函数中，但在 React 引擎中会得到超出普通函数的表现，比如初始化仅执行一次，或者引用不变。
+
+但是 **createRef** 为什么在 **ClassComponent** 就可以呢，因为在类组件中只会初始化一次，有自己完整的生命周期。
+

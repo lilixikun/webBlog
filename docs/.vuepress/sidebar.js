@@ -14,7 +14,8 @@ const blog = [
             "js/元编程",
             "js/原型",
             "js/迭代器",
-            "js/EventLoop"
+            "js/EventLoop",
+            "js/0.1+0.2"
         ],
 
     },
@@ -24,6 +25,7 @@ const blog = [
         children: [
             'http/HTTP协议1',
             'http/HTTP缓存',
+            'http/DNS',
             'http/TCP-IP'
         ]
     },
@@ -37,7 +39,8 @@ const blog = [
             'node/集成jwt',
             'node/SSR',
             'node/BFF架构初探',
-            'node/MPA架构初探'
+            'node/MPA架构初探',
+            'node/PM2'
         ]
     },
     {
@@ -103,7 +106,16 @@ const blog = [
             "framework/redux",
             "framework/react-redux",
             "framework/react-router",
-            "framework/hooks-redux"
+            "framework/hooks-redux",
+            "framework/koa"
+        ]
+    },
+    {
+        title: '前端安全',
+        collapsable: true,
+        children: [
+            "safety/encryption",
+            "safety/safe"
         ]
     },
     {
