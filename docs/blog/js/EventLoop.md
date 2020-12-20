@@ -65,7 +65,9 @@ JS调用栈采用的是后进先出的规则，当函数执行的时候，会被
 
 异步任务 又分为 **宏任务** 和 **微任务**
 
-宏任务
+### **macrotask** 
+
+宏任务有以下几种:
 
 - **script全部代码**
 - **setTimeout**, 
@@ -73,17 +75,106 @@ JS调用栈采用的是后进先出的规则，当函数执行的时候，会被
 - **setImmediate**（Node环境）, 
 - **requestAnimationFrame**,
 - **I/O**, 
+- **postMessage**，**MessageChannel**
 - **UI rendering**
 
 
-微任务
+### **microtask** 
+
+微任务 有以下几种：
 
 - **process.nextTick**（Node环境）, 
-- **Promise**, 
+- **Promise.then**, 
 - **MutationObserver**
 
 
 在挂起任务时，JS 引擎会将所有任务按照类别分到这两个队列中，首先在 宏任务 的队列中取出第一个任务，执行完毕后取出 微任务 队列中的所有任务顺序执行；之后再取 宏任务，周而复始，直至两个队列的任务都取完。
+
+
+## 浏览器中的EventLoop
+
+![bsEventLoop](/js/bsEventLoop.png)
+
+
+浏览器中的EventLoop 还是比较正常，没那么多稀奇古怪的东西
+
+## Node中EventLoop
+
+首先这张图不用多说，libuv 的架构图
+
+![libvu](/js/libuv.png)
+
+再来看几个特殊的API
+
+```js
+setTimeout(function () {
+    console.log(1);
+}, 0);
+setImmediate(function () {
+    console.log(2);
+});
+process.nextTick(() => {
+    console.log(3);
+});
+new Promise((resovle, reject) => {
+    console.log(4);
+    resovle(4);
+}).then(function () {
+    console.log(5);
+});
+console.log(6);
+```
+
+在Node执行依次打印 4-6-3-5-1-2
+
+### 初识libvu
+
+在Node.js 启动时，创建了一个类似 **while(true)** 的循环体，每次执行一次循环体称为一次 **tick**。每个tick的过程就查看是否有事件等待处理，如果有，则取出事件及其相关的回调函数并执行，然后执行下一次 tick。它的执行逻辑时，先询问事件观察者当前是否有任务需要执行? **观察者**回答 **有**，于是取出A执行，A是否有回调函数？如果有(如果没有则继续询问当前是否有任务需要执行)，则取出回调函数并执行(注意:回调函数的执行基本都是异步的，可能不止一个回调)，执行完回调后通过某种方式通知调用者，我执行完了，并把执行结果给你，主函数不需要不断询问回调函数执行结果，回调函数会以通知的方式告知调用者我执行完了，而这个过程主线程并不需要等待回调函数执行完成，它会继续向前执行，直到**观察者**回答没有了，线程结束。
+
+事件循环是一个典型的生产者、消费者模型。**异步IO**、**网络请求**等则是事件的生产者，源源不断为Node提供不同类型事件，这些事件被传到观察者那里，事件则从观察者那里取出事件并处理。
+
+### 什么是观察者
+
+![tick](/js/tick.png)
+
+
+### 位置
+
+process.nextTick 在 EventLoop 的位置
+
+![nextTick](/js/nextTick.png)
+
+
+setImmediate 在 EventLoop 的位置
+
+![nextTick](/js/setImmediate.png)
+
+
+## 七个阶段
+
+事件循环分下面七个阶段
+
+1. <font color='red'>update_time</font> 为了获取一下系统时间，以保证之后的timer有个计时的标，避免过多的系统调用影响性能。
+
+2. <font color='red'>timers</font> 要检查是否有到期的 timer，也就是 setTimeout/setInterval 这种类型的timer
+
+3. <font color='red'>I/O callbacks(epool，kqueue,IOCP)</font> I/O 异步事件的回调，比如网络I/O,比如文件读取I/O，当这些I/O动作都结束的时候调用
+
+4. <font color='red'>idle、prepare</font> 这个阶段内部做一些动作，如果节点处于 avtibe 状态，每次事件循环都会被执行 nexttick
+
+5. <font color='red'>I/O poll阶段</font> 调用各个平台提供的io多路复用接口，最多dengdai timeout 事件，记录 timoeout 自己维护状态，在适当的条件下进行阻塞
+
+6. <font color='red'>check</font> 执行 setImmediate 操作
+
+7. <font color='red'>close callbacks</font> 关闭 I/0的动作，比如文件描述符的关闭，链接断开等等
+
+
+## 总结
+
+![eventLoop1](/js/eventLoop1.png)
+
+![eventLoop2](/js/eventLoop2.png)
+
 
 ## 练习
 说了那么多概念,还是来点 题目来练习下

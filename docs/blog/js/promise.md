@@ -457,7 +457,7 @@ class MyPromise {
 }
 ```
 
-## 实现catch和resolve、reject、race、all方法
+## 实现其他方法
 
 ```js
 //resolve方法
@@ -498,6 +498,31 @@ MyPromise.all = function (promises) {
                     resolve(arr)
                 }
             }, reject)
+        }
+    })
+}
+```
+
+## Promise.allSettled()
+
+我们知道 Promise.all 是必须等到所有的任务成功才会成功，如果一个失败则会导致所有的失败。这个时候就有了新的API，[Promise.allSettled()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)，当有多个彼此不依赖的异步任务成功完成时，或者总是想知道每个promise的结果时，通常使用它。
+
+```js
+MyPromise.allSettled = function (promises) {
+    let data = [];
+    let count = promises.length
+    return new Promise((resolve) => {
+        for (let i = 0; i < promises.length; i++) {
+            const promise = promises[i]
+            promise.then(res => {
+                data[i] = { status: 'fulfilled', value: res };
+            }, err => {
+                data[i] = { status: 'rejected', reason: error };
+            }).finally(() => {
+                if (!--count) {
+                    resolve(data)
+                }
+            })
         }
     })
 }

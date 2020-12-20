@@ -173,17 +173,18 @@ const arithmetic = [
         ]
     },
     {
+        title: '链表',
+        collapsable: true,
+        children: [
+            'linkedList/链表',
+            'linkedList/套路'
+        ]
+    },
+    {
         title: '字典和散列表',
         collapsable: true,
         children: [
             'dictionary/字典和散列表'
-        ]
-    },
-    {
-        title: '链表',
-        collapsable: true,
-        children: [
-            'linkedList/链表'
         ]
     },
     {

@@ -162,7 +162,7 @@ function clone(target) {
 //如果没有的话继续拷贝，这样就巧妙化解的循环引用的问题
 
 function clone(target, map = new Map()) {
-    if (typeof target === 'object') {
+    if (typeof target === 'object' && target !== null) {
         let cloneTarget = Array.isArray(target) ? [] : {};
         if (map.get(target)) {
             return map.get(target)
@@ -214,7 +214,7 @@ function forEach(array, iteratee) {
 }
 
 function clone(target, map = new WeakMap()) {
-    if (typeof target === "object") {
+    if (typeof target === "object" && target !== null) {
         const isArray = Array.isArray(target);
         let cloneTarget = isArray ? [] : {};
 

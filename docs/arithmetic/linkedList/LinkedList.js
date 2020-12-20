@@ -1,12 +1,3 @@
-# 实现链表
-
-链表存储有序的元素集合，但不同于数组，链表中的元素在内存中并不是连续放置的。每个元素由一个存储元素本身的节点和一个指向下一个元素的引用(也称指针或链接)组成。
-
-相对于传统的数组，链表的一个好处在于，添加或移除元素的时候不需要移动其他元素。然 而，链表需要使用指针，因此实现链表时需要额外注意。在数组中，我们可以直接访问任何位置 的任何元素，而要想访问链表中间的一个元素，则需要从起点(表头)开始迭代链表直到找到所 需的元素。
-
-## 单链表
-
-```js
 class Node {
     constructor(element) {
         this.element = element
@@ -169,14 +160,15 @@ class LinkedList {
     }
 }
 
-```
+const list = new LinkedList()
 
-## 双向链表
+list.push(15)
+list.push(10)
+list.push(20)
+list.removeAt(1)
+console.log(list.toString());
+//console.log(list.getElementAt(1));
 
-在链表中， 一个节点只有链向下一个节点的链接;而在双向链表中，链接是双向的:一个链向下一个元素， 另一个链向前一个元素
-![DoublyNode](/arithmetic/linkdList//DoublyNode.jpg)
-
-```js
 class DoublyNode extends Node {
     constructor(element, next, prev) {
         super(element, next)
@@ -196,7 +188,7 @@ class DoublyLinkedList extends LinkedList {
             let current = this.head;
             if (index == 0) {
                 if (this.head == null) {
-                    this.head = node;
+                    this.head = null;
                     this.tail = node
                 } else {
                     node.next = this.head;
@@ -249,18 +241,9 @@ class DoublyLinkedList extends LinkedList {
         }
         return undefined
     }
+
 }
-```
 
-## 循环链表
-
-循环链表可以像链表一样只有单向引用，也可以像双向链表一样有双向引用。循环链表和链表之间唯一的区别在于，最后一个元素指向下一个元素的指针(tail.next)不是引用
- undefined，而是指向第一个元素(head)
-
-![CircularLinkedList](/arithmetic/linkdList//CircularLinkedList.jpg)
-
- 
-```js
 class CircularLinkedList extends LinkedList {
     constructor(equalsFn = defaultEquals) {
         super(equalsFn)
@@ -317,6 +300,6 @@ class CircularLinkedList extends LinkedList {
             return current.element;
         }
         return undefined;
-    } 
+    }
+
 }
-```

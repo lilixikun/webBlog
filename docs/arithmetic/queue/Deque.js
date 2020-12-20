@@ -1,93 +1,3 @@
-# 实现队列
-
-队列是遵循 **先进先出**的原则。队列在末尾添加新元素，并从顶部移除元素，最新添加的元素必须排在队列的末尾
-
-## 创建队列
-
-```js
-class Queue {
-    constructor() {
-        this.count = 0;
-        this.lowestCount = 0;
-        this.items = {};
-    }
-
-    /**
-     * 向队列尾部添加一个新的项。
-     * @param {*} elements 
-     */
-    enqueue(element) {
-        this.items[this.count] = element
-        this.count++
-    }
-
-    /**
-     * 移除队列第一项
-     */
-    dequeue() {
-        if (this.isEmpty()) {
-            return undefined
-        }
-        const result = this.items[this.lowestCount]
-        delete this.items[this.lowestCount]
-        this.lowestCount++
-        return result
-    }
-
-    /**
-     * 返回队列中第一个元素
-     */
-    peek() {
-        if (!this.isEmpty()) {
-            return undefined
-        }
-        return this.items[this.lowestCount]
-    }
-
-    /**
-     * 如果队列中不包含任何元素，返回 true，否则返回 false。
-     */
-    isEmpty() {
-        return this.size() === 0
-    }
-
-    /**
-     * 返回队列包含的元素个数，与数组的 length 属性类似。
-     */
-    size() {
-        return this.count - this.lowestCount;
-    }
-
-    /**
-     * 清空队列
-     */
-    clear() {
-        this.items = {}
-        this.count = 0
-        this.lowestCount = 0
-    }
-
-    toString() {
-        if (this.isEmpty()) {
-            return ''
-        }
-        let objString = `${this.items[this.lowestCount]}`;
-        for (let i = this.lowestCount + 1; i < this.count; i++) {
-            objString = `${objString},${this.items[i]}`;
-        }
-        return objString;
-    }
-}
-```
-
-## 双端队列数据结构
-
-**双端队列**(deque，或称 double-ended queue)是一种允许我们同时从前端和后端添加和移除
-元素的特殊队列。 
-
-由于双端队列同时遵守了先进先出和后进先出原则，可以说它是把队列和栈相结合的一种数据结构。
-
-```js
 class Deque {
     constructor() {
         this.lowestCount = 0
@@ -206,4 +116,19 @@ class Deque {
         return objString;
     }
 }
-```
+
+const deque = new Deque();
+console.log(deque.isEmpty()); // 输出true
+deque.addBack('John');
+deque.addBack('Jack');
+console.log(deque.toString()); // John, Jack
+deque.addBack('Camila');
+console.log(deque.toString()); // John, Jack, Camila
+console.log(deque.size()); // 输出3
+console.log(deque.isEmpty()); // 输出false
+deque.removeFront(); // 移除John
+console.log(deque.toString()); // Jack, Camila
+deque.removeBack(); // Camila 决定离开
+console.log(deque.toString()); // Jack
+deque.addFront('John'); // John 回来询问一些信息
+console.log(deque.toString()); // John, Jack
