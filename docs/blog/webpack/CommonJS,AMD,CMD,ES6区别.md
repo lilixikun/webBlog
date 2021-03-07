@@ -19,7 +19,7 @@ Node.js是commonJS规范的主要实践者，它有四个重要的环境变量�
 
 第二个差异是因为 CommonJS 加载的是一个对象(即module.exports属性),该对象只有在脚本运行完才会生成。而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。
 
-```
+```js
 // 定义模块math.js
 var basicNum = 0;
 function add(a, b) {

@@ -134,7 +134,8 @@ const blog = [
         title: '杂谈',
         collapsable: true,
         children: [
-            'talk/book'
+            'talk/book',
+            'talk/2020'
         ]
     }
 ]
