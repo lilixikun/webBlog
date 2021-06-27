@@ -3,7 +3,7 @@ const blog = [
         title: 'JS',
         collapsable: true,
         children: [
-            'js/手写系列',
+           //'js/手写系列',
             "js/promise",
             'js/运算符',
             'js/预编译',
@@ -17,7 +17,6 @@ const blog = [
             "js/EventLoop",
             "js/0.1+0.2"
         ],
-
     },
     {
         title: 'HTTP',
@@ -33,14 +32,14 @@ const blog = [
         title: 'Node',
         collapsable: true,
         children: [
-            'Node/自动加载全局路由',
-            'Node/全局异常处理',
-            'Node/使用Sequelize操作mySql',
-            'Node/集成jwt',
-            'Node/SSR',
-            'Node/BFF架构初探',
-            'Node/MPA架构初探',
-            'Node/PM2'
+            'node/自动加载全局路由',
+            'node/全局异常处理',
+            'node/使用Sequelize操作mySql',
+            'node/集成jwt',
+            'node/SSR',
+            'node/BFF架构初探',
+            'node/MPA架构初探',
+            'node/PM2'
         ]
     },
     {
@@ -128,8 +127,12 @@ const blog = [
         collapsable: true
     },
     {
-        title: '小程序原理',
-        collapsable: true
+        title: '测试',
+        collapsable: true,
+        children:[
+            'test/karma',
+            "test/jest"
+        ]
     },
     {
         title: '杂谈',
