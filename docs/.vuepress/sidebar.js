@@ -33,14 +33,14 @@ const blog = [
         title: 'Node',
         collapsable: true,
         children: [
-            'node/自动加载全局路由',
-            'node/全局异常处理',
-            'node/使用Sequelize操作mySql',
-            'node/集成jwt',
-            'node/SSR',
-            'node/BFF架构初探',
-            'node/MPA架构初探',
-            'node/PM2'
+            'Node/自动加载全局路由',
+            'Node/全局异常处理',
+            'Node/使用Sequelize操作mySql',
+            'Node/集成jwt',
+            'Node/SSR',
+            'Node/BFF架构初探',
+            'Node/MPA架构初探',
+            'Node/PM2'
         ]
     },
     {
@@ -50,7 +50,8 @@ const blog = [
             'engineering/打造属于自己的脚手架',
             'engineering/脚手架的可视化操作',
             'engineering/Jenkins安装',
-            'engineering/sonar简单使用'
+            'engineering/sonar简单使用',
+            'engineering/microbundle'
         ]
     },
     {
