@@ -3,7 +3,7 @@ const blog = [
         title: 'JS',
         collapsable: true,
         children: [
-           //'js/手写系列',
+            //'js/手写系列',
             "js/promise",
             'js/运算符',
             'js/预编译',
@@ -129,9 +129,9 @@ const blog = [
     {
         title: '测试',
         collapsable: true,
-        children:[
-            'test/karma',
-            "test/jest"
+        children: [
+            "test/jest",
+            "test/vuetest"
         ]
     },
     {
