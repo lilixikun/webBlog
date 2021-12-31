@@ -156,7 +156,7 @@ const arithmetic = [
   {
     title: "链表",
     collapsable: true,
-    children: ["linkedList/链表", "linkedList/套路"],
+    children: ["linkedList/链表", "linkedList/套路","linkedList/手写LRU"],
   },
   {
     title: "树",
