@@ -3,7 +3,7 @@ const blog = [
     title: "JS",
     collapsable: true,
     children: [
-      //'js/手写系列',
+      "js/手写系列",
       "js/promise",
       "js/运算符",
       "js/预编译",
@@ -134,11 +134,6 @@ const blog = [
 // 算法
 const arithmetic = [
   {
-    titie: "原理",
-    collapsable: true,
-    children: ["principle/skill"],
-  },
-  {
     title: "递归",
     collapsable: true,
     children: ["recursion/递归"],
@@ -156,7 +151,7 @@ const arithmetic = [
   {
     title: "链表",
     collapsable: true,
-    children: ["linkedList/链表", "linkedList/套路","linkedList/手写LRU"],
+    children: ["linkedList/链表", "linkedList/套路", "linkedList/手写LRU"],
   },
   {
     title: "树",
