@@ -12,13 +12,11 @@
 
 ## 怪异盒模型
 
-怪异盒模型中的width指的是内容、边框、内边距总的宽度(content + border + padding);height指的是内容、边框、内边距总的高度
-
-怪异盒模型下盒子的大小= width(content + border + padding) + margin
+怪异盒模型中的width指的是内容、边框、内边距总的宽度(content + border + padding);height指的是内容、边框、内边距总的高度怪异盒模型下盒子的大小= height(content + border + padding) + margin
 
 ## box-sizing的使用
 
-想要切换盒模型也很简单，这里需要借助css3的box-sizing属性
+想要切换盒模型也很简单，这里需要借助css3的 `box-sizing` 属性
 
 ```css
 box-sizing:content-box; 

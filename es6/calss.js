@@ -9,7 +9,7 @@ class Point {
 }
 
 typeof (Point) //function
-Point.prototype.constructor === 'Ponit' //true
+Point.prototype.constructor === Point //true
 
 //构造函数的prototype属性，在 ES6 的“类”上面继续存在。事实上，类的所有方法都定义在类的prototype属性上面。
 

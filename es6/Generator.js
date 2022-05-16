@@ -6,9 +6,9 @@
 
 //yield表达式如果用在另一个表达式之中，必须放在圆括号里面。
 function* deme() {
-    console.log('hello' +yield 2);
+    //console.log('hello' +yield 2);
 
-    console.log('hello' + (yield 123));
+    console.log('hello' + (yield 123)); 
 }
 
 

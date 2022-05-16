@@ -82,6 +82,8 @@ Latency: 可以理解为响应时间
 
 Req/Sec: 每个线程每秒钟的完成的请求数 一般我们来说我们主要关注平均值和最大值. 标准差如果太大说明样本本身离散程度比较高. 有可能系统性能波动很大
 
+也可以使用 [autocannon](https://github.com/mcollina/autocannon)
+
 ### 使用 Memeye 查看内存
 Memeye 是一个轻量级的 NodeJS 进程监控工具，它提供 进程内存、V8 堆空间内存、操作系统内存 三大维度的数据可视化展示
 
