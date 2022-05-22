@@ -108,7 +108,7 @@ const blog = [
   {
     title: "前端监控",
     collapsable: true,
-    children: ["monitor/基本知识", "monitor/SDK"],
+    children: ["monitor/基本知识", "monitor/SDK", "monitor/maxCompute"],
   },
   {
     title: "Nginx",
@@ -121,22 +121,22 @@ const blog = [
   {
     title: "测试",
     collapsable: true,
-    children: ["test/jest", "test/vuetest"],
+    children: ["test/jest", "test/vue"],
   },
   {
     title: "杂谈",
     collapsable: true,
-    children: ["talk/book", "talk/2020"],
+    children: ["talk/book", "talk/2020", "talk/2021"],
   },
 ];
 
 // 算法
 const arithmetic = [
-  {
-    titie: "原理",
-    collapsable: true,
-    children: ["principle/skill"],
-  },
+  // {
+  //   titie: "原理",
+  //   collapsable: true,
+  //   children: ["principle/skill"],
+  // },
   {
     title: "递归",
     collapsable: true,
