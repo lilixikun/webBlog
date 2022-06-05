@@ -108,7 +108,12 @@ const blog = [
   {
     title: "前端监控",
     collapsable: true,
-    children: ["monitor/基本知识", "monitor/SDK", "monitor/maxCompute"],
+    children: [
+      "monitor/基本知识",
+      "monitor/SDK",
+      "monitor/maxCompute",
+      "monitor/calculation",
+    ],
   },
   {
     title: "Nginx",
